@@ -1,0 +1,24 @@
+.mainpage-container {
+  display: flex;
+  width: 100vw;
+  height: fit-content;
+  min-height: 50vh;
+  background-color: lightpink;
+  justify-content: space-between;
+}
+.projectcard-container {
+  width: 70vw;
+  height: fit-content;
+  min-height: 20vh;
+  background-color: lightcyan;
+  margin-top: 2vh;
+  margin-right: 2vw;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.projects-h3 {
+  font-size: 25px;
+  margin-top: 0px;
+  margin-left: 5px;
+}

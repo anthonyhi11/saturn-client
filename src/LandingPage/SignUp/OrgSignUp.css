@@ -1,0 +1,47 @@
+.create-org-div {
+  width: 45%;
+  height: 80%;
+  border: 1px black solid;
+  margin-top: 2%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+h2,
+p {
+  text-align: center;
+}
+
+.org-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.org-form input {
+  width: 70%;
+  height: 30px;
+  padding: 10px;
+  margin: 10px;
+}
+.org-form select {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.buttons {
+  height: 55px;
+  width: 50%;
+  font-size: 12px;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+}
