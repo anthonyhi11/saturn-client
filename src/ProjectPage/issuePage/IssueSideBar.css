@@ -1,0 +1,23 @@
+.issue-side-bar {
+  width: 20vw;
+  height: fit-content;
+  min-height: 20vh;
+  background-color: lightcyan;
+  margin-top: 2vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 1vw;
+}
+
+.issue-id {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.issue-side-bar h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}

@@ -11,6 +11,9 @@ header {
 .hero-org {
   margin-left: 5vw;
 }
+.hero-org:hover {
+  cursor: pointer;
+}
 
 .logout-button {
   margin-right: 8vw;

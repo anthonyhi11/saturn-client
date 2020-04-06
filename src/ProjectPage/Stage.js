@@ -8,10 +8,6 @@ export default function Stage(props) {
   //eslint-disable-next-line
   const [state, setState] = useContext(ProjectContext);
 
-  function handleAddIssue() {
-    console.log("click");
-  }
-
   let issues = props.issues
     .filter(issue => issue.stage === props.name)
     .map(issue => {
@@ -33,7 +29,6 @@ export default function Stage(props) {
         return issue;
       }
     });
-
     setState({ Data: newData }); //should set state but it isn't
   }
 
@@ -50,10 +45,6 @@ export default function Stage(props) {
     >
       <div className="stage-header">
         <p className="stage">{props.name}</p>
-        <p className="issue-add-button" onClick={e => handleAddIssue(e)}>
-          {" "}
-          +
-        </p>
       </div>
       {issues}
     </div>

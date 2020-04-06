@@ -5,7 +5,7 @@ import MoreInfo from "./LandingPage/MoreInfo/MoreInfo";
 import MainPage from "./MainPage/MainPage";
 import ProjectPage from "./ProjectPage/ProjectPage";
 import { ProjectContext } from "./ProjectContext/ProjectContext";
-import IssuePage from "./ProjectPage/IssuePage";
+import IssuePage from "./ProjectPage/issuePage/IssuePage";
 
 function App() {
   //eslint-disable-next-line
