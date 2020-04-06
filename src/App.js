@@ -23,7 +23,7 @@ function App() {
         <Route path="/main">
           <MainPage />
         </Route>
-        {console.log("state from app", state.Data)}
+        {console.log("state from app", state)}
         <Route
           path="/projects/:project_id"
           render={routeProps => (
