@@ -23,16 +23,14 @@ export default function Stage(props) {
     });
 
   function drop(e) {
-    // console.log("before state", state);
-    let allIssues = state.Data.issues;
-    const target = e.target.id;
-    const draggedIssue = e.dataTransfer.getData("issue");
+    let allIssues = state.Data.issues; // gets all issues from context
+    const target = e.target.id; //sets the id of the container
+    const draggedIssue = e.dataTransfer.getData("issue"); //gets the id of the dragged issue
     //eslint-disable-next-line
-    let correct = allIssues.find(issue => issue.id == draggedIssue);
-
-    correct.stage = target;
-    setState({ state });
-    // console.log("after", state);
+    let correct = allIssues.find(issue => issue.id == draggedIssue); //gets the full issue object from context
+    correct.stage = target; // makes the dragged issue.stage = whatever container it was dragged into
+    setState({ state });  //should set state but it isn't
+    console.log("after", state); // prints out what the state is...?
   }
 
   function allowDrop(e) {
