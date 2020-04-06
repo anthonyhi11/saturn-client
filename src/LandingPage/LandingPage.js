@@ -6,11 +6,8 @@ import DevSignUp from "./SignUp/DevSignUp";
 import LogIn from "./LogIn/LogIn";
 
 export default function LandingPage() {
-  // eslint-disable-next-line
   const [orgFormShown, setOrgFormShown] = useState(false);
-  // eslint-disable-next-line
   const [devFormShown, setDevFormShown] = useState(false);
-  // eslint-disable-next-line
   const [logInShown, setLogInShown] = useState(false);
 
   function handleCancel() {
@@ -20,16 +17,18 @@ export default function LandingPage() {
   }
 
   return (
-    <div>
+    <div
+      className="main-content"
+      onClick={event => {
+        if (event.target.className === "modal-container") {
+          return handleCancel(event);
+        }
+      }}
+    >
       {orgFormShown && <OrgSignUp handleCancel={handleCancel} />}
       {devFormShown && <DevSignUp handleCancel={handleCancel} />}
       {logInShown && <LogIn handleCancel={handleCancel} />}
-      {/* <img
-        className="hero-img"
-        alt="Saturn Logo"
-        src="./images/saturn.png"
-      /> */}
-      <h1>Saturn</h1>
+      <h1 className="hero-title">Saturn</h1>
       <h2>Who are you and why are you here?</h2>
       <div className="create-container">
         <div

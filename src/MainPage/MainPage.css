@@ -10,7 +10,6 @@
   width: 70vw;
   height: fit-content;
   min-height: 20vh;
-  background-color: lightcyan;
   margin-top: 2vh;
   margin-right: 2vw;
   display: flex;
@@ -21,4 +20,9 @@
   font-size: 25px;
   margin-top: 0px;
   margin-left: 5px;
+}
+
+.projectCards {
+  display: flex;
+  flex-direction: column;
 }

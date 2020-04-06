@@ -1,0 +1,23 @@
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background-color: lightcyan;
+  margin: 10px;
+  align-items: flex-start;
+  padding-left: 20px;
+  justify-content: space-around;
+}
+
+.project-card:hover {
+  cursor: pointer;
+  background-color: cyan;
+}
+
+.project-card-p {
+  margin: 5px;
+  color: black;
+}
+
+.link {
+  text-decoration: none;
+}

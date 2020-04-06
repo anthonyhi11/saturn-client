@@ -5,9 +5,6 @@ import { useHistory } from "react-router-dom";
 export default function MoreInfo(props) {
   let history = useHistory();
 
-  function goBack(e) {
-    history.push("/");
-  }
   return (
     <div className="moreInfo-body">
       <h2>What is Saturn?</h2>
@@ -48,7 +45,7 @@ export default function MoreInfo(props) {
           line!
         </a>
       </p>
-      <button onClick={e => goBack(e)}>Back</button>
+      <button onClick={e => history.go(-1)}>Back</button>
     </div>
   );
 }

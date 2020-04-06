@@ -24,14 +24,14 @@ export default function LogIn(props) {
         />
 
         <button
-          class="login-buttons"
+          className="login-buttons"
           type="submit"
           onClick={e => history.push("/main")}
         >
           Log in
         </button>
         <button
-          class="login-buttons"
+          className="login-buttons"
           type="reset"
           onClick={e => props.handleCancel(e)}
         >

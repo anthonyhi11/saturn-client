@@ -2,6 +2,10 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.main-content {
+  z-index: 10;
+}
 h1 {
   text-align: center;
   font-size: 55px;
