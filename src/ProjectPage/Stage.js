@@ -23,6 +23,7 @@ export default function Stage(props) {
     const target = e.target.id; //sets the id of the container
     const draggedIssue = e.dataTransfer.getData("issue"); //gets the id of the dragged issue
     newData.issues = newData.issues.map(issue => {
+      //eslint-disable-next-line
       if (issue.id == draggedIssue) {
         return { ...issue, stage: target };
       } else {

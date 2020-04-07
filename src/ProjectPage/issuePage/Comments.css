@@ -1,3 +1,47 @@
-.comments {
-  font-size: 50px;
+.comment-header {
+  font-size: 20px;
+  margin-bottom: 20px;
 }
+
+.individual-comment {
+  width: 95%;
+  height: fit-content;
+  background-color: lightcyan;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+  margin: 10px;
+}
+
+.author {
+  margin: 0px;
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+#text {
+  margin: 0px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.add-comment-input {
+  width: 75%;
+  height: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 0px;
+  font-size: 20px;
+}
+.comment-button {
+  width: 15%;
+  margin-left: 2%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+

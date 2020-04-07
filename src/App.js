@@ -8,8 +8,7 @@ import { ProjectContext } from "./ProjectContext/ProjectContext";
 import IssuePage from "./ProjectPage/issuePage/IssuePage";
 
 function App() {
-  //eslint-disable-next-line
-  let [state, setState] = useContext(ProjectContext);
+  let [state] = useContext(ProjectContext);
 
   return (
     <Router>
@@ -23,7 +22,6 @@ function App() {
         <Route path="/main">
           <MainPage />
         </Route>
-        {console.log("state from app", state)}
         <Route
           path="/projects/:project_id"
           render={routeProps => (
