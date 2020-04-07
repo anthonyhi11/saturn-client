@@ -9,8 +9,8 @@ export default function Stage(props) {
   const [state, setState] = useContext(ProjectContext);
 
   let issues = props.issues
-    .filter(issue => issue.stage === props.name)
-    .map(issue => {
+    .filter((issue) => issue.stage === props.name)
+    .map((issue) => {
       return (
         <Link className="issue-links" key={issue.id} to={`/issue/${issue.id}`}>
           <Issues info={issue} key={issue.id} />
@@ -22,7 +22,7 @@ export default function Stage(props) {
     const newData = { ...state.Data }; // gets all issues from context
     const target = e.target.id; //sets the id of the container
     const draggedIssue = e.dataTransfer.getData("issue"); //gets the id of the dragged issue
-    newData.issues = newData.issues.map(issue => {
+    newData.issues = newData.issues.map((issue) => {
       //eslint-disable-next-line
       if (issue.id == draggedIssue) {
         return { ...issue, stage: target };
@@ -34,7 +34,6 @@ export default function Stage(props) {
   }
 
   function allowDrop(e) {
-    console.log("in drag over");
     e.preventDefault();
   }
 
@@ -42,8 +41,8 @@ export default function Stage(props) {
     <div
       className="stage-container"
       id={props.name}
-      onDrop={e => drop(e)}
-      onDragOver={e => allowDrop(e)}
+      onDrop={(e) => drop(e)}
+      onDragOver={(e) => allowDrop(e)}
     >
       <div className="stage-header">
         <p className="stage">{props.name}</p>
