@@ -34,6 +34,7 @@ export default function Stage(props) {
   }
 
   function allowDrop(e) {
+    console.log("in drag over");
     e.preventDefault();
   }
 
@@ -47,7 +48,7 @@ export default function Stage(props) {
       <div className="stage-header">
         <p className="stage">{props.name}</p>
       </div>
-      {issues}
+      <div>{issues}</div>
     </div>
   );
 }

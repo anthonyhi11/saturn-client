@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  position: relative;
 }
 .projects-h3 {
   font-size: 25px;
@@ -25,4 +26,12 @@
 .projectCards {
   display: flex;
   flex-direction: column;
+}
+
+.add-project-button {
+  position: absolute;
+  right: 10%;
+  top: 0%;
+  height: 45px;
+  margin-top: 5px;
 }

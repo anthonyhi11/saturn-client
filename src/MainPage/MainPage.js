@@ -1,14 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Header from "../Header/Header";
 import UserInfo from "./UserInfo/UserInfo";
 import "./MainPage.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
-// import Data from "../DATA";
 import { ProjectContext } from "../ProjectContext/ProjectContext";
+import AddProjectForm from "./AddProjectForm";
 
 export default function MainPage() {
-  //eslint-disable-next-line
-  let [state, setState] = useContext(ProjectContext);
+  let [state] = useContext(ProjectContext);
+  let [showAddProject, setShowAddProject] = useState(false);
+
+  function handleProjectCancel(e) {
+    setShowAddProject(false);
+  }
 
   let projects = state.Data.projects.map(project => {
     return <ProjectCard info={project} key={project.id} />;
@@ -17,10 +21,20 @@ export default function MainPage() {
   return (
     <>
       <Header />
+      {showAddProject && (
+        <AddProjectForm handleCancel={e => handleProjectCancel(e)} />
+      )}{" "}
+      {/* add project modal!!!!!! */}
       <div className="mainpage-container">
         <UserInfo />
         <div className="projectcard-container">
-          <h3 className="projects-h3">Projects</h3>
+          <h3 className="projects-h3">Projects</h3>{" "}
+          <button
+            className="add-project-button buttons"
+            onClick={e => setShowAddProject(true)}
+          >
+            Add Project
+          </button>
           <div className="projectCards">{projects}</div>
         </div>
       </div>
