@@ -24,7 +24,6 @@ export default function MainPage() {
       {showAddProject && (
         <AddProjectForm handleCancel={(e) => handleProjectCancel(e)} />
       )}{" "}
-      {/* add project modal!!!!!! */}
       <div className="mainpage-container">
         <UserInfo />
         <div className="projectcard-container">

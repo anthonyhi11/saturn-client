@@ -3,7 +3,6 @@
   width: 100vw;
   height: fit-content;
   min-height: 50vh;
-  background-color: lightpink;
   justify-content: space-between;
 }
 .projectcard-container {
@@ -16,6 +15,7 @@
   flex-direction: column;
   padding: 10px;
   position: relative;
+  
 }
 .projects-h3 {
   font-size: 25px;

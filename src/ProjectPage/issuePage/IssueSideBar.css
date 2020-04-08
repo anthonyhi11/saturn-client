@@ -25,3 +25,13 @@
 .issue-side-bar h1:hover {
   cursor: pointer;
 }
+
+label {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.current-status {
+  margin-top: 10px;
+  display: inline-block;
+}

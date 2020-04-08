@@ -1,0 +1,40 @@
+.issue-table {
+  width: 100vw;
+  border-collapse: collapse;
+}
+.issue-table th {
+  width: 30%;
+  height: 5vh;
+  background-color: gray;
+}
+a .table-row {
+  display: inline-block;
+  width: 100%;
+}
+.table-row {
+  border: 4px solid black;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+tr {
+  border: 1px solid black;
+}
+
+.issue-table td {
+  width: 30%;
+  text-align: center;
+  height: 5vh;
+}
+
+.issue-table-h1 {
+  font-size: 30px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: lightskyblue;
+}
+
+.issue-table button {
+  font-size: 20px;
+}

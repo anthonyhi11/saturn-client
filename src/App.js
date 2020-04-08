@@ -10,6 +10,7 @@ import PersonalSettings from "./Settings/PersonalSettings";
 import OrgSettings from "./Settings/OrgSettings";
 import TeamSettings from "./Settings/TeamSettings";
 import ProjectSettings from "./Settings/ProjectSettings";
+import StagePageMobile from "./StagePageMobile/StagePageMobile";
 import "./Settings/Settings.css";
 
 function App() {
@@ -62,6 +63,20 @@ function App() {
         <Route exact path="/settings/organization" component={OrgSettings} />
         <Route exact path="/settings/team" component={TeamSettings} />
         <Route exact path="/settings/projects" component={ProjectSettings} />
+        <Route
+          exact
+          path="/projects/:project_id/:stage"
+          render={(routeProps) => (
+            <StagePageMobile
+              issues={state.Data.issues.filter(
+                (issue) =>
+                  issue.projectId.toString() ===
+                  routeProps.match.params.project_id
+              )}
+              routeProps={routeProps}
+            />
+          )}
+        />
       </Switch>
     </Router>
   );

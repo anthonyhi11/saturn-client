@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Issues from "./Issues";
+import Issues from "../Issues";
 import { useContext } from "react";
-import { ProjectContext } from "../ProjectContext/ProjectContext";
+import { ProjectContext } from "../../ProjectContext/ProjectContext";
 
 export default function Stage(props) {
   //eslint-disable-next-line
@@ -19,7 +19,6 @@ export default function Stage(props) {
     });
 
   function drop(e) {
-    console.log(e.currentTarget);
     const newData = { ...state.Data }; // gets all issues from context
     const target = e.currentTarget.id; //sets the id of the container
     const draggedIssue = e.dataTransfer.getData("issue"); //gets the id of the dragged issue

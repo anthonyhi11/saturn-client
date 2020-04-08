@@ -39,7 +39,7 @@ let DATA = {
       dev: "Anthony",
       id: 2,
       projectId: 1,
-      stage: "In Progress",
+      stage: "Working",
       title: "Verify user",
       desc:
         "As a user, I want to be able to do something that will take the dev a at least 6 hours to , is it necessary? Probably not... But you better believe i want it",

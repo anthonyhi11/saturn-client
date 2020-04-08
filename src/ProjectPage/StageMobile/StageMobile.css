@@ -1,0 +1,30 @@
+/* .stage-mobile-container {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20%;
+  padding-left: 20%;
+  width: 100vw;
+  height: 15vh;
+  margin: 10px;
+  background-color: cyan;
+  align-items: center;
+} */
+
+.stage-mobile-name {
+  font-size: 45px;
+}
+
+.stage-mobile-issue-number {
+  font-size: 30px;
+}
+
+.stage-mobile-container:hover {
+  cursor: pointer;
+  background-color: darkcyan;
+}
+
+.Link {
+  text-decoration: none;
+  color: black;
+  width: 100vw;
+}
