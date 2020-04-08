@@ -24,7 +24,7 @@ export default function ProjectSettings() {
 
   let projects = state.Data.projects.map((project) => {
     return (
-      <div className="team-member">
+      <div className="team-member" key={project.id}>
         <p>{project.name}</p>
         <p>{project.status}</p>
         <div className="buttons-settings">

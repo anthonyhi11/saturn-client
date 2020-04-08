@@ -11,6 +11,7 @@ h2 {
 .moreInfo-p {
   text-align: left;
   width: 75%;
+  margin-top: 2vh;
 }
 
 .how-to-p {
@@ -22,8 +23,17 @@ h2 {
 
 .how-to-p-p {
   text-align: left;
+  margin-top: 2vh;
 }
 
 .any-questions {
   margin-top: 5%;
+}
+
+.button-more-info {
+  margin-top: 2vh;
+}
+
+.how-do-i {
+  margin-top: 2vh;
 }

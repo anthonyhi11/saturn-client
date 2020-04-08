@@ -19,8 +19,9 @@ export default function Stage(props) {
     });
 
   function drop(e) {
+    console.log(e.currentTarget);
     const newData = { ...state.Data }; // gets all issues from context
-    const target = e.target.id; //sets the id of the container
+    const target = e.currentTarget.id; //sets the id of the container
     const draggedIssue = e.dataTransfer.getData("issue"); //gets the id of the dragged issue
     newData.issues = newData.issues.map((issue) => {
       //eslint-disable-next-line
@@ -30,7 +31,7 @@ export default function Stage(props) {
         return issue;
       }
     });
-    setState({ Data: newData }); //should set state but it isn't
+    setState({ Data: newData }); //should set state
   }
 
   function allowDrop(e) {

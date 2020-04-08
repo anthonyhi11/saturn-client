@@ -13,18 +13,14 @@ export default function Issues(props) {
   return (
     <div
       className="rings"
-      id={props.info.stage}
       draggable
       onDragStart={(e) => {
         dragStart(e, props.info);
       }}
-      // onDragOver={e => {
-      //   dragOver(e);
-      // }}
     >
-      <p id={props.info.stage}>Issue # {props.info.id}</p>
-      <p id={props.info.stage}>Assigned to: {props.info.dev}</p>
-      <p id={props.info.stage}>Request: {props.info.title}</p>
+      <p>Issue # {props.info.id}</p>
+      <p>Assigned to: {props.info.dev}</p>
+      <p>Request: {props.info.title}</p>
     </div>
   );
 }
