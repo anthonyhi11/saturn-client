@@ -1,23 +1,52 @@
-header {
-  width: 100vw;
-  height: 10vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  background-color: lightcyan;
+@media screen and (min-width: 700px) {
+  .header {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: lightcyan;
+  }
+
+  .hero-org {
+    margin-left: 5vw;
+    margin-top: 30px;
+    font-size: 40px;
+  }
+  .hero-org:hover {
+    cursor: pointer;
+  }
+
+  .logout-button {
+    margin-right: 8vw;
+  }
+  .logout-button:hover {
+    cursor: pointer;
+  }
 }
 
-.hero-org {
-  margin-left: 5vw;
-  margin-top: 10px;
-}
-.hero-org:hover {
-  cursor: pointer;
-}
+@media screen and (max-width: 700px) {
+  .header {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: lightcyan;
+  }
 
-.logout-button {
-  margin-right: 8vw;
-}
-.logout-button:hover {
-  cursor: pointer;
+  .hero-org {
+    margin-left: 5vw;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 3%;
+  }
+  .logout-button {
+    margin-right: 8vw;
+    margin-bottom: 3%;
+    padding: 0px;
+  }
+  .logout-button:hover {
+    cursor: pointer;
+  }
 }

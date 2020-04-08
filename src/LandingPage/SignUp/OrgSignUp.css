@@ -1,52 +1,112 @@
-.modal-container {
-  height: 100vh;
-  width: 100vw;
-  /* background-color: rgba(0, 0, 0, 0.1); */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media screen and (min-width: 900px) {
+  .modal-container {
+    height: 100vh;
+    width: 100vw;
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .create-org-div {
+    width: 45%;
+    height: fit-content;
+    border: 1px black solid;
+    /* background-color: white; */
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+
+  .create-org-div h2,
+  p {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .org-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    margin-top: 5%;
+  }
+
+  .org-form input {
+    width: 70%;
+    height: 30px;
+    padding: 10px;
+    margin: 10px;
+  }
+  .org-form select {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .org-form .buttons {
+    height: 55px;
+    width: 50%;
+    font-size: 12px;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+  }
 }
 
-.create-org-div {
-  width: 45%;
-  height: 80%;
-  border: 1px black solid;
-  /* background-color: white; */
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
+@media screen and (max-width: 900px) {
+  .modal-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-h2,
-p {
-  text-align: center;
-}
+  .create-org-div {
+    width: 80%;
+    height: fit-content;
+    border: 1px black solid;
+    /* background-color: white; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 
-.org-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 50%;
-  align-items: center;
-  margin-top: 5%;
-}
+  .create-org-div h2,
+  p {
+    text-align: center;
+    padding: 10px;
+    font-size: 10px;
+    margin: 0px;
+  }
 
-.org-form input {
-  width: 70%;
-  height: 30px;
-  padding: 10px;
-  margin: 10px;
-}
-.org-form select {
-  width: 200px;
-  padding: 10px;
-  margin: 10px;
-}
+  .org-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    margin-top: 1%;
+  }
 
-.buttons {
-  height: 55px;
-  width: 50%;
-  font-size: 12px;
-  border-radius: 15px;
-  padding: 10px;
-  margin: 10px;
+  .org-form input {
+    width: 70%;
+    height: 20px;
+    padding: 5px;
+    margin: 5px;
+  }
+  .org-form select {
+    width: 70%;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .org-form .buttons {
+    height: 30px;
+    width: 50%;
+    font-size: 8px;
+    border-radius: 15px;
+    padding: 0px;
+    margin: 5px;
+  }
 }

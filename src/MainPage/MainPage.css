@@ -1,38 +1,84 @@
-.mainpage-container {
-  display: flex;
-  width: 100vw;
-  height: fit-content;
-  min-height: 50vh;
-  justify-content: space-between;
-}
-.projectcard-container {
-  width: 70vw;
-  height: fit-content;
-  min-height: 20vh;
-  margin-top: 2vh;
-  margin-right: 2vw;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  position: relative;
-  
-}
-.projects-h3 {
-  font-size: 25px;
-  margin-top: 0px;
-  margin-left: 5px;
+@media screen and (min-width: 700px) {
+  .mainpage-container {
+    display: flex;
+    width: 100vw;
+    height: fit-content;
+    min-height: 50vh;
+    justify-content: space-between;
+  }
+  .projectcard-container {
+    width: 70vw;
+    height: fit-content;
+    min-height: 20vh;
+    margin-top: 2vh;
+    margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: relative;
+  }
+  .projects-h3 {
+    font-size: 35px;
+    margin-top: 0px;
+    margin-left: 5px;
+  }
+
+  .projectCards {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+  }
+
+  .add-project-button {
+    position: absolute;
+    right: 20%;
+    top: 3%;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 10px;
+  }
 }
 
-.projectCards {
-  display: flex;
-  flex-direction: column;
-  margin-top: 3vh;
-}
+@media screen and (max-width: 700px) {
+  .mainpage-container {
+    display: flex;
+    width: 100vw;
+    height: fit-content;
+    min-height: 50vh;
+    justify-content: space-between;
+  }
+  .projectcard-container {
+    width: 70vw;
+    height: fit-content;
+    min-height: 20vh;
+    margin-top: 2vh;
+    margin-right: 2vw;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: relative;
+  }
+  .projects-h3 {
+    font-size: 20px;
+    margin-top: 0px;
+    margin-left: 5px;
+  }
 
-.add-project-button {
-  position: absolute;
-  right: 10%;
-  top: 0%;
-  height: 45px;
-  margin-top: 0px;
+  .projectCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 3vh;
+  }
+
+  .add-project-button {
+    position: absolute;
+    right: 20%;
+    top: 0%;
+    height: 50px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    width: 50px;
+    border-radius: 10px;
+  }
 }

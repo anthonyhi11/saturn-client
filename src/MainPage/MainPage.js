@@ -14,9 +14,11 @@ export default function MainPage() {
     setShowAddProject(false);
   }
 
-  let projects = state.Data.projects.filter(project => project.archive !== true).map((project) => {
-    return <ProjectCard info={project} key={project.id} />;
-  });
+  let projects = state.Data.projects
+    .filter((project) => project.archive !== true)
+    .map((project) => {
+      return <ProjectCard info={project} key={project.id} />;
+    });
 
   return (
     <>
@@ -29,10 +31,10 @@ export default function MainPage() {
         <div className="projectcard-container">
           <h3 className="projects-h3">Projects</h3>{" "}
           <button
-            className="add-project-button buttons"
+            className="add-project-button"
             onClick={(e) => setShowAddProject(true)}
           >
-            Add Project
+            Add
           </button>
           <div className="projectCards">{projects}</div>
         </div>

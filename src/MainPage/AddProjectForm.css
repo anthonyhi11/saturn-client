@@ -1,41 +1,94 @@
-.add-project-form {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  top: 10%;
-  background-color: white;
-  width: 35vw;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  z-index: 10;
-  border: 3px solid lightskyblue;
+@media screen and (min-width: 700px) {
+  .add-project-form {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 10%;
+    background-color: white;
+    width: 35vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    border: 3px solid lightskyblue;
+  }
+
+  .add-project-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .add-project-form input {
+    width: 60%;
+    height: 30px;
+    margin-top: 10px;
+    padding: 5px;
+  }
+
+  .add-project-form label {
+    margin-top: 10px;
+  }
+
+  .add-project-form button {
+    height: 25px;
+    width: 80px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .cancel-p {
+    cursor: pointer;
+  }
 }
 
-.add-project-form form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-}
-.add-project-form input {
-  width: 60%;
-  height: 30px;
-  margin-top: 10px;
-  padding: 5px;
-}
+@media screen and (max-width: 700px) {
+  .add-project-form {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 20%;
+    background-color: white;
+    width: 65vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    border: 3px solid lightskyblue;
+  }
 
-.add-project-form label {
-  margin-top: 10px;
-}
+  .add-project-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .add-project-form input {
+    width: 80%;
+    height: 20px;
+    margin-top: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
 
-.add-project-form button {
-  height: 25px;
-  width: 80px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
+  .add-project-form label {
+    margin-top: 10px;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .add-project-form h2 {
+    font-size: 15px;
+    text-align: center;
+  }
 
-.cancel-p {
-  cursor: pointer;
+  .add-project-form button {
+    height: 25px;
+    width: 80px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .cancel-p {
+    cursor: pointer;
+  }
 }

@@ -18,8 +18,8 @@ export default function LandingPage() {
 
   return (
     <div
-      className="main-content"
-      onClick={event => {
+      className="main-content-landing"
+      onClick={(event) => {
         if (event.target.className === "modal-container") {
           return handleCancel(event);
         }
