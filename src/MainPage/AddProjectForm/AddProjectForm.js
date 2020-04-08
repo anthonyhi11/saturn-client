@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import rn from "random-number";
 import "./AddProjectForm.css";
-import { ProjectContext } from "../ProjectContext/ProjectContext";
+import { ProjectContext } from "../../ProjectContext/ProjectContext";
 
 export default function AddProjectForm(props) {
   let [state, setState] = useContext(ProjectContext);

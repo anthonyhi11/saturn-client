@@ -56,6 +56,12 @@ export default function IssuePage(props) {
           <p>{desc}</p>
           <CommentsSection issue={id} /> {/* work through COMMENTS*/}
         </div>
+        <button
+          onClick={(e) => handleShowDelete(e)}
+          className="delete-issue-button"
+        >
+          Delete Issue
+        </button>
       </div>
     </div>
   );

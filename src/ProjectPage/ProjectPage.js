@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ProjectPage.css";
 import Header from "../Header/Header";
 import Stage from "./Stage/Stage";
-import AddIssueForm from "./AddIssueForm";
+import AddIssueForm from "./AddIssueForm/AddIssueForm";
 import { useMediaQuery } from "react-responsive";
 import StageMobile from "./StageMobile/StageMobile";
 
@@ -30,8 +30,11 @@ export default function ProjectPage(props) {
       )}
       <div className="project-info">
         <h2>{props.project.name}</h2>
-        <p>Release Day: {props.project.target}</p>
-        <button className="buttons" onClick={() => setShowAddIssue(true)}>
+        <p className="release-day-issue">Release Day: {props.project.target}</p>
+        <button
+          className="issue-add-button"
+          onClick={() => setShowAddIssue(true)}
+        >
           Add Issue
         </button>
       </div>
@@ -51,10 +54,12 @@ export default function ProjectPage(props) {
               <th>Stories</th>
             </tr>
           </thead>
-          <StageMobile name="New" project={props.project} />
-          <StageMobile name="Working" project={props.project} />
-          <StageMobile name="Blocked" project={props.project} />
-          <StageMobile name="Ready" project={props.project} />
+          <tbody>
+            <StageMobile name="New" project={props.project} />
+            <StageMobile name="Working" project={props.project} />
+            <StageMobile name="Blocked" project={props.project} />
+            <StageMobile name="Ready" project={props.project} />
+          </tbody>
         </table>
       )}
     </>

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Issues from "../Issues";
+import Issues from "../Issues/Issues";
 import { useContext } from "react";
 import { ProjectContext } from "../../ProjectContext/ProjectContext";
-
+import "./Stage.css";
 export default function Stage(props) {
   //eslint-disable-next-line
   const [state, setState] = useContext(ProjectContext);

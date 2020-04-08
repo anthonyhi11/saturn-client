@@ -4,7 +4,7 @@ import UserInfo from "./UserInfo/UserInfo";
 import "./MainPage.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import { ProjectContext } from "../ProjectContext/ProjectContext";
-import AddProjectForm from "./AddProjectForm";
+import AddProjectForm from "./AddProjectForm/AddProjectForm";
 
 export default function MainPage() {
   let [state] = useContext(ProjectContext);

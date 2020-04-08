@@ -1,56 +1,130 @@
-.issuePage-div {
-  background-color: gray;
-  height: fit-content;
-  width: 70vw;
-  margin-top: 2vh;
-  padding: 10px;
-  min-height: 20vh;
-  position: relative;
+@media screen and (min-width: 700px) {
+  .issuePage-div {
+    background-color: gray;
+    height: fit-content;
+    width: 70vw;
+    margin-top: 2vh;
+    padding: 10px;
+    min-height: 20vh;
+    position: relative;
+  }
+
+  .issue-page-container {
+    display: flex;
+    width: 100vw;
+    height: fit-content;
+    justify-content: space-around;
+  }
+  .delete-issue {
+    position: absolute;
+    right: 5%;
+    top: 2%;
+  }
+
+  .delete-issue:hover {
+    cursor: pointer;
+  }
+
+  .issuePage-div p {
+    font-size: 20px;
+  }
+
+  .delete-modal {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 20vw;
+    height: 15vh;
+    background-color: lightblue;
+    z-index: 100;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+  }
+  .delete-modal h2 {
+    text-align: center;
+  }
+
+  .delete-button-div {
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-evenly;
+  }
+  .delete-button-div button:hover {
+    cursor: pointer;
+  }
+
+  .delete-issue-button {
+    display: none;
+  }
 }
 
-.issue-page-container {
-  display: flex;
-  width: 100vw;
-  height: fit-content;
-  justify-content: space-around;
-}
-.delete-issue {
-  position: absolute;
-  right: 5%;
-  top: 2%;
-}
+@media screen and (max-width: 700px) {
+  .issuePage-div {
+    height: fit-content;
+    width: 100vw;
+    margin-top: 0vh;
+    padding: 10px;
+    min-height: 20vh;
+    position: relative;
+  }
 
-.delete-issue:hover {
-  cursor: pointer;
-}
+  .issue-page-container {
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: fit-content;
+    justify-content: space-around;
+  }
+  .delete-issue {
+    position: absolute;
+    right: 5%;
+    top: 2%;
+    display: none;
+  }
 
-.issuePage-div p {
-  font-size: 20px;
-}
+  .delete-issue:hover {
+    cursor: pointer;
+  }
 
-.delete-modal {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  width: 20vw;
-  height: 15vh;
-  background-color: lightblue;
-  z-index: 100;
-  top: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  padding: 20px;
-}
-.delete-modal h2 {
-  text-align: center;
-}
+  .issuePage-div p {
+    font-size: 18px;
+  }
+  .issuePage-div h2 {
+    font-size: 20px;
+    text-align: center;
+  }
 
-.delete-button-div {
-  display: flex;
-  margin-top: 5px;
-  justify-content: space-evenly;
-}
-.delete-button-div button:hover {
-  cursor: pointer;
+  .delete-modal {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 20vw;
+    height: 15vh;
+    background-color: lightblue;
+    z-index: 100;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+  }
+  .delete-modal h2 {
+    text-align: center;
+  }
+  .delete-issue-button {
+    margin-bottom: 10px;
+  }
+
+  .delete-button-div {
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-evenly;
+  }
+  .delete-button-div button:hover {
+    cursor: pointer;
+  }
 }

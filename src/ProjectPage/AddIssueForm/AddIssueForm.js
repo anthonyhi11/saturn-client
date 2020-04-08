@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./AddIssueForm.css";
 import rn from "random-number";
-import { ProjectContext } from "../ProjectContext/ProjectContext";
+import { ProjectContext } from "../../ProjectContext/ProjectContext";
 
 export default function AddIssueForm(props) {
   let [state, setState] = useContext(ProjectContext);
@@ -71,7 +71,7 @@ export default function AddIssueForm(props) {
           placeholder="Full Description"
         />
         <button type="submit">Add Issue</button>
-        <button type="reset" onClick={e => props.handleCancel(e)}>
+        <button className="cancel-add-form-button" type="reset" onClick={e => props.handleCancel(e)}>
           Cancel
         </button>
       </form>

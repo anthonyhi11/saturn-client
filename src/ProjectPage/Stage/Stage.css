@@ -1,0 +1,27 @@
+.issue-links {
+  text-decoration: none;
+  color: black;
+}
+.stage-container {
+  width: 20vw;
+  height: fit-content;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  padding: 5px;
+  padding-bottom: 20px;
+}
+
+.stage {
+  margin-bottom: 20px;
+}
+
+
+.stage-header {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Issues.css";
 
 export default function Issues(props) {
   function dragStart(e, info) {
@@ -12,7 +13,7 @@ export default function Issues(props) {
 
   return (
     <div
-      className="rings"
+      className="issues"
       draggable
       onDragStart={(e) => {
         dragStart(e, props.info);

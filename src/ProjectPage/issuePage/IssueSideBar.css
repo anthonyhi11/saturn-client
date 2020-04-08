@@ -1,37 +1,89 @@
-.issue-side-bar {
-  width: 20vw;
-  height: fit-content;
-  min-height: 20vh;
-  background-color: lightcyan;
-  margin-top: 2vh;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 1vw;
+@media screen and (max-width: 700px) {
+  .issue-side-bar {
+    width: 100vw;
+    height: fit-content;
+    min-height: 20vh;
+    background-color: white;
+    margin-top: 0px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1vw;
+  }
+
+  .issue-id {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .issue-side-bar h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  .issue-side-bar h1:hover {
+    cursor: pointer;
+  }
+  .issue-side-bar h2 {
+    font-size: 20px;
+  }
+  .issue-side-bar p {
+    font-size: 20px;
+  }
+
+  label {
+    margin-top: 10px;
+    font-size: 15px;
+    display: inline-block;
+  }
+
+  .current-status {
+    margin-top: 10px;
+    width: 30%;
+  }
+  .current-status option {
+    text-align: center;
+  }
 }
 
-.issue-id {
-  font-size: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+@media screen and (min-width: 700px) {
+  .issue-side-bar {
+    width: 20vw;
+    height: fit-content;
+    min-height: 20vh;
+    background-color: lightcyan;
+    margin-top: 2vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1vw;
+  }
 
-.issue-side-bar h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
+  .issue-id {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
-.issue-side-bar h1:hover {
-  cursor: pointer;
-}
+  .issue-side-bar h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
 
-label {
-  margin-top: 10px;
-  display: inline-block;
-}
+  .issue-side-bar h1:hover {
+    cursor: pointer;
+  }
 
-.current-status {
-  margin-top: 10px;
-  display: inline-block;
+  label {
+    margin-top: 10px;
+    display: inline-block;
+  }
+
+  .current-status {
+    margin-top: 10px;
+    display: inline-block;
+  }
 }
