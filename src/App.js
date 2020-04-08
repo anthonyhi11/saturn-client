@@ -12,6 +12,7 @@ import TeamSettings from "./Settings/TeamSettings";
 import ProjectSettings from "./Settings/ProjectSettings";
 import StagePageMobile from "./StagePageMobile/StagePageMobile";
 import "./Settings/Settings.css";
+import "./App.css";
 
 function App() {
   let [state] = useContext(ProjectContext);
