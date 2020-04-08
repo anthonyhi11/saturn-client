@@ -14,7 +14,7 @@ export default function MainPage() {
     setShowAddProject(false);
   }
 
-  let projects = state.Data.projects.map(project => {
+  let projects = state.Data.projects.filter(project => project.archive !== true).map((project) => {
     return <ProjectCard info={project} key={project.id} />;
   });
 
@@ -22,7 +22,7 @@ export default function MainPage() {
     <>
       <Header />
       {showAddProject && (
-        <AddProjectForm handleCancel={e => handleProjectCancel(e)} />
+        <AddProjectForm handleCancel={(e) => handleProjectCancel(e)} />
       )}{" "}
       {/* add project modal!!!!!! */}
       <div className="mainpage-container">
@@ -31,7 +31,7 @@ export default function MainPage() {
           <h3 className="projects-h3">Projects</h3>{" "}
           <button
             className="add-project-button buttons"
-            onClick={e => setShowAddProject(true)}
+            onClick={(e) => setShowAddProject(true)}
           >
             Add Project
           </button>

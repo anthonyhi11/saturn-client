@@ -26,6 +26,7 @@
 .projectCards {
   display: flex;
   flex-direction: column;
+  margin-top: 3vh;
 }
 
 .add-project-button {
@@ -33,5 +34,5 @@
   right: 10%;
   top: 0%;
   height: 45px;
-  margin-top: 5px;
+  margin-top: 0px;
 }

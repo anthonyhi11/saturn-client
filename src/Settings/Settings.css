@@ -1,0 +1,80 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.settings-changes {
+  width: 80vw;
+  height: fit-content;
+  background-color: grey;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 20vh;
+  justify-content: space-evenly;
+}
+
+.settings-form input {
+  width: 25vw;
+  height: 3vh;
+  margin-left: 2vw;
+  padding: 5px;
+}
+
+.settings-change-button {
+  margin-left: 2vw;
+  margin-bottom: 5vh;
+}
+
+.team-member {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 5px;
+  background-color: lightslategray;
+  height: fit-content;
+}
+
+.team-member p {
+  text-align: left;
+  min-width: fit-content;
+  width: 20%;
+}
+.buttons-settings {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+}
+
+.buttons-settings button {
+  margin: 1px;
+}
+
+.settings-nav {
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+  background-color: lightblue;
+  align-items: center;
+  height: 5vh;
+}
+
+.settings-nav li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.settings-nav-contain {
+  display: flex;
+  justify-content: center;
+}

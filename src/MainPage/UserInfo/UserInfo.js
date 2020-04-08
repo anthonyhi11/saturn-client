@@ -3,6 +3,7 @@
 // database on fetch calls from MainPage
 import React from "react";
 import "./UserInfo.css";
+import { Link } from "react-router-dom";
 
 export default function UserInfo(props) {
   return (
@@ -14,7 +15,10 @@ export default function UserInfo(props) {
         src="https://image.flaticon.com/icons/svg/2026/2026521.svg"
         alt="profile pic"
       />
-      <button className="edit-profile-button">Edit Profile</button>
+
+      <Link to="/settings/personal">
+        <button className="edit-profile-button">Edit Profile</button>
+      </Link>
     </div>
   );
 }

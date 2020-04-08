@@ -5,11 +5,11 @@ header {
   justify-content: space-between;
   align-items: baseline;
   background-color: lightcyan;
-  padding-bottom: 30px;
 }
 
 .hero-org {
   margin-left: 5vw;
+  margin-top: 10px;
 }
 .hero-org:hover {
   cursor: pointer;

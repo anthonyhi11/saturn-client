@@ -17,13 +17,12 @@ export default function ProjectPage(props) {
       {showAddIssue && (
         <AddIssueForm
           project={props.project.id}
-          handleCancel={e =>handleCancel(e)}
+          handleCancel={(e) => handleCancel(e)}
         />
       )}
       <div className="project-info">
         <h2>{props.project.name}</h2>
         <p>Release Day: {props.project.target}</p>
-        <button className="buttons">Delete Project</button>
         <button className="buttons" onClick={() => setShowAddIssue(true)}>
           Add Issue
         </button>
