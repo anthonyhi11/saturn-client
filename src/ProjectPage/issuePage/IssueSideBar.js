@@ -23,7 +23,7 @@ export default function IssueSideBar(props) {
 
   return (
     <div className="issue-side-bar">
-      <h1 onClick={(e) => history.goBack(1)}>{project.name}</h1>
+      <h1 onClick={(e) => history.go(-2)}>{project.name}</h1>
       <h2 className="issue-id">Issue # {props.issue.id}</h2>
       <p>Assigned to: {props.issue.dev}</p>
       <label htmlFor="current-status">Change Stage</label>

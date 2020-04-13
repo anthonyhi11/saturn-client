@@ -34,6 +34,7 @@ export default function StagePageMobile(props) {
         </thead>
         <tbody>{issues}</tbody>
       </table>
+      <button onClick={e => history.goBack()}>Go Back</button>
     </div>
   );
 }
