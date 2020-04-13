@@ -9,7 +9,7 @@ export default function AddIssueForm(props) {
   let options = {
     min: 1003,
     max: 5152,
-    integer: true
+    integer: true,
   };
 
   function handleAddIssue(e) {
@@ -25,7 +25,7 @@ export default function AddIssueForm(props) {
       title: title,
       stage: stage,
       desc: desc,
-      dev: dev
+      dev: dev,
     };
     const newData = { ...state.Data };
     newData.issues.push(newIssue);
@@ -34,7 +34,7 @@ export default function AddIssueForm(props) {
   }
   return (
     <div className="add-form-container">
-      <form className="add-form" onSubmit={e => handleAddIssue(e)}>
+      <form className="add-form" onSubmit={(e) => handleAddIssue(e)}>
         <h2>Add a new issue</h2>
         <input
           type="text"
@@ -54,9 +54,9 @@ export default function AddIssueForm(props) {
             Stage
           </option>
           <option value="New">New</option>
-          <option value="In Progress">In Progress</option>
+          <option value="Working">Working</option>
           <option value="Blocked">Blocked</option>
-          <option value="Ready">Ready</option>
+          <option value="Done">Done</option>
         </select>
         <input
           type="text"
@@ -71,7 +71,11 @@ export default function AddIssueForm(props) {
           placeholder="Full Description"
         />
         <button type="submit">Add Issue</button>
-        <button className="cancel-add-form-button" type="reset" onClick={e => props.handleCancel(e)}>
+        <button
+          className="cancel-add-form-button"
+          type="reset"
+          onClick={(e) => props.handleCancel(e)}
+        >
           Cancel
         </button>
       </form>

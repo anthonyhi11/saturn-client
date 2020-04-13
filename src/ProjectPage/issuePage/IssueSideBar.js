@@ -41,6 +41,7 @@ export default function IssueSideBar(props) {
         <option value="Blocked">Blocked</option>
         <option value="Done">Done</option>
       </select>
+      <button onClick={(e) => history.go(-2)}>Go Back</button>
     </div>
   );
 }

@@ -39,13 +39,14 @@ export default function ProjectPage(props) {
         >
           Add Issue
         </button>
+        <button onClick={(e) => history.goBack()}>Go Back</button>
       </div>
       {isDesktopOrLaptop && (
         <section className="stages-container">
           <Stage name={"New"} issues={props.issues} />
           <Stage name={"Working"} issues={props.issues} />
           <Stage name={"Blocked"} issues={props.issues} />
-          <Stage name={"Ready"} issues={props.issues} />
+          <Stage name={"Done"} issues={props.issues} />
         </section>
       )}
       {isMobile && (
