@@ -46,11 +46,6 @@ function App() {
                 (project) =>
                   project.id.toString() === routeProps.match.params.project_id
               )}
-              // issues={state.Data.issues.filter(
-              //   (issue) =>
-              //     issue.projectId.toString() ===
-              //     routeProps.match.params.project_id
-              // )}
               route={routeProps}
             />
           )}

@@ -12,6 +12,19 @@ const StoriesService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+
+  addStory(projectId, newStory) {
+    return fetch(`${config.API_ENDPOINT}/stories/${projectId}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify(newStory),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
   updateStory(storyId, newStory) {
     return fetch(`${config.API_ENDPOINT}/stories/${storyId}`, {
       method: "PATCH",

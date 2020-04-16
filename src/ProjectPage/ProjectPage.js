@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./ProjectPage.css";
 import Header from "../Header/Header";
 import Stage from "./Stage/Stage";
-import AddIssueForm from "./AddIssueForm/AddIssueForm";
+import AddStoryForm from "./AddStoryForm/AddStoryForm";
 import { useMediaQuery } from "react-responsive";
 import StageMobile from "./StageMobile/StageMobile";
 import { useHistory } from "react-router-dom";
@@ -32,10 +32,7 @@ export default function ProjectPage(props) {
   }
 
   //saves project information in case of reload
-  function saveData() {
-    localStorage.setItem("project", JSON.stringify(props.project));
-  }
-  saveData();
+  localStorage.setItem("project", JSON.stringify(project));
 
   useEffect(() => {
     StoriesService.getStories(props.project.id).then((stories) => {
@@ -78,7 +75,7 @@ export default function ProjectPage(props) {
     <>
       <Header />
       {showAddStory && (
-        <AddIssueForm
+        <AddStoryForm
           project={props.project.id}
           handleCancel={(e) => handleCancel(e)}
         />
@@ -90,7 +87,7 @@ export default function ProjectPage(props) {
           className="issue-add-button"
           onClick={() => setShowAddStory(true)}
         >
-          Add Issue
+          Add Story
         </button>
         <button onClick={(e) => history.goBack()}>Go Back</button>
       </div>

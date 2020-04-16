@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Stories from "../Stories/Stories";
 import StoriesService from "../../services/stories-service";
 import "./Stage.css";
+import UsersService from "../../services/users-service";
 
 export default function Stage(props) {
+  let [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    UsersService.getUsers().then((users) => {
+      setUsers(users);
+    });
+  }, []);
+
+
   let storiesList = props.stories
     .filter((story) => story.stage_id === props.id)
     .map((story) => {
       return (
         <Link className="issue-links" key={story.id} to={`/story/${story.id}`}>
-          <Stories info={story} key={story.id} />
+          <Stories
+            info={story}
+            key={story.id}
+            users={users.find((user) => user.id === story.user_id)}
+          />
         </Link>
       );
     });

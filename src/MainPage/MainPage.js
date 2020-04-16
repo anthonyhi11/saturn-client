@@ -25,7 +25,7 @@ export default function MainPage() {
   }, [newProject]);
 
   let projectList = projects
-    .filter((project) => project.archive !== true)
+    .filter((project) => project.status === "active")
     .map((project) => {
       return <ProjectCard info={project} key={project.id} />;
     });

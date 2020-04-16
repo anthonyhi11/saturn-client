@@ -17,6 +17,7 @@ export default function AddProjectForm(props) {
     ProjectsService.addProject(newProject).then((project) => {
       props.handleAddProject(project);
       props.handleCancel(e);
+      window.location.reload(false);
     });
   }
   return (

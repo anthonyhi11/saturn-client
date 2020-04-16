@@ -7,7 +7,6 @@ export default function Stories(props) {
     e.dataTransfer.setData("story", info.id);
     e.dataTransfer.setData("name", target);
   }
-
   return (
     <div
       className="issues"
@@ -17,8 +16,12 @@ export default function Stories(props) {
       }}
     >
       <p>Issue # {props.info.id}</p>
-      <p>Assigned to: {props.info.dev}</p>
+      <p>Assigned to: {props.users.first_name}</p>
       <p>Request: {props.info.title}</p>
     </div>
   );
 }
+
+Stories.defaultProps = {
+  users: "Pending",
+};
