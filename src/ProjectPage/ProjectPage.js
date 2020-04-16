@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProjectPage.css";
 import Header from "../Header/Header";
 import Stage from "./Stage/Stage";
@@ -6,6 +6,8 @@ import AddIssueForm from "./AddIssueForm/AddIssueForm";
 import { useMediaQuery } from "react-responsive";
 import StageMobile from "./StageMobile/StageMobile";
 import { useHistory } from "react-router-dom";
+import StoriesService from "../services/stories-service";
+import StagesService from "../services/stages-service";
 
 export default function ProjectPage(props) {
   let history = useHistory();
@@ -15,39 +17,73 @@ export default function ProjectPage(props) {
   const isMobile = useMediaQuery({
     query: "(max-device-width: 1224px)",
   });
-  let [showAddIssue, setShowAddIssue] = useState(false);
+  let [showAddStory, setShowAddStory] = useState(false);
+  let [project] = useState(props.project);
+  let [stories, setStories] = useState([]);
+  let [stages, setStages] = useState([]);
 
   function handleCancel(e) {
-    setShowAddIssue(false);
+    setShowAddStory(false);
   }
+
+  //saves project information in case of reload
+  function saveData() {
+    localStorage.setItem("project", JSON.stringify(props.project));
+  }
+  saveData();
+
+  useEffect(() => {
+    StoriesService.getStories(props.project.id).then((stories) => {
+      setStories(stories);
+    });
+    //eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    StagesService.getStages().then((stages) => {
+      setStages(stages);
+    });
+  }, []);
+
+  let stageList = stages.map((stage) => {
+    return (
+      <Stage name={stage.name} id={stage.id} key={stage.id} project={project} />
+    );
+  });
+
+  let stageMobileList = stages.map((stage) => {
+    return (
+      <StageMobile
+        name={stage.name}
+        project={props.project}
+        id={stage.id}
+        key={stage.id}
+      />
+    );
+  });
 
   return (
     <>
       <Header />
-      {showAddIssue && (
+      {showAddStory && (
         <AddIssueForm
           project={props.project.id}
           handleCancel={(e) => handleCancel(e)}
         />
       )}
       <div className="project-info">
-        <h2>{props.project.name}</h2>
-        <p className="release-day-issue">Release Day: {props.project.target}</p>
+        <h2>{project.name || localStorage.getItem("project")}</h2>
+
         <button
           className="issue-add-button"
-          onClick={() => setShowAddIssue(true)}
+          onClick={() => setShowAddStory(true)}
         >
           Add Issue
         </button>
         <button onClick={(e) => history.goBack()}>Go Back</button>
       </div>
       {isDesktopOrLaptop && (
-        <section className="stages-container">
-          <Stage name={"New"} issues={props.issues} />
-          <Stage name={"Working"} issues={props.issues} />
-          <Stage name={"Blocked"} issues={props.issues} />
-          <Stage name={"Done"} issues={props.issues} />
-        </section>
+        <section className="stages-container">{stageList}</section>
       )}
       {isMobile && (
         <div>
@@ -58,12 +94,7 @@ export default function ProjectPage(props) {
                 <th>Stories</th>
               </tr>
             </thead>
-            <tbody>
-              <StageMobile name="New" project={props.project} />
-              <StageMobile name="Working" project={props.project} />
-              <StageMobile name="Blocked" project={props.project} />
-              <StageMobile name="Done" project={props.project} />
-            </tbody>
+            <tbody>{stageMobileList}</tbody>
           </table>
           <button onClick={(e) => history.goBack()}>Go Back</button>
         </div>
@@ -71,3 +102,8 @@ export default function ProjectPage(props) {
     </>
   );
 }
+
+ProjectPage.defaultProps = {
+  project: JSON.parse(localStorage.getItem("project")),
+  issues: [],
+};

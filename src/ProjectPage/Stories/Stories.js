@@ -1,14 +1,11 @@
 import React from "react";
-import "./Issues.css";
+import "./Stories.css";
 
-export default function Issues(props) {
+export default function Stories(props) {
   function dragStart(e, info) {
     const target = e.target;
-    // setTimeout(() => {
-    //   target.style.display = "none";
-    // }, 0);
-    e.dataTransfer.setData("issue", info.id);
-    e.dataTransfer.setData("style", target);
+    e.dataTransfer.setData("story", info.id);
+    e.dataTransfer.setData("name", target);
   }
 
   return (

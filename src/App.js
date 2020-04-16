@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
 import MoreInfo from "./LandingPage/MoreInfo/MoreInfo";
@@ -13,9 +13,17 @@ import ProjectSettings from "./Settings/ProjectSettings";
 import StagePageMobile from "./StagePageMobile/StagePageMobile";
 import "./Settings/Settings.css";
 import "./App.css";
+import ProjectsService from "./services/projects-service";
 
 function App() {
   let [state] = useContext(ProjectContext);
+  let [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    ProjectsService.getProjects().then((projects) => {
+      setProjects(projects);
+    });
+  }, []);
 
   return (
     <Router>
@@ -34,22 +42,22 @@ function App() {
           path="/projects/:project_id"
           render={(routeProps) => (
             <ProjectPage
-              project={state.Data.projects.find(
+              project={projects.find(
                 (project) =>
                   project.id.toString() === routeProps.match.params.project_id
               )}
-              issues={state.Data.issues.filter(
-                (issue) =>
-                  issue.projectId.toString() ===
-                  routeProps.match.params.project_id
-              )}
+              // issues={state.Data.issues.filter(
+              //   (issue) =>
+              //     issue.projectId.toString() ===
+              //     routeProps.match.params.project_id
+              // )}
               route={routeProps}
             />
           )}
         />
         <Route
           exact
-          path="/issue/:issue_id"
+          path="/story/:story_id"
           render={(routeProps) => (
             <IssuePage
               issue={state.Data.issues.find(

@@ -1,20 +1,30 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import UserInfo from "./UserInfo/UserInfo";
 import "./MainPage.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
-import { ProjectContext } from "../ProjectContext/ProjectContext";
 import AddProjectForm from "./AddProjectForm/AddProjectForm";
-
+import ProjectsService from "../services/projects-service";
 export default function MainPage() {
-  let [state] = useContext(ProjectContext);
   let [showAddProject, setShowAddProject] = useState(false);
+  let [projects, setProjects] = useState([]);
+  let [newProject, setNewProject] = useState([]);
 
   function handleProjectCancel(e) {
     setShowAddProject(false);
   }
 
-  let projects = state.Data.projects
+  function handleAddProject(project) {
+    setNewProject(project);
+  }
+
+  useEffect(() => {
+    ProjectsService.getProjects().then((projects) => {
+      setProjects(projects);
+    });
+  }, [newProject]);
+
+  let projectList = projects
     .filter((project) => project.archive !== true)
     .map((project) => {
       return <ProjectCard info={project} key={project.id} />;
@@ -24,7 +34,10 @@ export default function MainPage() {
     <>
       <Header />
       {showAddProject && (
-        <AddProjectForm handleCancel={(e) => handleProjectCancel(e)} />
+        <AddProjectForm
+          handleCancel={(e) => handleProjectCancel(e)}
+          handleAddProject={(e) => handleAddProject(e)}
+        />
       )}{" "}
       <div className="mainpage-container">
         <UserInfo />
@@ -36,7 +49,7 @@ export default function MainPage() {
           >
             Add
           </button>
-          <div className="projectCards">{projects}</div>
+          <div className="projectCards">{projectList}</div>
         </div>
       </div>
     </>

@@ -1,9 +1,9 @@
 import config from "../config";
 import TokenService from "./token-services";
 
-const OrganizationsApiService = {
-  getOrganization() {
-    return fetch(`${config.API_ENDPOINT}/organizations`, {
+const UsersService = {
+  getUser() {
+    return fetch(`${config.API_ENDPOINT}/users`, {
       method: "GET",
       headers: {
         Authorization: `bearer ${TokenService.getAuthToken()}`,
@@ -14,4 +14,4 @@ const OrganizationsApiService = {
   },
 };
 
-export default OrganizationsApiService;
+export default UsersService;

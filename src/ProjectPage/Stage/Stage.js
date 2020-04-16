@@ -1,36 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Issues from "../Issues/Issues";
-import { useContext } from "react";
-import { ProjectContext } from "../../ProjectContext/ProjectContext";
+import Stories from "../Stories/Stories";
+import StoriesService from "../../services/stories-service";
 import "./Stage.css";
-export default function Stage(props) {
-  //eslint-disable-next-line
-  const [state, setState] = useContext(ProjectContext);
 
-  let issues = props.issues
-    .filter((issue) => issue.stage === props.name)
-    .map((issue) => {
+export default function Stage(props) {
+  let [stories, setStories] = useState([]);
+
+  useEffect(() => {
+    StoriesService.getStories(props.project.id).then((stories) => {
+      setStories(stories);
+    });
+    //eslint-disable-next-line
+  }, []);
+
+  let storiesList = stories
+    .filter((story) => story.stage_id === props.id)
+    .map((story) => {
       return (
-        <Link className="issue-links" key={issue.id} to={`/issue/${issue.id}`}>
-          <Issues info={issue} key={issue.id} />
+        <Link className="issue-links" key={story.id} to={`/story/${story.id}`}>
+          <Stories info={story} key={story.id} />
         </Link>
       );
     });
 
+  //making the database touch
+  function handleChangeStory(storyId, changes) {
+    StoriesService.updateStory(storyId, changes);
+  }
+
   function drop(e) {
-    const newData = { ...state.Data }; // gets all issues from context
     const target = e.currentTarget.id; //sets the id of the container
-    const draggedIssue = e.dataTransfer.getData("issue"); //gets the id of the dragged issue
-    newData.issues = newData.issues.map((issue) => {
-      //eslint-disable-next-line
-      if (issue.id == draggedIssue) {
-        return { ...issue, stage: target };
-      } else {
-        return issue;
-      }
+    const draggedIssue = e.dataTransfer.getData("story"); //gets the id of the dragged issue
+    const newChanges = {
+      //sets the newChanges to send to database
+      stage_id: target,
+    };
+    handleChangeStory(draggedIssue, newChanges); //calls the fetch
+    let newStories = [...stories]; // makes a copy of state to mutate
+    newStories = newStories.map((story) => {
+      if (story.id.toString() === draggedIssue) {
+        //finds the story with the same id in the array of stories
+        return { ...story, stage_id: parseInt(target) }; //updates that story specifically in state
+      } else return story;
     });
-    setState({ Data: newData }); //should set state
+    console.log(newStories);
+    setStories(newStories); //
   }
 
   function allowDrop(e) {
@@ -40,14 +55,14 @@ export default function Stage(props) {
   return (
     <div
       className="stage-container"
-      id={props.name}
+      id={props.id}
       onDrop={(e) => drop(e)}
       onDragOver={(e) => allowDrop(e)}
     >
       <div className="stage-header">
         <p className="stage">{props.name}</p>
       </div>
-      <div>{issues}</div>
+      <div>{storiesList}</div>
     </div>
   );
 }
