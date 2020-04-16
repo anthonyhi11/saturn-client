@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Stories from "../Stories/Stories";
 import StoriesService from "../../services/stories-service";
 import "./Stage.css";
 
 export default function Stage(props) {
-  let [stories, setStories] = useState([]);
-
-  useEffect(() => {
-    StoriesService.getStories(props.project.id).then((stories) => {
-      setStories(stories);
-    });
-    //eslint-disable-next-line
-  }, []);
-
-  let storiesList = stories
+  let storiesList = props.stories
     .filter((story) => story.stage_id === props.id)
     .map((story) => {
       return (
@@ -26,7 +17,11 @@ export default function Stage(props) {
 
   //making the database touch
   function handleChangeStory(storyId, changes) {
-    StoriesService.updateStory(storyId, changes);
+    StoriesService.updateStory(storyId, changes).then((stories) => {
+      return StoriesService.getStories(stories.project_id).then((stories) => {
+        props.changeStoriesState(stories);
+      });
+    });
   }
 
   function drop(e) {
@@ -37,15 +32,6 @@ export default function Stage(props) {
       stage_id: target,
     };
     handleChangeStory(draggedIssue, newChanges); //calls the fetch
-    let newStories = [...stories]; // makes a copy of state to mutate
-    newStories = newStories.map((story) => {
-      if (story.id.toString() === draggedIssue) {
-        //finds the story with the same id in the array of stories
-        return { ...story, stage_id: parseInt(target) }; //updates that story specifically in state
-      } else return story;
-    });
-    console.log(newStories);
-    setStories(newStories); //
   }
 
   function allowDrop(e) {

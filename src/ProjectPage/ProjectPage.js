@@ -26,6 +26,11 @@ export default function ProjectPage(props) {
     setShowAddStory(false);
   }
 
+  //try to handle changing the state
+  function changeStoriesState(stories) {
+    setStories(stories);
+  }
+
   //saves project information in case of reload
   function saveData() {
     localStorage.setItem("project", JSON.stringify(props.project));
@@ -47,7 +52,14 @@ export default function ProjectPage(props) {
 
   let stageList = stages.map((stage) => {
     return (
-      <Stage name={stage.name} id={stage.id} key={stage.id} project={project} />
+      <Stage
+        name={stage.name}
+        id={stage.id}
+        key={stage.id}
+        project={project}
+        stories={stories}
+        changeStoriesState={(e) => changeStoriesState(e)}
+      />
     );
   });
 
