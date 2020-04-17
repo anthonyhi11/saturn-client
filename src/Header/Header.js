@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./Header.css";
 import OrganizationsApiService from "../services/organizations-service";
+import TokenService from "../services/token-services";
 
 export default function Header() {
   let history = useHistory();
@@ -19,7 +20,13 @@ export default function Header() {
         {organizationName}
       </h1>
 
-      <p className="logout-button" onClick={(e) => history.push("/")}>
+      <p
+        className="logout-button"
+        onClick={(e) => {
+          TokenService.clearAuthToken();
+          history.push("/");
+        }}
+      >
         Logout
       </p>
     </header>

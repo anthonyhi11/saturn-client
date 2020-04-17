@@ -37,6 +37,7 @@ export default function ProjectPage(props) {
   useEffect(() => {
     StoriesService.getStories(props.project.id).then((stories) => {
       setStories(stories);
+      props.setStoriesState(stories);
     });
     //eslint-disable-next-line
   }, []);

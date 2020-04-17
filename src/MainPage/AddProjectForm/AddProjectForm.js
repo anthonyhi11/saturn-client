@@ -4,8 +4,6 @@ import "./AddProjectForm.css";
 import ProjectsService from "../../services/projects-service";
 
 export default function AddProjectForm(props) {
-  // let { data } = useContext(ProjectContext);
-  // let [state, setState] = data;
 
   function addNewProject(e) {
     e.preventDefault();

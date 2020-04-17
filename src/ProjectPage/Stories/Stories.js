@@ -15,7 +15,7 @@ export default function Stories(props) {
         dragStart(e, props.info);
       }}
     >
-      <p>Issue # {props.info.id}</p>
+      <p>Story # {props.info.id}</p>
       <p>Assigned to: {props.users.first_name}</p>
       <p>Request: {props.info.title}</p>
     </div>

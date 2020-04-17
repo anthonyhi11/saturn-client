@@ -5,7 +5,7 @@ import "./MainPage.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import AddProjectForm from "./AddProjectForm/AddProjectForm";
 import ProjectsService from "../services/projects-service";
-export default function MainPage() {
+export default function MainPage(props) {
   let [showAddProject, setShowAddProject] = useState(false);
   let [projects, setProjects] = useState([]);
   let [newProject, setNewProject] = useState([]);
@@ -21,8 +21,11 @@ export default function MainPage() {
   useEffect(() => {
     ProjectsService.getProjects().then((projects) => {
       setProjects(projects);
+      props.setProjectsState(projects);
     });
+    //eslint-disable-next-line
   }, [newProject]);
+
 
   let projectList = projects
     .filter((project) => project.status === "active")

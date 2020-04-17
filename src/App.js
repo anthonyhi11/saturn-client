@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
 import MoreInfo from "./LandingPage/MoreInfo/MoreInfo";
 import MainPage from "./MainPage/MainPage";
 import ProjectPage from "./ProjectPage/ProjectPage";
 import { ProjectContext } from "./ProjectContext/ProjectContext";
-import IssuePage from "./ProjectPage/issuePage/IssuePage";
+import StoryPage from "./ProjectPage/StoryPage/StoryPage";
 import PersonalSettings from "./Settings/PersonalSettings";
 import OrgSettings from "./Settings/OrgSettings";
 import TeamSettings from "./Settings/TeamSettings";
@@ -13,17 +13,20 @@ import ProjectSettings from "./Settings/ProjectSettings";
 import StagePageMobile from "./StagePageMobile/StagePageMobile";
 import "./Settings/Settings.css";
 import "./App.css";
-import ProjectsService from "./services/projects-service";
 
 function App() {
   let [state] = useContext(ProjectContext);
   let [projects, setProjects] = useState([]);
+  let [stories, setStories] = useState([]);
 
-  useEffect(() => {
-    ProjectsService.getProjects().then((projects) => {
-      setProjects(projects);
-    });
-  }, []);
+  function setProjectsState(projects) {
+    //this is to pass to main page so it only triggers the call when you log in
+    setProjects(projects);
+  }
+
+  function setStoriesState(stories) {
+    setStories(stories);
+  }
 
   return (
     <Router>
@@ -35,7 +38,7 @@ function App() {
           <MoreInfo />
         </Route>
         <Route exact path="/main">
-          <MainPage />
+          <MainPage setProjectsState={(e) => setProjectsState(e)} />
         </Route>
         <Route
           exact
@@ -46,6 +49,7 @@ function App() {
                 (project) =>
                   project.id.toString() === routeProps.match.params.project_id
               )}
+              setStoriesState={(e) => setStoriesState(e)}
               route={routeProps}
             />
           )}
@@ -54,10 +58,10 @@ function App() {
           exact
           path="/story/:story_id"
           render={(routeProps) => (
-            <IssuePage
-              issue={state.Data.issues.find(
-                (issue) =>
-                  issue.id.toString() === routeProps.match.params.issue_id
+            <StoryPage
+              story={stories.find(
+                (story) =>
+                  story.id.toString() === routeProps.match.params.story_id
               )}
               route={routeProps}
             />
