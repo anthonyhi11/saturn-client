@@ -4,7 +4,7 @@ import "./IssuePage.css";
 import StorySideBar from "./StorySideBar";
 import CommentsSection from "./CommentsSection";
 // import { ProjectContext } from "../../ProjectContext/ProjectContext";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import UsersService from "../../services/users-service";
 import ProjectsService from "../../services/projects-service";
 

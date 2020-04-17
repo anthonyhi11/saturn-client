@@ -1,21 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Comments.css";
-import { ProjectContext } from "../../ProjectContext/ProjectContext";
 import Comment from "./Comment";
 import CommentsService from "../../services/comments-service";
 
 export default function CommentsSection(props) {
-  let [state, setState] = useContext(ProjectContext);
   let [comments, setComments] = useState([]);
   let [story, setStory] = useState([]);
 
-  console.log(story);
 
   useEffect(() => {
-    CommentsService.getComments(story).then((comments) => {
+    CommentsService.getComments(props.story).then((comments) => {
       setComments(comments);
-      console.log("ran");
     });
+    //eslint-disable-next-line
   }, [story]);
   useEffect(() => {
     setStory(props.story);

@@ -9,7 +9,6 @@ export default function TeamSettings() {
   let [memberToDelete, setMemberToDelete] = useState(null);
 
   function deleteTeamMember(e) {
-    console.log("deleted");
     let newData = { ...state.Data };
     newData.team = newData.team.filter(
       (member) => member.id !== memberToDelete
