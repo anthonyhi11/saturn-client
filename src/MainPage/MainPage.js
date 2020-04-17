@@ -26,9 +26,8 @@ export default function MainPage(props) {
     //eslint-disable-next-line
   }, [newProject]);
 
-
   let projectList = projects
-    .filter((project) => project.status === "active")
+    .filter((project) => project.status === "Active")
     .map((project) => {
       return <ProjectCard info={project} key={project.id} />;
     });

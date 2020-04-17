@@ -1,37 +1,70 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import { NavLink } from "react-router-dom";
-import { ProjectContext } from "../ProjectContext/ProjectContext";
+import ProjectsService from "../services/projects-service";
 
 export default function ProjectSettings() {
-  let [state, setState] = useContext(ProjectContext);
+  let [projects, setProjects] = useState([]);
+  let [success, setSuccess] = useState(false);
 
-  function handleArchive(e, id) {
-    let newData = { ...state.Data };
-    let project = newData.projects.find((project) => project.id === id);
-    project.archive = true;
-    project.status = "Archived";
-    setState({ Data: newData });
+  useEffect(() => {
+    ProjectsService.getProjects().then((projects) => {
+      setProjects(projects);
+    });
+  }, []);
+
+  function handleArchive(e, project) {
+    let name = project.name;
+    let id = project.id;
+    let update = {
+      name,
+      id,
+      status: "Archive",
+    };
+    ProjectsService.updateProject(update).then((project) => {
+      setSuccess(true);
+      setTimeout(function () {
+        setSuccess(false);
+      }, 1500);
+      setTimeout(function () {
+        window.location.reload(false);
+      }, 1000);
+    });
   }
 
-  function handleActivate(e, id) {
-    let newData = { ...state.Data };
-    let project = newData.projects.find((project) => project.id === id);
-    project.archive = false;
-    project.status = "Active";
-    setState({ Data: newData });
+  function handleActivate(e, project) {
+    let name = project.name;
+    let id = project.id;
+    let update = {
+      name,
+      id,
+      status: "Active",
+    };
+    ProjectsService.updateProject(update).then((project) => {
+      setSuccess(true);
+      setTimeout(function () {
+        setSuccess(false);
+      }, 1500);
+      setTimeout(function () {
+        window.location.reload(false);
+      }, 1000);
+    });
   }
 
-  let projects = state.Data.projects.map((project) => {
+  let projectList = projects.map((project) => {
     return (
       <div className="team-member" key={project.id}>
         <p>{project.name}</p>
         <p>{project.status}</p>
         <div className="buttons-settings">
-          <button onClick={(e) => handleArchive(e, project.id)}>Archive</button>
-          <button onClick={(e) => handleActivate(e, project.id)}>
-            Activate
-          </button>
+          {project.status === "Active" && (
+            <button onClick={(e) => handleArchive(e, project)}>Archive</button>
+          )}
+          {project.status === "Archive" && (
+            <button onClick={(e) => handleActivate(e, project)}>
+              Activate
+            </button>
+          )}
         </div>
       </div>
     );
@@ -40,6 +73,7 @@ export default function ProjectSettings() {
   return (
     <>
       <Header />
+      {success && <div className="success">Success!</div>}
       <nav className="settings-nav-contain">
         <ul className="settings-nav">
           <li>
@@ -66,34 +100,7 @@ export default function ProjectSettings() {
       </nav>
       <section className="settings-changes">
         <h2>Make changes to your projects</h2>
-        {projects}
-        {/* <div className="team-member">
-          <p>Project 1</p>
-          <p>Date Started</p>
-          <p>Date Completed</p>
-          <div className="buttons-settings">
-            <button>Archive</button>
-            <button>Activate</button>
-          </div>
-        </div>
-        <div className="team-member">
-          <p>Project 2</p>
-          <p>Date Started</p>
-          <p>Date Completed</p>
-          <div className="buttons-settings">
-            <button>Archive</button>
-            <button>Activate</button>
-          </div>
-        </div>
-        <div className="team-member">
-          <p>Project 3</p>
-          <p>Date Started</p>
-          <p>Date Completed</p>
-          <div className="buttons-settings">
-            <button>Archive</button>
-            <button>Activate</button>
-          </div>
-        </div> */}
+        {projectList}
       </section>
     </>
   );

@@ -1,19 +1,32 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import { NavLink } from "react-router-dom";
-import { ProjectContext } from "../ProjectContext/ProjectContext";
+import UsersService from "../services/users-service";
 
 export default function TeamSettings() {
-  let [state, setState] = useContext(ProjectContext);
   let [showDeleteWarning, setShowDeleteWarning] = useState(false);
+  // let [showAdmin, setShowAdmin] = useState(false);
+  // let [showRevoke, setShowRevoke] = useState(false);
   let [memberToDelete, setMemberToDelete] = useState(null);
+  let [users, setUsers] = useState([]);
+  let [isSuccessful, setIsSuccessful] = useState(false);
+
+  useEffect(() => {
+    UsersService.getUsers().then((users) => {
+      setUsers(users);
+    });
+  }, []);
 
   function deleteTeamMember(e) {
-    let newData = { ...state.Data };
-    newData.team = newData.team.filter(
-      (member) => member.id !== memberToDelete
-    );
-    setState({ Data: newData });
+    UsersService.deleteUser(memberToDelete).then(() => {
+      setIsSuccessful(true);
+      setTimeout(function () {
+        setIsSuccessful(false);
+      }, 2000);
+      setTimeout(function () {
+        window.location.reload(false);
+      }, 1800);
+    });
     setShowDeleteWarning(false);
   }
 
@@ -25,17 +38,38 @@ export default function TeamSettings() {
     setShowDeleteWarning(false);
   }
 
-  let team = state.Data.team.map((member) => {
+  // function handleShowAdmin(e, id) {
+  //   setShowAdmin(true);
+  //   setMemberToDelete(id);
+  // }
+
+  // function handleShowRevoke(e, id) {
+  //   setShowRevoke(true);
+  //   setMemberToDelete(id);
+  // }
+
+  let team = users.map((member) => {
     return (
       <div className="team-member" key={member.id}>
-        <p>{member.name}</p>
+        <p>
+          {member.first_name} {member.last_name}
+        </p>
         <p>{member.role}</p>
         <p>{member.email}</p>
         <div className="buttons-settings">
           <button onClick={(e) => handleShowDelete(e, member.id)}>
             Remove from team
           </button>
-          <button>Make Admin</button>
+          {/* {member.role === "Developer" && (
+            <button onClick={(e) => handleShowAdmin(e, member.id)}>
+              Make Admin
+            </button>
+          )}
+          {member.role === "Admin" && (
+            <button onClick={(e) => handleShowRevoke(e, member.id)}>
+              Revoke Admin
+            </button>
+          )} */}
         </div>
       </div>
     );
@@ -44,6 +78,7 @@ export default function TeamSettings() {
   return (
     <>
       <Header />
+      {isSuccessful && <div className="success">Deleted</div>}
       {showDeleteWarning && (
         <div className="delete-modal">
           <h2>Are you sure?</h2>
@@ -53,6 +88,16 @@ export default function TeamSettings() {
           </div>
         </div>
       )}
+
+      {/* {showAdmin && (
+        <div className="delete-modal">
+          <h2>Are you sure?</h2>
+          <div className="delete-button-div">
+            <button onClick={(e) => deleteTeamMember(e)}>Make Admin!</button>
+            <button onClick={(e) => handleCancel(e)}>Cancel</button>
+          </div>
+        </div>
+      )} */}
       <nav className="settings-nav-contain">
         <ul className="settings-nav">
           <li>

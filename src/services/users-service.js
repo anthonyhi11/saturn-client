@@ -40,6 +40,19 @@ const UsersService = {
       })
       .then(TokenService.clearAuthToken());
   },
+
+  deleteUser(userId) {
+    return fetch(`${config.API_ENDPOINT}/users/${userId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        return res.json().then((e) => Promise.reject(e));
+      }
+    });
+  },
 };
 
 export default UsersService;

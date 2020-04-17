@@ -25,6 +25,16 @@ const ProjectsService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  updateProject(body) {
+    return fetch(`${config.API_ENDPOINT}/projects`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify(body),
+    });
+  },
 };
 
 export default ProjectsService;

@@ -37,10 +37,15 @@ export default function PersonalSettings() {
         email,
         password,
       };
-      console.log("success");
       LoginService.loginUser(credentials).then((res) => {
         TokenService.saveAuthToken(res.authToken);
         setIsSuccessful(true);
+        setTimeout(function () {
+          setIsSuccessful(false);
+        }, 1800);
+        setTimeout(function () {
+          window.location.reload(false);
+        }, 1500);
       });
     });
   }
@@ -104,18 +109,20 @@ export default function PersonalSettings() {
             name="password"
             id="password"
             placeholder="Password"
+            required
           />
           <input
             type="password"
             name="password_confirm"
             id="password_confirm"
             placeholder="Confirm password"
+            required
           />
           <button className="settings-change-button" type="submit">
             Make Changes
           </button>
         </form>
-        {isSuccessful && <p>Success!</p>}
+        {isSuccessful && <div className="success">Success!</div>}
       </section>
     </>
   );
