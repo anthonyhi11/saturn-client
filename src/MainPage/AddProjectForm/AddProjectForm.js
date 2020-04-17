@@ -4,7 +4,6 @@ import "./AddProjectForm.css";
 import ProjectsService from "../../services/projects-service";
 
 export default function AddProjectForm(props) {
-
   function addNewProject(e) {
     e.preventDefault();
     const name = e.target.name.value;
@@ -15,7 +14,7 @@ export default function AddProjectForm(props) {
     ProjectsService.addProject(newProject).then((project) => {
       props.handleAddProject(project);
       props.handleCancel(e);
-      window.location.reload(false);
+      // window.location.reload(false);
     });
   }
   return (

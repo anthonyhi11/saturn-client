@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Header from "../Header/Header";
+import OrganizationsService from "../services/organizations-service";
 
 export default function OrgSettings() {
+  let [organization, setOrganization] = useState([]);
+  let [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    OrganizationsService.getOrganization().then((org) => {
+      setOrganization(org);
+    });
+  }, [isSuccess]);
+
+  function handleOrganizationChanges(e) {
+    e.preventDefault();
+    console.log("clicked");
+    let name = e.target.org_name.value;
+    let newInfo = {
+      name: name,
+    };
+    OrganizationsService.updateOrg(organization.id, newInfo).then((org) => {
+      setIsSuccess(true);
+      setTimeout(function () {
+        setIsSuccess(false);
+      }, 1200);
+
+      if (name !== organization.name)
+        setTimeout(function () {
+          window.location.reload(false);
+        }, 1100);
+    });
+  }
   return (
     <>
       <Header />
@@ -31,22 +60,29 @@ export default function OrgSettings() {
         </ul>
       </nav>
       <section className="settings-changes">
+        {isSuccess && <div className="success">Success!</div>}
+
         <h2>Make changes to Organization</h2>
-        <form className="settings-form">
+        <form
+          className="settings-form"
+          onSubmit={(e) => handleOrganizationChanges(e)}
+        >
+          <label htmlFor="org_name">Organization Name</label>
           <input
             type="text"
-            name="org-name"
-            id="org-name"
+            name="org_name"
+            id="org_name"
+            defaultValue={organization.name}
             placeholder="Organization Name"
           />
-          <input
-            type="text"
-            name="org-passcode"
-            id="org-passcode"
-            placeholder="Organization Passcode"
-          />
+          <div className="passcode-div">
+            <p className="passcode">Organization Passcode</p>
+            <p className="passcode">{organization.org_passcode}</p>
+          </div>
+          <button className="settings-change-button" type="submit">
+            Change
+          </button>
         </form>
-        <button className="settings-change-button" type="submit">Make Changes</button>
       </section>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Header from "../Header/Header";
 import UsersService from "../services/users-service";
@@ -6,7 +6,15 @@ import LoginService from "../services/login-service";
 import TokenService from "../services/token-services";
 
 export default function PersonalSettings() {
+  let [user, setUser] = useState([]);
   let [isSuccessful, setIsSuccessful] = useState(false);
+
+  useEffect(() => {
+    UsersService.getUser().then((user) => {
+      setUser(user);
+    });
+  }, []);
+
   function handlePersonalChanges(e) {
     e.preventDefault();
     console.log("ran");
@@ -74,15 +82,23 @@ export default function PersonalSettings() {
             type="text"
             name="first_name"
             id="first_name"
+            defaultValue={user.first_name}
             placeholder="First Name"
           />
           <input
             type="text"
             name="last_name"
             id="last_name"
+            defaultValue={user.last_name}
             placeholder="Last Name"
           />
-          <input type="text" name="email" id="email" placeholder="Email" />
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Email"
+            defaultValue={user.email}
+          />
           <input
             type="password"
             name="password"

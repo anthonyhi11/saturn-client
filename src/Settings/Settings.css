@@ -27,6 +27,8 @@
 .settings-change-button {
   margin-left: 2vw;
   margin-bottom: 5vh;
+  width: 20%;
+  margin-top: 10px;
 }
 
 .team-member {
@@ -55,6 +57,19 @@
   margin: 1px;
 }
 
+.passcode-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.passcode {
+  width: 30%;
+  margin: 5px;
+  color: white;
+  padding: 0px;
+}
+
 .settings-nav {
   display: flex;
   width: 100vw;
@@ -77,4 +92,15 @@
 .settings-nav-contain {
   display: flex;
   justify-content: center;
+}
+
+.success {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 20%;
+  height: 10%;
+  background-color: black;
+  color: white;
+  transform: translate(-50%);
 }
