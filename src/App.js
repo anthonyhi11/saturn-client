@@ -1,5 +1,10 @@
 import React, { useContext, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
 import MoreInfo from "./LandingPage/MoreInfo/MoreInfo";
 import MainPage from "./MainPage/MainPage";
@@ -13,6 +18,8 @@ import ProjectSettings from "./Settings/ProjectSettings";
 import StagePageMobile from "./StagePageMobile/StagePageMobile";
 import "./Settings/Settings.css";
 import "./App.css";
+import PrivateRoute from "./services/private-route";
+import TokenService from "./services/token-services";
 
 function App() {
   let [state] = useContext(ProjectContext);
@@ -28,6 +35,8 @@ function App() {
     setStories(stories);
   }
 
+  let isAuthenticated = TokenService.hasAuthToken();
+
   return (
     <Router>
       <Switch>
@@ -37,53 +46,102 @@ function App() {
         <Route exact path="/learn">
           <MoreInfo />
         </Route>
-        <Route exact path="/main">
-          <MainPage setProjectsState={(e) => setProjectsState(e)} />
-        </Route>
+
+        <Route
+          exact
+          path="/main"
+          render={() =>
+            isAuthenticated ? (
+              <MainPage setProjectsState={(e) => setProjectsState(e)} />
+            ) : (
+              <Redirect
+                to={{
+                  pathname: "/",
+                }}
+              />
+            )
+          }
+        />
+
         <Route
           exact
           path="/projects/:project_id"
-          render={(routeProps) => (
-            <ProjectPage
-              project={projects.find(
-                (project) =>
-                  project.id.toString() === routeProps.match.params.project_id
-              )}
-              setStoriesState={(e) => setStoriesState(e)}
-              route={routeProps}
-            />
-          )}
+          render={(routeProps) =>
+            isAuthenticated ? (
+              <ProjectPage
+                project={projects.find(
+                  (project) =>
+                    project.id.toString() === routeProps.match.params.project_id
+                )}
+                setStoriesState={(e) => setStoriesState(e)}
+                route={routeProps}
+              />
+            ) : (
+              <Redirect
+                to={{
+                  pathname: "/",
+                }}
+              />
+            )
+          }
         />
         <Route
           exact
           path="/story/:story_id"
-          render={(routeProps) => (
-            <StoryPage
-              story={stories.find(
-                (story) =>
-                  story.id.toString() === routeProps.match.params.story_id
-              )}
-              route={routeProps}
-            />
-          )}
+          render={(routeProps) =>
+            isAuthenticated ? (
+              <StoryPage
+                story={stories.find(
+                  (story) =>
+                    story.id.toString() === routeProps.match.params.story_id
+                )}
+                route={routeProps}
+              />
+            ) : (
+              <Redirect
+                to={{
+                  pathname: "/",
+                }}
+              />
+            )
+          }
         />
-        <Route exact path="/settings/personal" component={PersonalSettings} />
-        <Route exact path="/settings/organization" component={OrgSettings} />
-        <Route exact path="/settings/team" component={TeamSettings} />
-        <Route exact path="/settings/projects" component={ProjectSettings} />
+        <PrivateRoute
+          exact
+          path="/settings/personal"
+          component={PersonalSettings}
+        />
+        <PrivateRoute
+          exactpath="/settings/organization"
+          component={OrgSettings}
+        />
+        <PrivateRoute exact path="/settings/team" component={TeamSettings} />
+        <PrivateRoute
+          exact
+          path="/settings/projects"
+          component={ProjectSettings}
+        />
         <Route
           exact
           path="/projects/:project_id/:stage"
-          render={(routeProps) => (
-            <StagePageMobile
-              issues={state.Data.issues.filter(
-                (issue) =>
-                  issue.projectId.toString() ===
-                  routeProps.match.params.project_id
-              )}
-              routeProps={routeProps}
-            />
-          )}
+          render={(routeProps) =>
+            isAuthenticated ? (
+              <StagePageMobile
+                issues={state.Data.issues.filter(
+                  (issue) =>
+                    issue.projectId.toString() ===
+                    routeProps.match.params.project_id
+                )}
+                routeProps={routeProps}
+              />
+            ) : (
+              <Redirect
+                to={{
+                  pathname: "/",
+                }}
+              />
+            )
+          }
         />
       </Switch>
     </Router>
