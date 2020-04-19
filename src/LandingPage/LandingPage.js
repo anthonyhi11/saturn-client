@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./LandingPage.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import OrgSignUp from "./SignUp/OrgSignUp";
 import DevSignUp from "./SignUp/DevSignUp";
 import LogIn from "./LogIn/LogIn";
+import LoginService from "../services/login-service";
+import TokenService from "../services/token-services";
 
 export default function LandingPage() {
+  let history = useHistory();
   const [orgFormShown, setOrgFormShown] = useState(false);
   const [devFormShown, setDevFormShown] = useState(false);
   const [logInShown, setLogInShown] = useState(false);
@@ -16,6 +19,19 @@ export default function LandingPage() {
     setLogInShown(false);
   }
 
+  function handleDemoClick(e) {
+    let credentials = {
+      email: "john@fakemail.com",
+      password: "AAaa11!!",
+    };
+    LoginService.loginUser(credentials).then((res) => {
+      TokenService.saveAuthToken(res.authToken);
+
+      setTimeout(function () {
+        history.push("/main");
+      }, 1200);
+    });
+  }
   return (
     <div
       className="main-content-landing"
@@ -60,6 +76,7 @@ export default function LandingPage() {
           <button>Learn More</button>
         </Link>
         <button onClick={() => setLogInShown(true)}>Log in</button>
+        <button onClick={(e) => handleDemoClick(e)}>DEMO ACCOUNT</button>
       </section>
     </div>
   );
