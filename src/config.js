@@ -1,4 +1,4 @@
 export default {
-  API_ENDPOINT: 'http://localhost:8000/api',
-  TOKEN_KEY: 'bearer',
+  API_ENDPOINT: "https://serene-lake-02687.herokuapp.com/api",
+  TOKEN_KEY: "bearer",
 };
