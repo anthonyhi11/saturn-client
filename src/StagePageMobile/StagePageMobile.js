@@ -1,19 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import "./StagePageMobile.css";
 import { useHistory } from "react-router-dom";
+import StoriesService from "../services/stories-service";
+import StagesService from "../services/stages-service";
 
 export default function StagePageMobile(props) {
   let history = useHistory();
+  let [stories, setStories] = useState([]);
+  let [stages, setStages] = useState([]);
 
-  let issues = props.issues
-    .filter((issue) => issue.stage === props.routeProps.match.params.stage)
-    .map((issue) => {
+  useEffect(() => {
+    StagesService.getStages().then((stages) => {
+      setStages(stages);
+    });
+    //eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    StoriesService.getStories(props.routeProps.match.params.project_id).then(
+      (stories) => {
+        setStories(stories);
+      }
+    );
+    //eslint-disable-next-line
+  }, []);
+
+  let currentStage = stages.find(
+    (stage) => stage.name === props.routeProps.match.params.stage
+  );
+
+  let currentStories = stories
+    .filter((story) => story.stage_id === currentStage.id)
+    .map((currentStory) => {
       return (
-        <tr key={issue.id} onClick={(e) => history.push(`/issue/${issue.id}`)}>
-          <td>{issue.id}</td>
-          <td>{issue.title}</td>
-          <td>{issue.dev}</td>
+        <tr
+          key={currentStory.id}
+          onClick={(e) => history.push(`/story/${currentStory.id}`)}
+        >
+          <td>{currentStory.id}</td>
+          <td>{currentStory.title}</td>
+          <td>{currentStory.user_id}</td>
         </tr>
       );
     });
@@ -21,7 +48,7 @@ export default function StagePageMobile(props) {
   return (
     <div>
       <Header />
-      <h1 className="issue-table-h1" onClick={(e) => history.goBack(1)}>
+      <h1 className="issue-table-h1" onClick={(e) => history.goBack()}>
         {props.routeProps.match.params.stage} Stories
       </h1>
       <table className="issue-table">
@@ -32,9 +59,9 @@ export default function StagePageMobile(props) {
             <th>Assigned to</th>
           </tr>
         </thead>
-        <tbody>{issues}</tbody>
+        <tbody>{currentStories}</tbody>
       </table>
-      <button onClick={e => history.goBack()}>Go Back</button>
+      <button onClick={(e) => history.goBack()}>Go Back</button>
     </div>
   );
 }

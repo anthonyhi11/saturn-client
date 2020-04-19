@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -9,7 +9,6 @@ import LandingPage from "./LandingPage/LandingPage";
 import MoreInfo from "./LandingPage/MoreInfo/MoreInfo";
 import MainPage from "./MainPage/MainPage";
 import ProjectPage from "./ProjectPage/ProjectPage";
-import { ProjectContext } from "./ProjectContext/ProjectContext";
 import StoryPage from "./ProjectPage/StoryPage/StoryPage";
 import PersonalSettings from "./Settings/PersonalSettings";
 import OrgSettings from "./Settings/OrgSettings";
@@ -22,7 +21,6 @@ import PrivateRoute from "./services/private-route";
 import TokenService from "./services/token-services";
 
 function App() {
-  let [state] = useContext(ProjectContext);
   let [projects, setProjects] = useState([]);
   let [stories, setStories] = useState([]);
 
@@ -112,7 +110,8 @@ function App() {
           component={PersonalSettings}
         />
         <PrivateRoute
-          exactpath="/settings/organization"
+          exact
+          path="/settings/organization"
           component={OrgSettings}
         />
         <PrivateRoute exact path="/settings/team" component={TeamSettings} />
@@ -126,14 +125,7 @@ function App() {
           path="/projects/:project_id/:stage"
           render={(routeProps) =>
             isAuthenticated ? (
-              <StagePageMobile
-                issues={state.Data.issues.filter(
-                  (issue) =>
-                    issue.projectId.toString() ===
-                    routeProps.match.params.project_id
-                )}
-                routeProps={routeProps}
-              />
+              <StagePageMobile routeProps={routeProps} />
             ) : (
               <Redirect
                 to={{

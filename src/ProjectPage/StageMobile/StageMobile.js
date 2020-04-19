@@ -1,18 +1,22 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./StageMobile.css";
-import { ProjectContext } from "../../ProjectContext/ProjectContext";
 import { useHistory } from "react-router-dom";
+import StoriesService from "../../services/stories-service";
 
 export default function StageMobile(props) {
   let history = useHistory();
-  let [state] = useContext(ProjectContext);
+  let [stories, setStories] = useState([]);
 
-  let issues = state.Data.issues.filter(
-    (issue) =>
-      issue.stage === props.name && issue.projectId === props.project.id
-  );
+  useEffect(() => {
+    StoriesService.getStories(props.project.id).then((stories) => {
+      setStories(stories);
+    });
+    //eslint-disable-next-line
+  }, []);
 
-  let issueNumber = issues.length;
+  let currentStories = stories.filter((story) => story.stage_id === props.id);
+  let length = currentStories.length;
+
   return (
     <tr
       className="table-row"
@@ -21,15 +25,7 @@ export default function StageMobile(props) {
       }
     >
       <td>{props.name}</td>
-      <td>{issueNumber}</td>
-      {/* <td>
-        <Link
-          to={`/projects/${props.project.id}/${props.name}`}
-          className="link"
-        >
-          <button>View More</button>
-        </Link>
-      </td> */}
+      <td>{length}</td>
     </tr>
   );
 }

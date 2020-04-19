@@ -6,7 +6,6 @@ import StagesService from "../../services/stages-service";
 
 export default function StorySideBar(props) {
   let history = useHistory();
-  // let [state, setState] = useContext(ProjectContext);
   let [stages, setStages] = useState([]);
 
   useEffect(() => {
