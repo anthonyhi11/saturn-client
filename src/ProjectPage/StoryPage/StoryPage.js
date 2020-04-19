@@ -3,23 +3,29 @@ import Header from "../../Header/Header";
 import "./IssuePage.css";
 import StorySideBar from "./StorySideBar";
 import CommentsSection from "./CommentsSection";
-// import { ProjectContext } from "../../ProjectContext/ProjectContext";
-// import { useHistory } from "react-router-dom";
 import UsersService from "../../services/users-service";
 import ProjectsService from "../../services/projects-service";
+import StoriesService from "../../services/stories-service";
+import { useHistory } from "react-router-dom";
 
 export default function StoryPage(props) {
   let [showDeleteWarning, setShowDeleteWarning] = useState(false);
-  // let [state, setState] = useContext(ProjectContext);
-  // let history = useHistory();
   let [story, setStory] = useState({});
+  let history = useHistory();
   let [users, setUsers] = useState([]);
   let [projects, setProjects] = useState([]);
+  let [user, setUser] = useState([]);
 
   useEffect(() => {
     setStory(props.story);
     //eslint-disable-next-line
   }, [story]);
+
+  useEffect(() => {
+    UsersService.getUser().then((user) => {
+      setUser(user);
+    });
+  }, []);
 
   useEffect(() => {
     ProjectsService.getProjects().then((projects) => {
@@ -48,13 +54,13 @@ export default function StoryPage(props) {
     setShowDeleteWarning(false);
   }
 
-  // function deleteIssue(e) {
-  //   e.preventDefault();
-  //   let newData = { ...state.Data };
-  //   newData.issues = newData.issues.filter((issue) => issue.id !== id);
-  //   setState({ Data: newData });
-  //   history.goBack(1);
-  // }
+  function deleteIssue(e) {
+    e.preventDefault();
+    let storyId = story.id;
+    StoriesService.deleteStory(storyId).then(() => {
+      history.goBack(1);
+    });
+  }
 
   return (
     <div>
@@ -63,7 +69,7 @@ export default function StoryPage(props) {
         <div className="delete-modal">
           <h2>Are you sure?</h2>
           <div className="delete-button-div">
-            {/* <button onClick={(e) => deleteIssue(e)}>Yes, Delete!</button> */}
+            <button onClick={(e) => deleteIssue(e)}>Yes, Delete!</button>
             <button onClick={(e) => handleCancel(e)}>Cancel</button>
           </div>
         </div>
@@ -77,18 +83,14 @@ export default function StoryPage(props) {
         />
         <div className="issuePage-div">
           <h2>{title}</h2>{" "}
-          <p className="delete-issue" onClick={(e) => handleShowDelete(e)}>
-            x
-          </p>
+          {user.role === "Admin" && (
+            <p className="delete-issue" onClick={(e) => handleShowDelete(e)}>
+              x
+            </p>
+          )}
           <p>{story_desc}</p>
           <CommentsSection story={id} users={users} key={id} />
         </div>
-        <button
-          onClick={(e) => handleShowDelete(e)}
-          className="delete-issue-button"
-        >
-          Delete Issue
-        </button>
       </div>
     </div>
   );

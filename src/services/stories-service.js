@@ -37,6 +37,19 @@ const StoriesService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  deleteStory(storyId) {
+    return fetch(`${config.API_ENDPOINT}/stories/${storyId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        return res.json().then((e) => Promise.reject(e));
+      }
+    });
+  },
 };
 
 export default StoriesService;

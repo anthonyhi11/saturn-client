@@ -13,7 +13,7 @@ export default function PersonalSettings() {
     UsersService.getUser().then((user) => {
       setUser(user);
     });
-  }, []);
+  }, [isSuccessful]);
 
   function handlePersonalChanges(e) {
     e.preventDefault();
@@ -60,21 +60,27 @@ export default function PersonalSettings() {
               Personal
             </NavLink>
           </li>
-          <li>
-            <NavLink className="nav-link" to="/settings/organization">
-              Organization
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to="/settings/team">
-              Team
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to="/settings/projects">
-              Projects
-            </NavLink>
-          </li>
+          {user.role === "Admin" && (
+            <li>
+              <NavLink className="nav-link" to="/settings/organization">
+                Organization
+              </NavLink>
+            </li>
+          )}
+          {user.role === "Admin" && (
+            <li>
+              <NavLink className="nav-link" to="/settings/team">
+                Team
+              </NavLink>
+            </li>
+          )}
+          {user.role === "Admin" && (
+            <li>
+              <NavLink className="nav-link" to="/settings/projects">
+                Projects
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
       <section className="settings-changes">
