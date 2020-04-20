@@ -7,6 +7,7 @@ import LoginService from "../../services/login-service";
 export default function DevSignUp(props) {
   let history = useHistory();
   let [error, setError] = useState(null);
+  let [success, setSuccess] = useState(false);
 
   function handleDevSignup(e) {
     e.preventDefault();
@@ -33,7 +34,10 @@ export default function DevSignUp(props) {
         };
         LoginService.loginUser(loginAttempt).then((res) => {
           TokenService.saveAuthToken(res.authToken);
-          history.push("/main");
+          setSuccess(true);
+          setTimeout(function () {
+            history.push("/main");
+          }, 2000);
         });
       })
       .catch((res) => {
@@ -42,6 +46,13 @@ export default function DevSignUp(props) {
   }
   return (
     <div className="modal-container">
+      {success && (
+        <div className="success">
+          Success! Taking you to the main page! Click{" "}
+          <span onClick={(e) => history.push("/main")}>here</span> if not
+          re-directed in 30 seconds...{" "}
+        </div>
+      )}
       <div className="create-org-div">
         <div>{error && <p className="error-alert">{error}</p>}</div>
         <h2>Tell us more about your yourself</h2>

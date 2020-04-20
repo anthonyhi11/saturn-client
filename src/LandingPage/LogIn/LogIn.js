@@ -35,7 +35,7 @@ export default function LogIn(props) {
       {success && (
         <div className="success">
           Success! If not redirected,
-          <button onClick={history.push("/main")}>Click H</button>
+          <button onClick={history.push("/main")}>Click Here</button>
         </div>
       )}
       <h2>Let's get to work!</h2>
