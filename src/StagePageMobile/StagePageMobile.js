@@ -30,6 +30,15 @@ export default function StagePageMobile(props) {
     (stage) => stage.name === props.routeProps.match.params.stage
   );
 
+  if (currentStage === undefined) {
+    return (
+      <div>
+        <p>Loading... Click here to take you there :)</p>
+        <button onClick={(e) => history.push("/main")}>Fix it</button>
+      </div>
+    );
+  }
+
   let currentStories = stories
     .filter((story) => story.stage_id === currentStage.id)
     .map((currentStory) => {

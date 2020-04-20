@@ -28,7 +28,7 @@ export default function MoreInfo(props) {
       <h2 className="how-do-i">How do I use it?</h2>
       <div className="how-to-p">
         <p className="how-to-p-p">
-          1. If you want to start a organization: create an organization account and get your organization passcode.
+          1. If you want to start a organization: create an organization account and get your organization passcode from the settings page.
         </p>
         <p className="how-to-p-p">
           2. Share that with any developers you want to join the team and have them create Developer accounts with the passcode. 

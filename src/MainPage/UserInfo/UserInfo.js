@@ -28,7 +28,7 @@ export default function UserInfo(props) {
       />
 
       <Link to="/settings/personal">
-        <button className="edit-profile-button">Edit Profile</button>
+        <button className="edit-profile-button">Settings</button>
       </Link>
     </div>
   );

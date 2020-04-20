@@ -48,17 +48,9 @@ function App() {
         <Route
           exact
           path="/main"
-          render={() =>
-            isAuthenticated ? (
-              <MainPage setProjectsState={(e) => setProjectsState(e)} />
-            ) : (
-              <Redirect
-                to={{
-                  pathname: "/",
-                }}
-              />
-            )
-          }
+          render={() => (
+            <MainPage setProjectsState={(e) => setProjectsState(e)} />
+          )}
         />
 
         <Route

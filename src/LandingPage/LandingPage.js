@@ -12,6 +12,8 @@ export default function LandingPage() {
   const [orgFormShown, setOrgFormShown] = useState(false);
   const [devFormShown, setDevFormShown] = useState(false);
   const [logInShown, setLogInShown] = useState(false);
+  const [authToken, setAuthToken] = useState(false);
+  let [success, setSuccess] = useState();
 
   function handleCancel() {
     setOrgFormShown(false);
@@ -24,13 +26,19 @@ export default function LandingPage() {
       email: "john@fakemail.com",
       password: "AAaa11!!",
     };
-    LoginService.loginUser(credentials).then((res) => {
-      TokenService.saveAuthToken(res.authToken);
-
-      setTimeout(function () {
-        history.push("/main");
-      }, 1200);
-    });
+    LoginService.loginUser(credentials)
+      .then((res) => {
+        TokenService.saveAuthToken(res.authToken);
+        setAuthToken(true);
+        if (authToken === true) {
+          setSuccess(true);
+        }
+      })
+      .then(() => {
+        setTimeout(function () {
+          history.push("/main");
+        }, 1200);
+      });
   }
   return (
     <div
@@ -45,6 +53,13 @@ export default function LandingPage() {
       {devFormShown && <DevSignUp handleCancel={handleCancel} />}
       {logInShown && <LogIn handleCancel={handleCancel} />}
       <h1 className="hero-title">Saturn</h1>
+      {success && (
+        <div className="success">
+          Success! If not redirected, click here:{" "}
+          <button onClick={(e) => history.push("/main")}>Click</button>
+        </div>
+      )}
+
       <h2>Who are you and why are you here?</h2>
       <div className="create-container">
         <div

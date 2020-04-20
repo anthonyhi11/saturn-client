@@ -5,10 +5,15 @@ import "./MainPage.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import AddProjectForm from "./AddProjectForm/AddProjectForm";
 import ProjectsService from "../services/projects-service";
+import UsersService from "../services/users-service";
+import { useHistory } from "react-router-dom";
+
 export default function MainPage(props) {
+  let history = useHistory();
   let [showAddProject, setShowAddProject] = useState(false);
   let [projects, setProjects] = useState([]);
   let [newProject, setNewProject] = useState([]);
+  let [user, setUser] = useState(false);
 
   function handleProjectCancel(e) {
     setShowAddProject(false);
@@ -17,6 +22,12 @@ export default function MainPage(props) {
   function handleAddProject(project) {
     setNewProject(project);
   }
+
+  useEffect(() => {
+    UsersService.getUser().then((user) => {
+      setUser(true);
+    });
+  }, []);
 
   useEffect(() => {
     ProjectsService.getProjects().then((projects) => {
@@ -31,6 +42,15 @@ export default function MainPage(props) {
     .map((project) => {
       return <ProjectCard info={project} key={project.id} />;
     });
+
+  if (!user) {
+    return (
+      <div>
+        Oops! Please go back and log in!{" "}
+        <button onClick={(e) => history.push("/")}>Go back</button>
+      </div>
+    );
+  }
 
   return (
     <>
