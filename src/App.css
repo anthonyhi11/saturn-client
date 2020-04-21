@@ -1,8 +1,8 @@
 * {
   box-sizing: border-box;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  overflow-x: hidden;
+  /* -moz-appearance: none;
+  -webkit-appearance: none; */
+  overflow: hidden;
 }
 
 body {

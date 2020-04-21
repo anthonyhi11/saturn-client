@@ -39,10 +39,8 @@ export default function MoreInfo(props) {
             </ul>
           </div>
           <h2 id="any-questions">QUESTIONS?</h2>
-          <p>
-            <a href="mailto:antdavhill@gmail.com?Subject=Questions%20about%20Saturn...">
-              Drop us a line!
-            </a>
+          <p className="drop-a-line">
+            <a href="mailto:antdavhill@gmail.com">Drop us a line!</a>
           </p>
           <div
             className="button-more-info"

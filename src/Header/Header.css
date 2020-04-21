@@ -21,6 +21,8 @@
 
   .logout-button {
     margin-right: 8vw;
+    font-family: callingCode-Bold;
+    font-weight: bold;
     color: #fcb566;
     border-bottom: 2px solid #fcb566;
     padding-bottom: 2px;

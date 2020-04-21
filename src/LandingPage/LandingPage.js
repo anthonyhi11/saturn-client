@@ -56,7 +56,7 @@ export default function LandingPage() {
       {orgFormShown && <OrgSignUp handleCancel={handleCancel} />}
       {devFormShown && <DevSignUp handleCancel={handleCancel} />}
       {logInShown && <LogIn handleCancel={handleCancel} />}
-      <h1 className="hero-title">Saturn</h1>
+      <img className="hero-logo" src="./images/saturn-logo.svg" alt="logo" />
       {success && (
         <div className="success">
           Success! If not redirected, click here:{" "}

@@ -95,7 +95,9 @@
   .how-do-i {
     margin-top: 0vh;
   }
-
+  .drop-a-line {
+    border-bottom: 2px solid #fcb566;
+  }
   a {
     text-decoration: none;
     color: #fcb566;

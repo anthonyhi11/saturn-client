@@ -5,16 +5,18 @@
   }
 
   .main-content-landing {
-    z-index: 10;
+    z-index: 0;
     background-color: #072334;
     width: 100vw;
     height: 100vh;
   }
-  .hero-title {
-    text-align: center;
-    font-size: 55px;
-    font-family: callingCode-Bold;
-    margin-top: 3%;
+  .hero-logo {
+    position: relative;
+    transform: translate(-55%);
+    left: 50%;
+    margin-top: 5vh;
+    width: 250px;
+    z-index: 0;
   }
   .main-content-landing h2 {
     text-align: center;
@@ -88,12 +90,15 @@
     font-size: 15px;
     color: #072334;
     font-weight: bold;
+    border: none;
   }
   .login-button:hover {
     cursor: pointer;
   }
   .learnMore {
     text-decoration: none;
+    font-family: callingCode-Bold;
+    font-weight: bold;
     color: #fcb566;
     font-size: 15px;
     border-bottom: 2px solid #fcb566;
