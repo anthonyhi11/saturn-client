@@ -57,63 +57,60 @@ export default function DevSignUp(props) {
         <div>{error && <p className="error-alert">{error}</p>}</div>
         <h2>Tell us more about your yourself</h2>
         <p>
-          Fill out the below form. A developer account will be created. You'll
-          need your organization passcode. Reach out to your team lead to get
-          it!
+          Fill out the below form. You'll need your organization passcode. Reach
+          out to your team lead to get it!
         </p>
-        <form className="org-form" onSubmit={(e) => handleDevSignup(e)}>
-          <input
-            type="text"
-            id="passcode"
-            name="passcode"
-            placeholder="Organization Passcode"
-            required
-          />
-          <input
-            type="text"
-            id="first_name"
-            name="first_name"
-            placeholder="First Name"
-            required
-          />
-          <input
-            type="text"
-            id="last_name"
-            name="last_name"
-            placeholder="Last Name"
-            required
-          />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-          />
-          <input
-            type="password"
-            name="password_confirm"
-            id="password_confirm"
-            placeholder="Confirm Password"
-          />
+        <div>
+          <form className="org-form" onSubmit={(e) => handleDevSignup(e)}>
+            <input
+              type="text"
+              id="passcode"
+              name="passcode"
+              placeholder="Organization Passcode"
+              required
+            />
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              placeholder="First Name"
+              required
+            />
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              placeholder="Last Name"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <input
+              type="password"
+              name="password_confirm"
+              id="password_confirm"
+              placeholder="Confirm Password"
+            />
 
-          <button className="buttons" type="submit">
-            Create Developer Account
-          </button>
-          <button
-            className="buttons"
-            type="reset"
-            onClick={(e) => props.handleCancel(e)}
-          >
-            Cancel
-          </button>
-        </form>
+            <button className="buttons" type="submit">
+              Create Account
+            </button>
+            <p className="cancel-click" onClick={(e) => props.handleCancel(e)}>
+              Cancel
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );

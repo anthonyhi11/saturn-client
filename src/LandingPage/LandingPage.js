@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import "./LandingPage.css";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import OrgSignUp from "./SignUp/OrgSignUp";
 import DevSignUp from "./SignUp/DevSignUp";
 import LogIn from "./LogIn/LogIn";
 import LoginService from "../services/login-service";
 import TokenService from "../services/token-services";
+import MoreInfo from "./MoreInfo/MoreInfo";
 
 export default function LandingPage() {
   let history = useHistory();
   const [orgFormShown, setOrgFormShown] = useState(false);
   const [devFormShown, setDevFormShown] = useState(false);
   const [logInShown, setLogInShown] = useState(false);
+  const [moreInfoShown, setMoreInfoShown] = useState(false);
   const [authToken, setAuthToken] = useState(false);
   let [success, setSuccess] = useState();
 
@@ -19,6 +21,7 @@ export default function LandingPage() {
     setOrgFormShown(false);
     setDevFormShown(false);
     setLogInShown(false);
+    setMoreInfoShown(false);
   }
 
   function handleDemoClick(e) {
@@ -49,6 +52,7 @@ export default function LandingPage() {
         }
       }}
     >
+      {moreInfoShown && <MoreInfo handleCancel={handleCancel} />}
       {orgFormShown && <OrgSignUp handleCancel={handleCancel} />}
       {devFormShown && <DevSignUp handleCancel={handleCancel} />}
       {logInShown && <LogIn handleCancel={handleCancel} />}
@@ -60,38 +64,35 @@ export default function LandingPage() {
         </div>
       )}
 
-      <h2>Who are you and why are you here?</h2>
+      <h2>WHO ARE YOU?</h2>
       <div className="create-container">
         <div
           className="create-new-div new-org-div"
           onClick={() => setOrgFormShown(true)}
         >
-          <img
-            src="https://image.flaticon.com/icons/svg/124/124635.svg"
-            alt="spaceship"
-            className="img"
-          />
+          <img src="./images/ellipse1.png" alt="spaceship" className="img" />
           <p className="createnew-div-p">Organization</p>
         </div>
-        <p>or</p>
+        <p className="createnew-div-p">OR</p>
         <div
           className="create-new-div new-dev-div"
           onClick={() => setDevFormShown(true)}
         >
-          <img
-            src="https://image.flaticon.com/icons/svg/2026/2026521.svg"
-            alt="spaceperson"
-            className="img"
-          />
+          <img src="./images/polygon1.png" alt="spaceperson" className="img" />
           <p className="createnew-div-p">Developer</p>
         </div>
       </div>
       <section className="landing-page-buttons">
-        <Link to="/learn">
-          <button>Learn More</button>
-        </Link>
-        <button onClick={() => setLogInShown(true)}>Log in</button>
-        <button onClick={(e) => handleDemoClick(e)}>DEMO ACCOUNT</button>
+        <button className="login-button" onClick={() => setLogInShown(true)}>
+          Login
+        </button>
+        <button className="login-button" onClick={(e) => handleDemoClick(e)}>
+          Demo
+        </button>
+
+        <p className="learnMore" onClick={(e) => setMoreInfoShown(true)}>
+          Learn More
+        </p>
       </section>
     </div>
   );

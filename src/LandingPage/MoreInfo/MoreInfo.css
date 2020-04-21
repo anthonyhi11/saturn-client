@@ -1,43 +1,110 @@
 @media screen and (min-width: 900px) {
-  .moreInfo-body h2 {
-    text-align: center;
+  .modal-container-moreinfo {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(7, 35, 52);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
   }
   .moreInfo-body {
+    width: 600px;
+    height: 670px;
+    border: 1px black solid;
+    background-color: white;
+    padding-top: 5%;
+    padding-left: 5%;
+    position: relative;
+    border-radius: 15px;
+  }
+  .more-info-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 5vh;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    width: 90%;
+  }
+  .moreInfo-body h2 {
+    text-align: left;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    color: #072334;
+    font-size: 16px;
+    margin-bottom: 10px;
+    height: fit-content;
   }
 
   .moreInfo-p {
     text-align: left;
-    width: 75%;
-    margin-top: 2vh;
+    width: 85%;
+    font-size: 13px;
+    font-family: callingCode-Regular;
+    font-weight: normal;
+    height: fit-content;
+    color: #094a59;
+    margin-bottom: 10px;
+  }
+  .title-span {
+    display: block;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    margin-bottom: 5px;
   }
 
+  ul {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
   .how-to-p {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 75%;
+    width: 100%;
+    margin-bottom: 30px;
   }
 
   .how-to-p-p {
     text-align: left;
-    margin-top: 2vh;
+    margin-top: 1vh;
+    height: fit-content;
+    color: #094a59;
+    font-family: callingCode-Regular;
+    font-weight: normal;
+    font-size: 13px;
+    margin-bottom: 20px;
   }
 
-  .any-questions {
-    margin-top: 5%;
+  #any-questions {
+    margin-top: -5px;
+    margin-bottom: 20px;
   }
 
   .button-more-info {
-    margin-top: 0px;
-    margin-bottom: 8vh;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 22px;
+  }
+
+  .button-more-info:hover {
+    cursor: pointer;
   }
 
   .how-do-i {
-    margin-top: 2vh;
+    margin-top: 0vh;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fcb566;
+    border-bottom: 1px solid #fcb566;
+  }
+
+  .any-questions p {
+    color: #fcb566;
+    font-size: 13px;
   }
 }
 

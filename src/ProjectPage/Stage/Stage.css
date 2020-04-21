@@ -1,27 +1,57 @@
 .issue-links {
   text-decoration: none;
   color: black;
+  border-bottom: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .stage-container {
   width: 20vw;
   height: fit-content;
   min-height: 20vh;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 5px;
   padding-bottom: 20px;
-}
-
-.stage {
   margin-bottom: 20px;
 }
 
+.stage-container-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.stage-name {
+  margin-bottom: 20px;
+}
+
+.stages-box {
+  background-color: #f7f7f7;
+  height: fit-content;
+  min-height: 450px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
 .stage-header {
   display: flex;
   position: relative;
   width: 100%;
-  justify-content: center;
+  padding-left: 20px;
+  font-size: 15px;
+  font-family: callingCode-Bold;
+  font-weight: bold;
+  text-transform: uppercase;
 }

@@ -46,7 +46,7 @@ export default function MainPage(props) {
   if (!user) {
     return (
       <div>
-        Oops! Please go back and log in!{" "}
+        Loading... if not redirected click:{" "}
         <button onClick={(e) => history.push("/")}>Go back</button>
       </div>
     );
@@ -63,15 +63,19 @@ export default function MainPage(props) {
       )}{" "}
       <div className="mainpage-container">
         <UserInfo />
-        <div className="projectcard-container">
-          <h3 className="projects-h3">Projects</h3>{" "}
-          <button
-            className="add-project-button"
-            onClick={(e) => setShowAddProject(true)}
-          >
-            Add
-          </button>
-          <div className="projectCards">{projectList}</div>
+        <div className="entire project-container">
+          <div className="project-header-contain">
+            <h3 className="projects-h3">PROJECTS</h3>{" "}
+            <button
+              className="add-project-button"
+              onClick={(e) => setShowAddProject(true)}
+            >
+              + Add Project
+            </button>
+          </div>
+          <div className="projectcard-container">
+            <div className="projectCards">{projectList}</div>
+          </div>
         </div>
       </div>
     </>

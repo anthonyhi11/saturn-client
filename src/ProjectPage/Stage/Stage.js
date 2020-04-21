@@ -14,7 +14,6 @@ export default function Stage(props) {
     });
   }, []);
 
-
   let storiesList = props.stories
     .filter((story) => story.stage_id === props.id)
     .map((story) => {
@@ -59,10 +58,12 @@ export default function Stage(props) {
       onDrop={(e) => drop(e)}
       onDragOver={(e) => allowDrop(e)}
     >
-      <div className="stage-header">
-        <p className="stage">{props.name}</p>
+      <div className="stage-container-container">
+        <div className="stage-header">
+          <p className="stage-name">{props.name}</p>
+        </div>
+        <div className="stages-box">{storiesList}</div>
       </div>
-      <div>{storiesList}</div>
     </div>
   );
 }

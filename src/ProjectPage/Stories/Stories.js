@@ -9,15 +9,24 @@ export default function Stories(props) {
   }
   return (
     <div
-      className="issues"
+      className="stories"
       draggable
       onDragStart={(e) => {
         dragStart(e, props.info);
       }}
     >
-      <p>Story # {props.info.id}</p>
-      <p>Assigned to: {props.users.first_name}</p>
-      <p>Request: {props.info.title}</p>
+      <p className="story-title">{props.info.title}</p>
+      <div className="assignment-container">
+        <div className="dev-info">
+          <img
+            src="../images/ellipse2.png"
+            className="profile-small"
+            alt="profile-png"
+          />
+          <p className="assignment">{props.users.first_name}</p>
+        </div>
+        <p className="story-num">#{props.info.id}</p>
+      </div>
     </div>
   );
 }

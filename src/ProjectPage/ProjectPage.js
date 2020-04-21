@@ -8,6 +8,7 @@ import StageMobile from "./StageMobile/StageMobile";
 import { useHistory } from "react-router-dom";
 import StoriesService from "../services/stories-service";
 import StagesService from "../services/stages-service";
+import UserInfo from "../MainPage/UserInfo/UserInfo";
 
 export default function ProjectPage(props) {
   let history = useHistory();
@@ -75,40 +76,51 @@ export default function ProjectPage(props) {
   return (
     <>
       <Header />
+
       {showAddStory && (
         <AddStoryForm
           project={props.project.id}
           handleCancel={(e) => handleCancel(e)}
         />
       )}
-      <div className="project-info">
-        <h2>{project.name || localStorage.getItem("project")}</h2>
+      <div className="project-page-container">
+        <UserInfo />
+        <div className="project-container">
+          <div className="project-info">
+            <h2>{project.name || localStorage.getItem("project")}</h2>
 
-        <button
-          className="issue-add-button"
-          onClick={() => setShowAddStory(true)}
-        >
-          Add Story
-        </button>
-        <button onClick={(e) => history.goBack()}>Go Back</button>
-      </div>
-      {isDesktopOrLaptop && (
-        <section className="stages-container">{stageList}</section>
-      )}
-      {isMobile && (
-        <div>
-          <table className="issue-table">
-            <thead>
-              <tr className="table-row">
-                <th>Stage</th>
-                <th>Stories</th>
-              </tr>
-            </thead>
-            <tbody>{stageMobileList}</tbody>
-          </table>
-          <button onClick={(e) => history.goBack()}>Go Back</button>
+            <button
+              className="issue-add-button"
+              onClick={() => setShowAddStory(true)}
+            >
+              + Add Story
+            </button>
+            <p
+              className="project-page-goback"
+              onClick={(e) => history.goBack()}
+            >
+              &larr; Back to Projects
+            </p>
+          </div>
+          {isDesktopOrLaptop && (
+            <section className="stages-container">{stageList}</section>
+          )}
+          {isMobile && (
+            <div>
+              <table className="issue-table">
+                <thead>
+                  <tr className="table-row">
+                    <th>Stage</th>
+                    <th>Stories</th>
+                  </tr>
+                </thead>
+                <tbody>{stageMobileList}</tbody>
+              </table>
+              <button onClick={(e) => history.goBack()}>Go Back</button>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 }

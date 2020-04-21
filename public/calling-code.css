@@ -1,0 +1,35 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3892866, 2020-04-20T11:43:51-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: CallingCode-Bold by Dharma Type
+ * URL: https://www.myfonts.com/fonts/flat-it/calling-code/bold/
+ * 
+ * Webfont: CallingCode-Regular by Dharma Type
+ * URL: https://www.myfonts.com/fonts/flat-it/calling-code/regular/
+ * 
+ * 
+ * Webfonts copyright: Copyright &amp;#x00A9; 2017 by Ryoichi Tsunekawa. All rights reserved.
+ * 
+ * © 2020 MyFonts Inc
+*/
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3b6682");
+
+@font-face {
+  font-family: "callingCode-Regular";
+  src: url("./fonts/CallingCode-Regular/font.woff2") format("woff2"),
+    url("webFonts/CallingCode-Regular/font.woff") format("woff");
+}
+@font-face {
+  font-family: "callingCode-Bold";
+  src: url("./fonts/CallingCode-Bold/font.woff2") format("woff2"),
+    url("/fonts/CallingCode-Bold/font.woff") format("woff");
+}

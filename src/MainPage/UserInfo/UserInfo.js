@@ -19,16 +19,16 @@ export default function UserInfo(props) {
 
   return (
     <div className="user-info-container">
-      <h2 className="user-name">{userName}</h2>
-      <p className="title">{userRole}</p>
       <img
         className="profile-pic"
         src="https://image.flaticon.com/icons/svg/2026/2026521.svg"
         alt="profile pic"
       />
+      <h2 className="user-name">{userName}</h2>
+      <p className="title">{userRole}</p>
 
       <Link to="/settings/personal">
-        <button className="edit-profile-button">Settings</button>
+        <p className="edit-profile-button">Settings</p>
       </Link>
     </div>
   );

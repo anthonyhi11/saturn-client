@@ -1,44 +1,70 @@
 @media screen and (min-width: 700px) {
   .add-project-form {
     position: absolute;
-    left: 50%;
+    left: 55%;
     transform: translate(-50%);
-    top: 10%;
+    top: 25%;
     background-color: white;
-    width: 35vw;
-    height: fit-content;
+    width: 585px;
+    height: 300px;
+    border-radius: 8px;
+    background-color: white;
     display: flex;
     flex-direction: column;
     z-index: 10;
-    border: 3px solid lightskyblue;
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.2);
   }
 
   .add-project-form form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-top: 10px;
+    height: 100%;
+    position: relative;
+  }
+  .add-project-form h2 {
+    font-family: callingCode-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+    width: 80%;
+    margin-bottom: 10px;
+    margin-top: 20px;
   }
   .add-project-form input {
-    width: 60%;
-    height: 30px;
+    width: 80%;
+    height: 45px;
     margin-top: 10px;
-    padding: 5px;
-  }
-
-  .add-project-form label {
-    margin-top: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #e5e5e5;
   }
 
   .add-project-form button {
-    height: 25px;
-    width: 80px;
-    border-radius: 10px;
-    margin-top: 20px;
+    height: 40px;
+    width: 160px;
+    margin-top: 40px;
+    background: #fcb566;
+    box-shadow: 0px 3px 15px rgba(26, 26, 26, 0.2);
+    border-radius: 8px;
+    font-family: callingCode-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15.7778px;
+  }
+  .add-project-form button:hover {
+    cursor: pointer;
   }
 
   .cancel-p {
     cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 20px;
   }
 }
 

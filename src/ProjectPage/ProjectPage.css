@@ -4,28 +4,67 @@
     font-size: 29px;
   }
 
+  .project-container {
+    width: 100vw;
+  }
+  .project-page-container {
+    display: flex;
+  }
   .project-info {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    height: 10vh;
-    width: 100vw;
-    background-color: lightskyblue;
+    height: 20vh;
+    width: 75vw;
+    position: relative;
   }
   .project-info h2 {
-    font-size: 25px;
+    font-size: 40px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    margin-left: 4vw;
+    text-transform: uppercase;
+    margin-top: 16vh;
   }
   .stages-container {
-    width: 100vw;
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 10px;
+    justify-content: space-around;
+    margin-top: 40px;
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
   .issue-add-button {
+    width: 160px;
+    height: 40px;
+    margin-right: 1vw;
+    background: #ffffff;
+    border: 2px solid #fcb566;
+    border-radius: 5px;
+    font-family: callingCode-Bold;
+    color: #fcb566;
+    font-weight: bold;
     font-size: 15px;
-    margin: 0px;
-    border-radius: 10px;
+    margin-top: 10vh;
+  }
+
+  .issue-add-button:hover {
+    background-color: #fcb566;
+    color: white;
+    cursor: pointer;
+    transition: 1s;
+  }
+  .project-page-goback {
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    font-size: 13px;
+    color: #fcb566;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+  }
+  .project-page-goback:hover {
+    cursor: pointer;
   }
 }
 

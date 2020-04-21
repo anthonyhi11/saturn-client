@@ -1,17 +1,19 @@
 @media screen and (min-width: 700px) {
   .header {
     width: 100vw;
-    height: 10vh;
+    height: 9vh;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    background-color: lightcyan;
+    align-items: center;
+    background-color: #072334;
   }
 
   .hero-org {
-    margin-left: 5vw;
-    margin-top: 30px;
-    font-size: 40px;
+    font-size: 22px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    color: white;
+    margin-left: 10vw;
   }
   .hero-org:hover {
     cursor: pointer;
@@ -19,6 +21,9 @@
 
   .logout-button {
     margin-right: 8vw;
+    color: #fcb566;
+    border-bottom: 2px solid #fcb566;
+    padding-bottom: 2px;
   }
   .logout-button:hover {
     cursor: pointer;

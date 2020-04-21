@@ -14,13 +14,12 @@ export default function AddProjectForm(props) {
     ProjectsService.addProject(newProject).then((project) => {
       props.handleAddProject(project);
       props.handleCancel(e);
-      // window.location.reload(false);
     });
   }
   return (
     <div className="add-project-form">
       <form onSubmit={(e) => addNewProject(e)}>
-        <h2>Add New Project</h2>
+        <h2>NEW PROJECT</h2>
         <input
           type="text"
           name="name"
@@ -30,7 +29,7 @@ export default function AddProjectForm(props) {
         />
         <button type="submit">Add Project</button>
         <p className="cancel-p" onClick={(e) => props.handleCancel(e)}>
-          Cancel
+          x
         </p>
       </form>
     </div>

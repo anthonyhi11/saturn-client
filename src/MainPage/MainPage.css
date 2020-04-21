@@ -7,36 +7,58 @@
     justify-content: space-between;
   }
   .projectcard-container {
-    width: 70vw;
+    width: 65vw;
     height: fit-content;
-    min-height: 20vh;
-    margin-top: 2vh;
+    min-height: 15vh;
+    margin-top: 5vh;
     margin-right: 5vw;
+    margin-left: 5vw;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 5px;
+    background-color: #f7f7f7;
     position: relative;
+    border-radius: 8px;
   }
   .projects-h3 {
-    font-size: 35px;
+    font-size: 40px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
     margin-top: 0px;
-    margin-left: 5px;
+    margin-left: 5vw;
+    letter-spacing: 2px;
   }
 
   .projectCards {
     display: flex;
     flex-direction: column;
-    margin-top: 3vh;
+  }
+  .project-header-contain {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 80px;
+    align-items: center;
   }
 
   .add-project-button {
-    position: absolute;
-    right: 20%;
-    top: 3%;
-    height: 45px;
-    font-size: 20px;
+    height: 38px;
+    width: 160px;
+    border: 2px solid #fcb566;
+    border-radius: 5px;
+    font-size: 16px;
     border-radius: 10px;
-    padding: 10px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    margin-right: 10vw;
+    color: #fcb566;
+    background-color: white;
+  }
+  .add-project-button:hover {
+    cursor: pointer;
+    background-color: #fcb566;
+    color: white;
+    transition: 1s;
   }
 }
 

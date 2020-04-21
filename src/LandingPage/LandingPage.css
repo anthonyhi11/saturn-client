@@ -6,15 +6,25 @@
 
   .main-content-landing {
     z-index: 10;
+    background-color: #072334;
+    width: 100vw;
+    height: 100vh;
   }
   .hero-title {
     text-align: center;
     font-size: 55px;
+    font-family: callingCode-Bold;
     margin-top: 3%;
   }
   .main-content-landing h2 {
     text-align: center;
     margin-top: 2%;
+    font-family: callingCode-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+    letter-spacing: 0.03em;
   }
   .create-container {
     display: flex;
@@ -25,30 +35,37 @@
   }
 
   .create-new-div {
-    border: 1px solid black;
+    border: 2px solid #ffffff;
+    border-radius: 15px;
     padding: 30px;
-    margin: 4%;
-    height: 35%;
-    width: 15%;
+    min-height: 35%;
+    height: 350px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 10px;
+    min-width: 5%;
+    width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    transition: 1s;
   }
 
   .create-new-div:hover {
     cursor: pointer;
-    background-color: lightblue;
+    background-color: #fcb566;
+    transition: 2s;
   }
 
   .img {
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
   }
 
   .createnew-div-p {
-    margin-top: 50px;
-    margin-bottom: 0px;
+    color: #ffffff;
+    font-family: callingCode-Regular;
     font-size: 20px;
   }
 
@@ -57,16 +74,38 @@
     flex-direction: column;
     align-items: center;
     margin-top: 3%;
+    justify-content: space-evenly;
+    height: 20%;
   }
-  .landing-page-buttons button {
-    width: 100px;
+
+  .login-button {
+    width: 150px;
     height: 35px;
-    margin: 5px;
+    background-color: #fcb566;
+    box-shadow: 0px 3px 15px rgba(26, 26, 26, 0.2);
+    border-radius: 5px;
+    font-family: callingCode-Bold;
     font-size: 15px;
-    color: white;
-    background-color: black;
+    color: #072334;
+    font-weight: bold;
+  }
+  .login-button:hover {
+    cursor: pointer;
+  }
+  .learnMore {
+    text-decoration: none;
+    color: #fcb566;
+    font-size: 15px;
+    border-bottom: 2px solid #fcb566;
+    padding-bottom: 3px;
+  }
+
+  .learnMore:hover {
+    cursor: pointer;
   }
 }
+
+/*DO MOBILE SOON DUDE */
 
 @media screen and (max-width: 900px) {
   body {
