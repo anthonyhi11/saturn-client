@@ -1,12 +1,23 @@
 .comment-header {
-  font-size: 20px;
+  font-size: 16px;
+  font-family: callingCode-Bold;
+  font-weight: bold;
   margin-bottom: 20px;
+  color: #094a59;
 }
-
+.comment-section {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  height: fit-content;
+  width: 99.2%;
+}
+.comments-container {
+  margin-top: 20px;
+}
 .individual-comment {
   width: 95%;
   height: fit-content;
-  background-color: lightcyan;
+
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -17,31 +28,41 @@
 }
 
 .author {
-  margin: 0px;
-  text-decoration: underline;
+  font-family: callingCode-Bold;
+  font-size: 12px;
+  color: #072334;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 #text {
-  margin: 0px;
   text-align: left;
-  margin-left: 5px;
+  font-family: callingCode-Regular;
+  font-size: 12px;
+  color: #0e969d;
+  font-weight: normal;
 }
 
 .add-comment-input {
-  width: 75%;
-  height: 30px;
+  width: 99.4%;
+  height: 45px;
   padding: 10px;
-  border-radius: 10px;
-  margin-left: 10px;
-  margin-right: 0px;
-  font-size: 20px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: codeCalling-Regular;
+  font-weight: normal;
+  border: 1px solid #b8b8b8;
+  margin-top: 15px;
+  padding-right: 50px;
 }
 .comment-button {
-  width: 15%;
-  margin-left: 2%;
-  height: 50px;
-  border-radius: 10px;
-  font-size: 20px;
+  width: 70px;
+  height: 29px;
+  margin-left: -85px;
+  font-family: callingCode-Bold;
+  font-weight: bold;
+  color: white;
+  background-color: #fcb566;
+  border-radius: 5px;
+  font-size: 15px;
+  border: none;
 }
-
-

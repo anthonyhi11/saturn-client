@@ -78,6 +78,9 @@ export default function StoryPage(props) {
       <div className="issue-page-container">
         <UserInfo />
         <div className="issuePage-div">
+          <p className="story-page-goback" onClick={(e) => history.goBack()}>
+            &larr; Back to Kanban
+          </p>
           <h1 className="story-title-header">{title}</h1>{" "}
           <div className="story-content">
             <h2 className="story-desc-header">Description</h2>

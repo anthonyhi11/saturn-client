@@ -42,11 +42,17 @@ export default function StorySideBar(props) {
         defaultValue="Change Stage"
         onChange={(e) => handleStageChange(e, props.story.id)}
       >
-        <option value="Change Stage" hidden>Change Stage{" "}&nbsp; &#9660;</option>
+        <option value="Change Stage" hidden>
+          Change Stage &nbsp; &#9660;
+        </option>
         {stageChoices}
       </select>
       <h2 className="issue-id">#{props.story.id}</h2>
-      <p>Assignee: {props.user.first_name || "Pending"} </p>
+      <h3 className="assigned">Assignee</h3>
+      <p className="assigned-user"  >
+        {" "}
+        {props.user.first_name || "Pending"} {props.user.last_name || "Pending"}
+      </p>
 
       {/* <button onClick={(e) => history.go(-1)}>Go Back</button> */}
     </div>
