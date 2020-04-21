@@ -7,6 +7,7 @@ import UsersService from "../../services/users-service";
 import ProjectsService from "../../services/projects-service";
 import StoriesService from "../../services/stories-service";
 import { useHistory } from "react-router-dom";
+import UserInfo from "../../MainPage/UserInfo/UserInfo";
 
 export default function StoryPage(props) {
   let [showDeleteWarning, setShowDeleteWarning] = useState(false);
@@ -75,22 +76,26 @@ export default function StoryPage(props) {
         </div>
       )}
       <div className="issue-page-container">
+        <UserInfo />
+        <div className="issuePage-div">
+          <h1 className="story-title-header">{title}</h1>{" "}
+          <div className="story-content">
+            <h2 className="story-desc-header">Description</h2>
+            <p className="story-desc">{story_desc}</p>
+          </div>
+          <CommentsSection story={id} users={users} key={id} />
+        </div>
         <StorySideBar
           story={story}
           project={projects.find((project) => project.id === story.project_id)}
           handleSetStory={(e) => handleSetStory(e)}
           user={users.find((user) => user.id === story.user_id)}
         />
-        <div className="issuePage-div">
-          <h2>{title}</h2>{" "}
-          {user.role === "Admin" && (
-            <p className="delete-issue" onClick={(e) => handleShowDelete(e)}>
-              x
-            </p>
-          )}
-          <p>{story_desc}</p>
-          <CommentsSection story={id} users={users} key={id} />
-        </div>
+        {user.role === "Admin" && (
+          <p className="delete-issue" onClick={(e) => handleShowDelete(e)}>
+            x
+          </p>
+        )}
       </div>
     </div>
   );

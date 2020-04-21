@@ -53,7 +53,7 @@
     width: 20vw;
     height: fit-content;
     min-height: 20vh;
-    background-color: lightcyan;
+
     margin-top: 2vh;
     padding: 10px;
     display: flex;
@@ -63,18 +63,9 @@
   }
 
   .issue-id {
-    font-size: 30px;
+    font-size: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-  }
-
-  .issue-side-bar h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
-  }
-
-  .issue-side-bar h1:hover {
-    cursor: pointer;
   }
 
   label {
@@ -82,8 +73,22 @@
     display: inline-block;
   }
 
-  .current-status {
+  .current_stage {
     margin-top: 10px;
-    display: inline-block;
+    /* display: inline-block; */
+    width: 160px;
+    height: 40px;
+    background-color: #0e969d;
+    appearance: none;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    padding-left: 10px;
+    font-family: callingCode-Bold;
+  }
+
+  .downarrow {
+    width: 11px;
+    height: 5px;
   }
 }

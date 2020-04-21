@@ -54,6 +54,7 @@
     font-style: normal;
     font-weight: bold;
     font-size: 15.7778px;
+    border: none;
   }
   .add-project-form button:hover {
     cursor: pointer;

@@ -36,22 +36,19 @@ export default function StorySideBar(props) {
 
   return (
     <div className="issue-side-bar">
-      <h1 onClick={(e) => history.go(-2)}>{props.project.name}</h1>
-      <h2 className="issue-id">Story # {props.story.id}</h2>
-      <p>
-        Assigned to: {props.user.first_name || "Pending"}{" "}
-        {props.user.last_name || "Pending"}
-      </p>
       <select
         id="current_stage"
         className="current_stage"
         defaultValue="Change Stage"
         onChange={(e) => handleStageChange(e, props.story.id)}
       >
-        <option value="ChangeStage">Change Stage</option>
+        <option value="Change Stage" hidden>Change Stage{" "}&nbsp; &#9660;</option>
         {stageChoices}
       </select>
-      <button onClick={(e) => history.go(-1)}>Go Back</button>
+      <h2 className="issue-id">#{props.story.id}</h2>
+      <p>Assignee: {props.user.first_name || "Pending"} </p>
+
+      {/* <button onClick={(e) => history.go(-1)}>Go Back</button> */}
     </div>
   );
 }

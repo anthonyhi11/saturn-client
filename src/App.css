@@ -2,7 +2,8 @@
   box-sizing: border-box;
   /* -moz-appearance: none;
   -webkit-appearance: none; */
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 body {

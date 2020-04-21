@@ -100,13 +100,12 @@ export default function AddStoryForm(props) {
           placeholder="Full Description"
         />
         <button type="submit">Add Story</button>
-        <button
+        <img
+          alt="cancel"
+          src="../images/vector1.png"
           className="cancel-add-form-button"
-          type="reset"
           onClick={(e) => props.handleCancel(e)}
-        >
-          Cancel
-        </button>
+        />
       </form>
     </div>
   );
