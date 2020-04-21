@@ -35,55 +35,57 @@ export default function OrgSettings() {
   return (
     <>
       <Header />
-      <nav className="settings-nav-contain">
-        <ul className="settings-nav">
-          <li>
-            <NavLink className="nav-link" to="/settings/personal">
-              Personal
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to="/settings/organization">
-              Organization
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to="/settings/team">
-              Team
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to="/settings/projects">
-              Projects
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <section className="settings-changes">
-        {isSuccess && <div className="success">Success!</div>}
+      <div className="settings-contain">
+        <nav className="settings-nav-contain">
+          <ul className="settings-nav">
+            <li>
+              <NavLink className="nav-link" to="/settings/personal">
+                Personal
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/settings/organization">
+                Organization
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/settings/team">
+                Team
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/settings/projects">
+                Projects
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+        <section className="settings-changes">
+          {isSuccess && <div className="success">Success!</div>}
 
-        <h2>Make changes to Organization</h2>
-        <form
-          className="settings-form"
-          onSubmit={(e) => handleOrganizationChanges(e)}
-        >
-          <label htmlFor="org_name">Organization Name</label>
-          <input
-            type="text"
-            name="org_name"
-            id="org_name"
-            defaultValue={organization.name}
-            placeholder="Organization Name"
-          />
-          <div className="passcode-div">
-            <p className="passcode">Organization Passcode</p>
-            <p className="passcode">{organization.org_passcode}</p>
-          </div>
-          <button className="settings-change-button" type="submit">
-            Change
-          </button>
-        </form>
-      </section>
+          <h2 className="header-settings">Organization</h2>
+          <form
+            className="settings-form"
+            onSubmit={(e) => handleOrganizationChanges(e)}
+          >
+            <label htmlFor="org_name">Organization Name</label>
+            <input
+              type="text"
+              name="org_name"
+              id="org_name"
+              defaultValue={organization.name}
+              placeholder="Organization Name"
+            />
+            <div className="passcode-div">
+              <p className="passcode">Organization Passcode:</p>
+              <p className="passcode">{organization.org_passcode}</p>
+            </div>
+            <button className="settings-change-button" type="submit">
+              Change
+            </button>
+          </form>
+        </section>
+      </div>
     </>
   );
 }

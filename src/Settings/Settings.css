@@ -2,33 +2,64 @@
   margin: 0px;
   box-sizing: border-box;
 }
+.settings-contain {
+  display: flex;
+}
+.header-settings {
+  font-family: callingCode-Bold;
+  font-weight: bold;
+  font-size: 38px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
 
 .settings-changes {
-  width: 80vw;
+  width: 70vw;
   height: fit-content;
-  background-color: grey;
   margin-top: 5%;
-  margin-left: 5%;
+  margin-left: 10%;
+  padding: 10px;
 }
 .settings-form {
   display: flex;
   flex-direction: column;
   min-height: 20vh;
   justify-content: space-evenly;
+  margin-left: 10px;
 }
 
 .settings-form input {
-  width: 25vw;
-  height: 3vh;
-  margin-left: 2vw;
+  width: 500px;
+  height: 45px;
   padding: 5px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-size: 12px;
+  font-family: callingCode-Regular;
+}
+.settings-form label {
+  margin-bottom: 10px;
+  font-family: callingCode-Regular;
+  margin-left: 10px;
 }
 
 .settings-change-button {
-  margin-left: 2vw;
-  margin-bottom: 5vh;
-  width: 20%;
-  margin-top: 10px;
+  margin-top: 20px;
+  background: #fcb566;
+  box-shadow: 0px 3px 15px rgba(26, 26, 26, 0.2);
+  border-radius: 5px;
+  width: 160px;
+  height: 38px;
+  color: white;
+  font-family: callingCode-Bold;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 
 .team-member {
@@ -37,61 +68,129 @@
   justify-content: space-evenly;
   align-items: center;
   margin-top: 5px;
-  background-color: lightslategray;
   height: fit-content;
 }
 
-.team-member p {
-  text-align: left;
-  min-width: fit-content;
-  width: 20%;
-}
-.buttons-settings {
+.active-class {
   display: flex;
-  flex-direction: column;
-  padding: 0px;
-  margin: 0px;
+  width: 40%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  padding: 10px;
+  height: fit-content;
+}
+.archive-class {
+  display: flex;
+  background-color: #bebebe;
+  width: 40%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 5px;
+  height: fit-content;
+  border-radius: 10px;
+}
+.team-table {
+  width: 100%;
+}
+.table-row-team {
+  font-family: callingCode-Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
 }
 
+.team-table {
+  width: 60vw;
+}
+.team-table thead {
+  margin-bottom: 30px;
+}
+.team-table-header {
+  font-family: callingCode-Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: left;
+}
+
+.team-settings-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
 .buttons-settings button {
-  margin: 1px;
+  width: 100px;
+  background-color: #fcb566;
+  border: 1px solid #fcb566;
+  color: white;
+  font-family: callingCode-Bold;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 11px;
+  height: 30px;
+}
+.buttons-settings button:hover {
+  cursor: pointer;
+  background-color: red;
+  color: black;
+  transition: 1s;
 }
 
 .passcode-div {
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-start;
+  text-align: left;
+  margin-left: 10px;
 }
 
 .passcode {
-  width: 30%;
-  margin: 5px;
-  color: white;
+  width: fit-content;
+  color: black;
+  margin-right: 10px;
   padding: 0px;
+  text-align: left;
+  font-family: callingCode-Regular;
+  font-size: 15px;
 }
 
 .settings-nav {
   display: flex;
-  width: 100vw;
-  justify-content: space-evenly;
-  background-color: lightblue;
-  align-items: center;
-  height: 5vh;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: right;
+  height: 100vh;
 }
 
 .settings-nav li {
   text-decoration: none;
   list-style: none;
+  margin-top: 30px;
 }
 
 .nav-link {
   text-decoration: none;
-  color: black;
+  color: #094a59;
+  font-family: callingCode-Bold;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 75px;
 }
 
 .settings-nav-contain {
+  width: 23vw;
+  height: fit-content;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+  padding: 10px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 0px;
+  padding-top: 65px;
 }
 
 .success {
@@ -100,7 +199,13 @@
   top: 30%;
   width: 20%;
   height: 10%;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+  border: 2px solid #fcb566;
   transform: translate(-50%);
+  font-size: 30px;
+  text-align: center;
+  font-family: callingCode-Bold;
+  font-weight: bold;
+  border-radius: 10px;
 }

@@ -96,7 +96,7 @@ export default function StoryPage(props) {
         />
         {user.role === "Admin" && (
           <p className="delete-issue" onClick={(e) => handleShowDelete(e)}>
-            x
+            Delete Story
           </p>
         )}
       </div>

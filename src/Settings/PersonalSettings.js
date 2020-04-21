@@ -53,83 +53,85 @@ export default function PersonalSettings() {
   return (
     <>
       <Header />
-      <nav className="settings-nav-contain">
-        <ul className="settings-nav">
-          <li>
-            <NavLink className="nav-link" to="/settings/personal">
-              Personal
-            </NavLink>
-          </li>
-          {user.role === "Admin" && (
+      <div className="settings-contain">
+        <nav className="settings-nav-contain">
+          <ul className="settings-nav">
             <li>
-              <NavLink className="nav-link" to="/settings/organization">
-                Organization
+              <NavLink className="nav-link" to="/settings/personal">
+                Personal
               </NavLink>
             </li>
-          )}
-          {user.role === "Admin" && (
-            <li>
-              <NavLink className="nav-link" to="/settings/team">
-                Team
-              </NavLink>
-            </li>
-          )}
-          {user.role === "Admin" && (
-            <li>
-              <NavLink className="nav-link" to="/settings/projects">
-                Projects
-              </NavLink>
-            </li>
-          )}
-        </ul>
-      </nav>
-      <section className="settings-changes">
-        <h2>Make changes to your personal account</h2>
-        <form
-          className="settings-form"
-          onSubmit={(e) => handlePersonalChanges(e)}
-        >
-          <input
-            type="text"
-            name="first_name"
-            id="first_name"
-            defaultValue={user.first_name}
-            placeholder="First Name"
-          />
-          <input
-            type="text"
-            name="last_name"
-            id="last_name"
-            defaultValue={user.last_name}
-            placeholder="Last Name"
-          />
-          <input
-            type="text"
-            name="email"
-            id="email"
-            placeholder="Email"
-            defaultValue={user.email}
-          />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            required
-          />
-          <input
-            type="password"
-            name="password_confirm"
-            id="password_confirm"
-            placeholder="Confirm password"
-            required
-          />
-          <button className="settings-change-button" type="submit">
-            Make Changes
-          </button>
-        </form>
-        {isSuccessful && <div className="success">Success!</div>}
-      </section>
+            {user.role === "Admin" && (
+              <li>
+                <NavLink className="nav-link" to="/settings/organization">
+                  Organization
+                </NavLink>
+              </li>
+            )}
+            {user.role === "Admin" && (
+              <li>
+                <NavLink className="nav-link" to="/settings/team">
+                  Team
+                </NavLink>
+              </li>
+            )}
+            {user.role === "Admin" && (
+              <li>
+                <NavLink className="nav-link" to="/settings/projects">
+                  Projects
+                </NavLink>
+              </li>
+            )}
+          </ul>
+        </nav>
+        <section className="settings-changes">
+          <h2 className="header-settings">Personal</h2>
+          <form
+            className="settings-form"
+            onSubmit={(e) => handlePersonalChanges(e)}
+          >
+            <input
+              type="text"
+              name="first_name"
+              id="first_name"
+              defaultValue={user.first_name}
+              placeholder="First Name"
+            />
+            <input
+              type="text"
+              name="last_name"
+              id="last_name"
+              defaultValue={user.last_name}
+              placeholder="Last Name"
+            />
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Email"
+              defaultValue={user.email}
+            />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+            <input
+              type="password"
+              name="password_confirm"
+              id="password_confirm"
+              placeholder="Confirm password"
+              required
+            />
+            <button className="settings-change-button" type="submit">
+              Make Changes
+            </button>
+          </form>
+          {isSuccessful && <div className="success">Success!</div>}
+        </section>
+      </div>
     </>
   );
 }

@@ -64,8 +64,13 @@
 
   .delete-issue {
     position: absolute;
-    right: 5%;
-    top: 2%;
+    right: 25%;
+    top: 15%;
+    font-family: callingCode-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    color: #5c5d5e;
   }
 
   .delete-issue:hover {

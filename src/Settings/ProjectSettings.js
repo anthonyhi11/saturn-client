@@ -53,9 +53,13 @@ export default function ProjectSettings() {
 
   let projectList = projects.map((project) => {
     return (
-      <div className="team-member" key={project.id}>
-        <p>{project.name}</p>
-        <p>{project.status}</p>
+      <div
+        className={
+          project.status === "Active" ? "active-class" : "archive-class"
+        }
+        key={project.id}
+      >
+        <p className="project-name">{project.name}</p>
         <div className="buttons-settings">
           {project.status === "Active" && (
             <button onClick={(e) => handleArchive(e, project)}>Archive</button>
@@ -73,35 +77,37 @@ export default function ProjectSettings() {
   return (
     <>
       <Header />
-      {success && <div className="success">Success!</div>}
-      <nav className="settings-nav-contain">
-        <ul className="settings-nav">
-          <li>
-            <NavLink className="nav-link" to="/settings/personal">
-              Personal
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to="/settings/organization">
-              Organization
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to="/settings/team">
-              Team
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to="/settings/projects">
-              Projects
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <section className="settings-changes">
-        <h2>Make changes to your projects</h2>
-        {projectList}
-      </section>
+      <div className="settings-contain">
+        {success && <div className="success">Success!</div>}
+        <nav className="settings-nav-contain">
+          <ul className="settings-nav">
+            <li>
+              <NavLink className="nav-link" to="/settings/personal">
+                Personal
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/settings/organization">
+                Organization
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/settings/team">
+                Team
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/settings/projects">
+                Projects
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+        <section className="settings-changes">
+          <h2 className="header-settings">Projects</h2>
+          {projectList}
+        </section>
+      </div>
     </>
   );
 }

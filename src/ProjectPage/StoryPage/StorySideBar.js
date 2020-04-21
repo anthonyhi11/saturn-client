@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./IssueSideBar.css";
-import { useHistory } from "react-router-dom";
 import StoriesService from "../../services/stories-service";
 import StagesService from "../../services/stages-service";
 
 export default function StorySideBar(props) {
-  let history = useHistory();
   let [stages, setStages] = useState([]);
 
   useEffect(() => {
@@ -49,12 +47,10 @@ export default function StorySideBar(props) {
       </select>
       <h2 className="issue-id">#{props.story.id}</h2>
       <h3 className="assigned">Assignee</h3>
-      <p className="assigned-user"  >
+      <p className="assigned-user">
         {" "}
         {props.user.first_name || "Pending"} {props.user.last_name || "Pending"}
       </p>
-
-      {/* <button onClick={(e) => history.go(-1)}>Go Back</button> */}
     </div>
   );
 }
