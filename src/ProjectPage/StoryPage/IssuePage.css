@@ -62,7 +62,7 @@
     text-align: left;
   }
 
-  .delete-issue {
+  .delete-story {
     position: absolute;
     right: 25%;
     top: 15%;
@@ -72,8 +72,22 @@
     font-size: 13px;
     color: #5c5d5e;
   }
+  .edit-story {
+    position: absolute;
+    right: 25%;
+    top: 18%;
+    font-family: callingCode-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    color: #5c5d5e;
+  }
 
-  .delete-issue:hover {
+  .delete-story:hover {
+    cursor: pointer;
+  }
+
+  .edit-story:hover {
     cursor: pointer;
   }
 

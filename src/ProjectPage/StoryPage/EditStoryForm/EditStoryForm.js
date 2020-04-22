@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./AddIssueForm.css";
-import StoriesService from "../../services/stories-service";
-import StagesService from "../../services/stages-service";
-import UsersService from "../../services/users-service";
+import { useHistory } from "react-router-dom";
+import StoriesService from "../../../services/stories-service";
+import StagesService from "../../../services/stages-service";
+import UsersService from "../../../services/users-service";
 
-export default function AddStoryForm(props) {
+export default function EditStoryForm(props) {
+  let history = useHistory();
   let [stages, setStages] = useState([]);
   let [users, setUsers] = useState([]);
   let [error, setError] = useState(null);
@@ -37,13 +38,12 @@ export default function AddStoryForm(props) {
     );
   });
 
-  function handleAddStory(e) {
+  function handleEditStory(e) {
     e.preventDefault();
     let title = e.target.title.value;
     let stage = e.target.stage.value;
     let desc = e.target.desc.value;
     let user_id = e.target.dev.value;
-    let projectId = props.project;
 
     if (stage === "Stage" || user_id === "Assigned to:") {
       setError({
@@ -52,30 +52,31 @@ export default function AddStoryForm(props) {
       return;
     }
 
-    let newStory = {
+    let updatedStory = {
       title: title,
       stage_id: stage,
       story_desc: desc,
       user_id: user_id,
     };
 
-    StoriesService.addStory(projectId, newStory).then(() => {
+    StoriesService.updateStory(props.story.id, updatedStory).then((story) => {
       props.handleCancel(e);
-      window.location.reload(false);
+      props.setStory(story);
+      history.goBack();
     });
   }
 
   return (
     <div className="add-form-container">
       {error !== null && <p>{error.message}</p>}
-
-      <form className="add-form" onSubmit={(e) => handleAddStory(e)}>
-        <h2>Add a new story</h2>
+      <form className="add-form" onSubmit={(e) => handleEditStory(e)}>
+        <h2>Edit Story</h2>
         <input
           type="text"
           id="title"
           name="title"
           required
+          defaultValue={props.story.title}
           placeholder="Title"
         />
         <select
@@ -107,9 +108,10 @@ export default function AddStoryForm(props) {
           type="text"
           id="desc"
           name="desc"
+          defaultValue={props.story.story_desc}
           placeholder="Full Description"
         />
-        <button type="submit">Add Story</button>
+        <button type="submit">Edit Story</button>
         <img
           alt="cancel"
           src="../images/vector1.png"

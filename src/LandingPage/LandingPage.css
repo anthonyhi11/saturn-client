@@ -1,4 +1,4 @@
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 800px) {
   body {
     display: flex;
     flex-direction: column;
@@ -112,7 +112,7 @@
 
 /*DO MOBILE SOON DUDE */
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   body {
     display: flex;
     flex-direction: column;

@@ -198,14 +198,26 @@
   left: 50%;
   top: 30%;
   width: 20%;
-  height: 10%;
+  height: fit-content;
   background-color: white;
   color: black;
   border: 2px solid #fcb566;
   transform: translate(-50%);
-  font-size: 30px;
+  font-size: 17px;
   text-align: center;
   font-family: callingCode-Bold;
   font-weight: bold;
   border-radius: 10px;
+  padding: 20px;
+}
+.success-button {
+  width: 70px;
+  height: 30px;
+  background-color: #fcb566;
+  color: white;
+  font-size: 12px;
+  font-family: callingCode-Bold;
+  font-weight: bold;
+  border-radius: 10px;
+
 }

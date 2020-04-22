@@ -13,10 +13,10 @@ import UserInfo from "../MainPage/UserInfo/UserInfo";
 export default function ProjectPage(props) {
   let history = useHistory();
   const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-device-width: 1224px)",
+    query: "(min-device-width: 1100px)",
   });
   const isMobile = useMediaQuery({
-    query: "(max-device-width: 1224px)",
+    query: "(max-device-width: 1100px)",
   });
   let [showAddStory, setShowAddStory] = useState(false);
   let [project] = useState(props.project);
@@ -84,7 +84,8 @@ export default function ProjectPage(props) {
         />
       )}
       <div className="project-page-container">
-        <UserInfo />
+        {isDesktopOrLaptop && <UserInfo />}
+
         <div className="project-container">
           <div className="project-info">
             <h2>{project.name || localStorage.getItem("project")}</h2>

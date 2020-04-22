@@ -2,7 +2,7 @@
   font-size: 16px;
   font-family: callingCode-Bold;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   color: #094a59;
 }
 .comment-section {
@@ -12,12 +12,12 @@
   width: 99.2%;
 }
 .comments-container {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .individual-comment {
   width: 95%;
   height: fit-content;
-
+  position: relative;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -51,7 +51,7 @@
   font-family: codeCalling-Regular;
   font-weight: normal;
   border: 1px solid #b8b8b8;
-  margin-top: 15px;
+  margin-top: 10px;
   padding-right: 50px;
 }
 .comment-button {
@@ -65,4 +65,17 @@
   border-radius: 5px;
   font-size: 15px;
   border: none;
+}
+.deleteClick {
+  position: absolute;
+  right: 10px;
+  padding: 5px;
+
+  text-align: center;
+}
+
+.deleteClick:hover {
+  cursor: pointer;
+  color: red;
+  border-radius: 50px;
 }

@@ -21,12 +21,13 @@
 */
 
 /* @import must be at top of file, otherwise CSS will not work */
-@import url("//hello.myfonts.net/count/3b6682");
+@import url("//hello.myfonts.com/count/3b6682");
+/* i changed the url to .com from .net*/
 
 @font-face {
   font-family: "callingCode-Regular";
   src: url("./fonts/CallingCode-Regular/font.woff2") format("woff2"),
-    url("webFonts/CallingCode-Regular/font.woff") format("woff");
+    url("./fonts/CallingCode-Regular/font.woff") format("woff");
 }
 @font-face {
   font-family: "callingCode-Bold";

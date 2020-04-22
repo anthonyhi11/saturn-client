@@ -14,8 +14,7 @@ export default function LandingPage() {
   const [devFormShown, setDevFormShown] = useState(false);
   const [logInShown, setLogInShown] = useState(false);
   const [moreInfoShown, setMoreInfoShown] = useState(false);
-  const [authToken, setAuthToken] = useState(false);
-  let [success, setSuccess] = useState();
+  let [success, setSuccess] = useState(false);
 
   function handleCancel() {
     setOrgFormShown(false);
@@ -25,17 +24,15 @@ export default function LandingPage() {
   }
 
   function handleDemoClick(e) {
+    setSuccess(true);
     let credentials = {
       email: "john@fakemail.com",
       password: "AAaa11!!",
     };
+
     LoginService.loginUser(credentials)
       .then((res) => {
         TokenService.saveAuthToken(res.authToken);
-        setAuthToken(true);
-        if (authToken === true) {
-          setSuccess(true);
-        }
       })
       .then(() => {
         setTimeout(function () {
@@ -59,8 +56,13 @@ export default function LandingPage() {
       <img className="hero-logo" src="./images/saturn-logo.svg" alt="logo" />
       {success && (
         <div className="success">
-          Success! If not redirected, click here:{" "}
-          <button onClick={(e) => history.push("/main")}>Click</button>
+          Success! Loading... if not redirected:
+          <button
+            className="success-button"
+            onClick={(e) => history.push("/main")}
+          >
+            Click
+          </button>
         </div>
       )}
 

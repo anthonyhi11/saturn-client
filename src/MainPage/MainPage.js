@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import UserInfo from "./UserInfo/UserInfo";
 import "./MainPage.css";
+import { useMediaQuery } from "react-responsive";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import AddProjectForm from "./AddProjectForm/AddProjectForm";
 import ProjectsService from "../services/projects-service";
@@ -14,6 +15,10 @@ export default function MainPage(props) {
   let [projects, setProjects] = useState([]);
   let [newProject, setNewProject] = useState([]);
   let [user, setUser] = useState(false);
+
+  const isSmall = useMediaQuery({
+    query: "(max-device-width: 800px)",
+  });
 
   function handleProjectCancel(e) {
     setShowAddProject(false);
@@ -62,7 +67,8 @@ export default function MainPage(props) {
         />
       )}{" "}
       <div className="mainpage-container">
-        <UserInfo />
+        {!isSmall && <UserInfo />}
+
         <div className="entire project-container">
           <div className="project-header-contain">
             <h3 className="projects-h3">PROJECTS</h3>{" "}

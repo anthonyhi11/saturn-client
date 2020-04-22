@@ -7,7 +7,6 @@ export default function CommentsSection(props) {
   let [comments, setComments] = useState([]);
   let [story, setStory] = useState([]);
 
-
   useEffect(() => {
     CommentsService.getComments(props.story).then((comments) => {
       setComments(comments);

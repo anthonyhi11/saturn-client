@@ -21,6 +21,18 @@ const CommentsService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  deleteComment(commentId) {
+    return fetch(`${config.API_ENDPOINT}/comments/${commentId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        return res.json().then((e) => Promise.reject(e));
+      }
+    });
+  },
 };
 
 export default CommentsService;

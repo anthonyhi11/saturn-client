@@ -8,9 +8,11 @@ import ProjectsService from "../../services/projects-service";
 import StoriesService from "../../services/stories-service";
 import { useHistory } from "react-router-dom";
 import UserInfo from "../../MainPage/UserInfo/UserInfo";
+import EditStoryForm from "./EditStoryForm/EditStoryForm";
 
 export default function StoryPage(props) {
   let [showDeleteWarning, setShowDeleteWarning] = useState(false);
+  let [showEdit, setShowEdit] = useState(false);
   let [story, setStory] = useState({});
   let history = useHistory();
   let [users, setUsers] = useState([]);
@@ -51,26 +53,37 @@ export default function StoryPage(props) {
   function handleShowDelete(e) {
     setShowDeleteWarning(true);
   }
+
+  function handleShowEdit(e) {
+    setShowEdit(true);
+  }
   function handleCancel(e) {
     setShowDeleteWarning(false);
+    setShowEdit(false);
   }
 
-  function deleteIssue(e) {
+  function deleteStory(e) {
     e.preventDefault();
     let storyId = story.id;
     StoriesService.deleteStory(storyId).then(() => {
       history.goBack(1);
     });
   }
-
   return (
     <div>
       <Header />
+      {showEdit && (
+        <EditStoryForm
+          story={story}
+          handleCancel={handleCancel}
+          setStory={setStory}
+        />
+      )}
       {showDeleteWarning && (
         <div className="delete-modal">
           <h2>Are you sure?</h2>
           <div className="delete-button-div">
-            <button onClick={(e) => deleteIssue(e)}>Yes, Delete!</button>
+            <button onClick={(e) => deleteStory(e)}>Yes, Delete!</button>
             <button onClick={(e) => handleCancel(e)}>Cancel</button>
           </div>
         </div>
@@ -95,9 +108,14 @@ export default function StoryPage(props) {
           user={users.find((user) => user.id === story.user_id)}
         />
         {user.role === "Admin" && (
-          <p className="delete-issue" onClick={(e) => handleShowDelete(e)}>
-            Delete Story
-          </p>
+          <div>
+            <p className="delete-story" onClick={(e) => handleShowDelete(e)}>
+              Delete Story
+            </p>
+            <p className="edit-story" onClick={(e) => handleShowEdit(e)}>
+              Edit Story
+            </p>
+          </div>
         )}
       </div>
     </div>
