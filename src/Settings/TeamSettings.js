@@ -8,6 +8,13 @@ export default function TeamSettings() {
   let [memberToDelete, setMemberToDelete] = useState(null);
   let [users, setUsers] = useState([]);
   let [isSuccessful, setIsSuccessful] = useState(false);
+  let [user, setUser] = useState([]);
+
+  useEffect(() => {
+    UsersService.getUser().then((user) => {
+      setUser(user);
+    });
+  }, []);
 
   useEffect(() => {
     UsersService.getUsers().then((users) => {
@@ -45,9 +52,11 @@ export default function TeamSettings() {
         <td>{member.role}</td>
         <td>{member.email}</td>
         <td className="buttons-settings">
-          <button onClick={(e) => handleShowDelete(e, member.id)}>
-            Remove
-          </button>
+          {user.id !== 1 && (
+            <button onClick={(e) => handleShowDelete(e, member.id)}>
+              Remove
+            </button>
+          )}
         </td>
       </tr>
     );

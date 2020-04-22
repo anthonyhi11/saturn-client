@@ -125,9 +125,11 @@ export default function PersonalSettings() {
               placeholder="Confirm password"
               required
             />
-            <button className="settings-change-button" type="submit">
-              Make Changes
-            </button>
+            {user.id !== 1 && (
+              <button className="settings-change-button" type="submit">
+                Make Changes
+              </button>
+            )}
           </form>
           {isSuccessful && <div className="success">Success!</div>}
         </section>
