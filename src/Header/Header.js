@@ -16,11 +16,11 @@ export default function Header() {
 
   return (
     <header className="header">
-      {/* <img
-        src="../Header/saturn-icon.svg"
+      <img
+        src={`${process.env.PUBLIC_URL}/images/saturn-icon.svg`}
         className="saturn-icon"
         alt="saturn-icon"
-      ></img> */}
+      ></img>
       <h1 className="hero-org" onClick={(e) => history.push("/main")}>
         {organizationName}
       </h1>
