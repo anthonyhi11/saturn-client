@@ -16,6 +16,11 @@ export default function Header() {
 
   return (
     <header className="header">
+      <img
+        src="./images/saturn-icon.svg"
+        className="saturn-icon"
+        alt="saturn-icon"
+      ></img>
       <h1 className="hero-org" onClick={(e) => history.push("/main")}>
         {organizationName}
       </h1>

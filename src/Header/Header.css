@@ -3,7 +3,7 @@
     width: 100vw;
     height: 9vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     background-color: #072334;
   }
@@ -13,14 +13,14 @@
     font-family: callingCode-Bold;
     font-weight: bold;
     color: white;
-    margin-left: 10vw;
+    margin-left: 1vw;
   }
   .hero-org:hover {
     cursor: pointer;
   }
 
   .logout-button {
-    margin-right: 8vw;
+    margin-left: 60vw;
     font-family: callingCode-Bold;
     font-weight: bold;
     color: #fcb566;
@@ -29,6 +29,11 @@
   }
   .logout-button:hover {
     cursor: pointer;
+  }
+  .saturn-icon {
+    height: 60px;
+    width: 60px;
+    margin-left: 12%;
   }
 }
 
