@@ -76,6 +76,12 @@ export default function ProjectPage(props) {
   return (
     <>
       <Header />
+      <button
+        className="issue-add-mobile-button"
+        onClick={() => setShowAddStory(true)}
+      >
+        Add
+      </button>
 
       {showAddStory && (
         <AddStoryForm
@@ -107,18 +113,7 @@ export default function ProjectPage(props) {
             <section className="stages-container">{stageList}</section>
           )}
           {isMobile && (
-            <div>
-              <table className="issue-table">
-                <thead>
-                  <tr className="table-row">
-                    <th>Stage</th>
-                    <th>Stories</th>
-                  </tr>
-                </thead>
-                <tbody>{stageMobileList}</tbody>
-              </table>
-              <button onClick={(e) => history.goBack()}>Go Back</button>
-            </div>
+            <div className="stages-mobile-container">{stageMobileList}</div>
           )}
         </div>
       </div>

@@ -118,19 +118,32 @@
     flex-direction: column;
   }
 
-  .main-content-landing {
-    z-index: 10;
+  * {
+    font-family: callingCode-Bold;
+    overflow-x: hidden;
   }
-  .hero-title {
-    text-align: center;
-    font-size: 30px;
-    margin-top: 10%;
+
+  .main-content-landing {
+    z-index: 0;
+    background-color: #072334;
+    width: 100vw;
+    height: 100vh;
+  }
+  .hero-logo {
+    position: relative;
+    transform: translate(-55%);
+    left: 50%;
+    margin-top: 8vh;
+    width: 230px;
+    z-index: 0;
   }
   .main-content-landing h2 {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 12%;
     margin-bottom: 5%;
-    font-size: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
   }
   .create-container {
     display: flex;
@@ -141,11 +154,13 @@
   }
 
   .create-new-div {
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 10px;
-    margin: 5%;
-    margin-top: 10%;
-    height: 20%;
+    margin: 5px;
+    margin-top: 5%;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.55);
+    height: 18%;
+    border-radius: 8px;
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -159,28 +174,40 @@
   }
 
   .img {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
   }
 
   .createnew-div-p {
     margin-top: 20px;
     margin-bottom: 10px;
-    font-size: 10px;
+    font-size: 12px;
+    color: white;
+    font-weight: normal;
   }
 
   .landing-page-buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3%;
+    margin-top: 8%;
+    height: 22vh;
+    justify-content: space-evenly;
   }
-  .landing-page-buttons button {
-    width: 100px;
+  .login-button {
+    background: #fcb566;
+    width: 150px;
     height: 35px;
-    margin: 5px;
-    font-size: 15px;
-    color: white;
-    background-color: black;
+    border: none;
+    box-shadow: 0px 3px 15px rgba(26, 26, 26, 0.2);
+    border-radius: 5px;
+    color: #072334;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  .learnMore {
+    font-size: 13px;
+    font-weight: bold;
+    color: #fcb566;
   }
 }

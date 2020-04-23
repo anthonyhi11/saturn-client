@@ -31,43 +31,45 @@ export default function LogIn(props) {
   }
 
   return (
-    <div className="login-div">
-      {success && (
-        <div className="success">
-          Success! If not redirected,
-          <button onClick={history.push("/main")}>Click Here</button>
+    <div className="modal-container">
+      <div className="login-div">
+        {success && (
+          <div className="success">
+            Success! If not redirected,
+            <button onClick={history.push("/main")}>Click Here</button>
+          </div>
+        )}
+        <h2>Let's get to work!</h2>
+        <div className="error">
+          {error && <p className="error-alert">{error}</p>}
         </div>
-      )}
-      <h2>Let's get to work!</h2>
-      <div className="error">
-        {error && <p className="error-alert">{error}</p>}
-      </div>
-      <form className="login-form" onSubmit={(e) => handleLogin(e)}>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-        />
+        <form className="login-form" onSubmit={(e) => handleLogin(e)}>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
 
-        <button className="login-buttons" type="submit">
-          Log in
-        </button>
-        <button
-          className="login-buttons"
-          type="reset"
-          onClick={(e) => props.handleCancel(e)}
-        >
-          Cancel
-        </button>
-      </form>
+          <button className="login-buttons" type="submit">
+            Log in
+          </button>
+          <button
+            className="login-buttons"
+            type="reset"
+            onClick={(e) => props.handleCancel(e)}
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

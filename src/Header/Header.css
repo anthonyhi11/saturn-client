@@ -40,23 +40,26 @@
 @media screen and (max-width: 700px) {
   .header {
     width: 100vw;
-    height: 10vh;
+    height: 9vh;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    background-color: lightcyan;
+
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #072334;
   }
 
   .hero-org {
-    margin-left: 5vw;
-    margin-top: 10px;
-    font-size: 20px;
-    margin-bottom: 3%;
+    font-size: 22px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    color: white;
+    margin-left: 10vw;
   }
   .logout-button {
     margin-right: 8vw;
     margin-bottom: 3%;
     padding: 0px;
+    display: none;
   }
   .logout-button:hover {
     cursor: pointer;

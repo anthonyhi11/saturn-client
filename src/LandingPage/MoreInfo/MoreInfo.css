@@ -1,4 +1,4 @@
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 800px) {
   .modal-container-moreinfo {
     height: 100vh;
     width: 100vw;
@@ -111,7 +111,7 @@
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   .modal-container-moreinfo {
     height: 100vh;
     width: 100vw;
@@ -120,11 +120,12 @@
     align-items: center;
     justify-content: center;
     position: absolute;
+    overflow-y: scroll;
     z-index: 10;
   }
   .moreInfo-body {
     width: 600px;
-    height: 670px;
+    height: fit-content;
     border: 1px black solid;
     background-color: white;
     padding-top: 5%;
@@ -153,7 +154,7 @@
   .moreInfo-p {
     text-align: left;
     width: 85%;
-    font-size: 13px;
+    font-size: 12px;
     font-family: callingCode-Regular;
     font-weight: normal;
     height: fit-content;
@@ -191,7 +192,7 @@
   }
 
   #any-questions {
-    margin-top: -5px;
+    margin-top: 0px;
     margin-bottom: 20px;
   }
 
@@ -211,6 +212,8 @@
   }
   .drop-a-line {
     border-bottom: 2px solid #fcb566;
+    margin-bottom: 30px;
+    margin-top: -5px;
   }
   a {
     text-decoration: none;

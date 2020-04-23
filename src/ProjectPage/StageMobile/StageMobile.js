@@ -18,14 +18,14 @@ export default function StageMobile(props) {
   let length = currentStories.length;
 
   return (
-    <tr
-      className="table-row"
+    <div
+      className="stage-card"
       onClick={(e) =>
         history.push(`/projects/${props.project.id}/${props.name}`)
       }
     >
-      <td>{props.name}</td>
-      <td>{length}</td>
-    </tr>
+      <p className="stage-mobile-name">{props.name}</p>
+      <p className="stage-mobile-issue-number">{length}</p>
+    </div>
   );
 }

@@ -48,6 +48,9 @@
     margin-top: 14.5vh;
   }
 
+  .issue-add-mobile-button {
+    display: none;
+  }
   .issue-add-button:hover {
     background-color: #fcb566;
     color: white;
@@ -77,15 +80,18 @@
   .project-info {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
-    height: 10vh;
+    height: 20vh;
     width: 100vw;
-    background-color: lightskyblue;
+    position: relative;
   }
 
   .project-info h2 {
     font-size: 20px;
+    margin-left: 12vw;
+    margin-top: 20%;
+    font-weight: bold;
   }
   .stages-container {
     width: 100vw;
@@ -97,8 +103,36 @@
   .issue-add-button {
     font-size: 10px;
     margin-top: 5px;
+    display: none;
   }
   .release-day-issue {
     display: none;
+  }
+
+  .issue-add-mobile-button {
+    position: fixed;
+    right: 1%;
+    bottom: 15%;
+    height: 38px;
+    width: 84px;
+    border: 2px solid #fcb566;
+    border-radius: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    margin-right: 10vw;
+    color: #fcb566;
+    background-color: white;
+    z-index: 10;
+  }
+  .project-page-goback {
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    font-size: 13px;
+    color: #fcb566;
+    position: absolute;
+    left: 30px;
+    top: 30px;
   }
 }

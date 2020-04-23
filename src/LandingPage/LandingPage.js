@@ -54,17 +54,7 @@ export default function LandingPage() {
       {devFormShown && <DevSignUp handleCancel={handleCancel} />}
       {logInShown && <LogIn handleCancel={handleCancel} />}
       <img className="hero-logo" src="./images/saturn-logo.svg" alt="logo" />
-      {success && (
-        <div className="success">
-          Success! Loading... if not redirected:
-          <button
-            className="success-button"
-            onClick={(e) => history.push("/main")}
-          >
-            Click
-          </button>
-        </div>
-      )}
+      {success && <div className="success">Success! Loading...</div>}
 
       <h2>WHO ARE YOU?</h2>
       <div className="create-container">

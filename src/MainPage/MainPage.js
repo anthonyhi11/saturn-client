@@ -17,7 +17,7 @@ export default function MainPage(props) {
   let [user, setUser] = useState(false);
 
   const isSmall = useMediaQuery({
-    query: "(max-device-width: 800px)",
+    query: "(max-device-width: 700px)",
   });
 
   function handleProjectCancel(e) {
@@ -72,12 +72,22 @@ export default function MainPage(props) {
         <div className="entire project-container">
           <div className="project-header-contain">
             <h3 className="projects-h3">PROJECTS</h3>{" "}
-            <button
-              className="add-project-button"
-              onClick={(e) => setShowAddProject(true)}
-            >
-              + Add Project
-            </button>
+            {!isSmall && (
+              <button
+                className="add-project-button"
+                onClick={(e) => setShowAddProject(true)}
+              >
+                + Add Project
+              </button>
+            )}
+            {isSmall && (
+              <button
+                className="add-project-button"
+                onClick={(e) => setShowAddProject(true)}
+              >
+                Add
+              </button>
+            )}
           </div>
           <div className="projectcard-container">
             <div className="projectCards">{projectList}</div>

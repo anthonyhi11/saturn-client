@@ -71,37 +71,63 @@
     justify-content: space-between;
   }
   .projectcard-container {
-    width: 70vw;
+    width: 90vw;
     height: fit-content;
-    min-height: 20vh;
+    min-height: 15vh;
     margin-top: 2vh;
-    margin-right: 2vw;
+    margin-right: 5vw;
+    margin-left: 5vw;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 5px;
+    background-color: #f7f7f7;
     position: relative;
+    border-radius: 8px;
   }
   .projects-h3 {
     font-size: 20px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
     margin-top: 0px;
-    margin-left: 5px;
+    margin-left: 10vw;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #072334;
   }
 
   .projectCards {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 3vh;
+    flex-direction: column;
+  }
+  .project-header-contain {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: center;
   }
 
   .add-project-button {
-    position: absolute;
-    right: 20%;
-    top: 3%;
-    height: 25px;
-    margin-top: 0px;
-    margin-bottom: 5px;
-    width: 40px;
-    border-radius: 10px;
+    position: fixed;
+    right: 1%;
+    bottom: 15%;
+    height: 38px;
+    width: 84px;
+    border: 2px solid #fcb566;
+    border-radius: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    margin-right: 10vw;
+    color: #fcb566;
+    background-color: white;
+    z-index: 10;
+  }
+  .add-project-button:hover {
+    cursor: pointer;
+    background-color: #fcb566;
+    color: white;
+    transition: 1s;
   }
 }
