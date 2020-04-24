@@ -34,6 +34,25 @@ export default function Header() {
       >
         Logout
       </p>
+      {history.location.pathname.includes("settings") && (
+        <p
+          className="settings-button"
+          onClick={(e) => {
+            TokenService.clearAuthToken();
+            history.push("/");
+          }}
+        >
+          Logout
+        </p>
+      )}
+      {!history.location.pathname.includes("settings") && (
+        <p
+          className="settings-button"
+          onClick={(e) => history.push("/settings/personal")}
+        >
+          Settings
+        </p>
+      )}
     </header>
   );
 }

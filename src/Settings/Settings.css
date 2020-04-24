@@ -1,4 +1,4 @@
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 700px) {
   * {
     margin: 0px;
     box-sizing: border-box;
@@ -169,6 +169,8 @@
   .settings-nav li {
     text-decoration: none;
     list-style: none;
+    height: fit-content;
+    border: none;
     margin-top: 30px;
   }
 
@@ -178,7 +180,9 @@
     font-family: callingCode-Bold;
     font-weight: bold;
     font-size: 16px;
-    margin-left: 75px;
+    margin-left: 60px;
+    border: none;
+    height: fit-content;
   }
 
   .settings-nav-contain {
@@ -221,48 +225,60 @@
     font-weight: bold;
     border-radius: 10px;
   }
+  .back-arrow-settings {
+    position: absolute;
+    top: 13.5vh;
+    left: 8vw;
+    display: none;
+  }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 701px) {
+  .back-arrow-settings {
+    position: absolute;
+    top: 13.5vh;
+    left: 8vw;
+  }
+
   * {
     margin: 0px;
     box-sizing: border-box;
   }
   .settings-contain {
     display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .header-settings {
     font-family: callingCode-Bold;
     font-weight: bold;
-    font-size: 38px;
+    font-size: 20px;
     text-transform: uppercase;
     margin-bottom: 20px;
+    margin-left: 35px;
   }
 
   .settings-changes {
-    width: 70vw;
+    width: 100%;
     height: fit-content;
-    margin-top: 5%;
-    margin-left: 10%;
-    padding: 10px;
   }
   .settings-form {
     display: flex;
     flex-direction: column;
     min-height: 20vh;
+    align-items: center;
     justify-content: space-evenly;
-    margin-left: 10px;
   }
 
   .settings-form input {
-    width: 500px;
+    width: 250px;
     height: 45px;
     padding: 5px;
     background: #ffffff;
     border: 1px solid #e5e5e5;
     border-radius: 6px;
     margin-bottom: 10px;
-    margin-left: 10px;
+    /* margin-left: 10px;  */
     font-size: 12px;
     font-family: callingCode-Regular;
   }
@@ -299,36 +315,39 @@
 
   .active-class {
     display: flex;
-    width: 40%;
+    width: 80%;
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
     padding: 10px;
+    margin-left: 40px;
     height: fit-content;
   }
   .archive-class {
     display: flex;
     background-color: #bebebe;
-    width: 40%;
+    width: 80%;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     margin-top: 5px;
+    margin-left: 40px;
     height: fit-content;
     border-radius: 10px;
   }
   .team-table {
     width: 100%;
+    margin-left: 20px;
   }
   .table-row-team {
     font-family: callingCode-Regular;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .team-table {
-    width: 60vw;
+    width: 90vw;
   }
   .team-table thead {
     margin-bottom: 30px;
@@ -337,7 +356,7 @@
     font-family: callingCode-Bold;
     font-style: normal;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 12px;
     text-align: left;
   }
 
@@ -347,15 +366,15 @@
     justify-content: space-evenly;
   }
   .buttons-settings button {
-    width: 100px;
+    width: 50px;
     background-color: #fcb566;
     border: 1px solid #fcb566;
     color: white;
     font-family: callingCode-Bold;
     font-weight: bold;
     border-radius: 8px;
-    font-size: 11px;
-    height: 30px;
+    font-size: 8px;
+    height: 20px;
   }
   .buttons-settings button:hover {
     cursor: pointer;
@@ -384,17 +403,17 @@
 
   .settings-nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     justify-content: flex-start;
     align-items: right;
-    height: 100vh;
+    margin-left: 70%;
   }
 
   .settings-nav li {
     text-decoration: none;
     list-style: none;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   .nav-link {
@@ -402,21 +421,19 @@
     color: #094a59;
     font-family: callingCode-Bold;
     font-weight: bold;
-    font-size: 16px;
-    margin-left: 75px;
+    font-size: 12px;
+    border: none;
+    margin-left: 10px;
   }
 
   .settings-nav-contain {
-    width: 23vw;
-    height: fit-content;
-    min-height: 100vh;
-    background-color: #f7f7f7;
+    width: 100vw;
+    height: 80px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 0px;
-    padding-top: 65px;
   }
 
   .success {

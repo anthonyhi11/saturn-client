@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import Header from "../Header/Header";
 import UsersService from "../services/users-service";
 import LoginService from "../services/login-service";
@@ -8,6 +8,7 @@ import TokenService from "../services/token-services";
 export default function PersonalSettings() {
   let [user, setUser] = useState([]);
   let [isSuccessful, setIsSuccessful] = useState(false);
+  let history = useHistory();
 
   useEffect(() => {
     UsersService.getUser().then((user) => {
@@ -53,6 +54,13 @@ export default function PersonalSettings() {
   return (
     <>
       <Header />
+      <img
+        src="/images/arrow1.png"
+        className="back-arrow-settings"
+        alt="arrow"
+        role="button"
+        onClick={(e) => history.push('/main')}
+      />
       <div className="settings-contain">
         <nav className="settings-nav-contain">
           <ul className="settings-nav">
@@ -64,7 +72,7 @@ export default function PersonalSettings() {
             {user.role === "Admin" && (
               <li>
                 <NavLink className="nav-link" to="/settings/organization">
-                  Organization
+                  Org
                 </NavLink>
               </li>
             )}

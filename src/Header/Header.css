@@ -1,4 +1,4 @@
-@media screen and (min-width: 700px) {
+@media only screen and (min-width: 800px) {
   .header {
     width: 100vw;
     height: 9vh;
@@ -20,7 +20,7 @@
   }
 
   .logout-button {
-    margin-left: 60vw;
+    margin-left: 55vw;
     font-family: callingCode-Bold;
     font-weight: bold;
     color: #fcb566;
@@ -35,9 +35,12 @@
     width: 60px;
     margin-left: 12%;
   }
+  .settings-button {
+    display: none;
+  }
 }
 
-@media screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
   .header {
     width: 100vw;
     height: 9vh;
@@ -47,9 +50,12 @@
     align-items: center;
     background-color: #072334;
   }
+  .saturn-icon {
+    display: none;
+  }
 
   .hero-org {
-    font-size: 22px;
+    font-size: 19px;
     font-family: callingCode-Bold;
     font-weight: bold;
     color: white;
@@ -63,5 +69,57 @@
   }
   .logout-button:hover {
     cursor: pointer;
+  }
+  .settings-button {
+    margin-left: 50vw;
+    font-family: callingCode-Bold;
+    font-size: 11px;
+    font-weight: bold;
+    display: block;
+    color: #fcb566;
+    border-bottom: 1px solid #fcb566;
+    padding-bottom: 1px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    width: 100vw;
+    height: 9vh;
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #072334;
+  }
+  .saturn-icon {
+    display: none;
+  }
+
+  .hero-org {
+    font-size: 19px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    color: white;
+    margin-left: 10vw;
+  }
+  .logout-button {
+    margin-right: 8vw;
+    margin-bottom: 3%;
+    padding: 0px;
+    display: none;
+  }
+  .logout-button:hover {
+    cursor: pointer;
+  }
+  .settings-button {
+    margin-left: 30%;
+    font-family: callingCode-Bold;
+    font-size: 11px;
+    font-weight: bold;
+    display: block;
+    color: #fcb566;
+    border-bottom: 1px solid #fcb566;
+    padding-bottom: 1px;
   }
 }

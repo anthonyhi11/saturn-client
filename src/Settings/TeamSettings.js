@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import UsersService from "../services/users-service";
 
 export default function TeamSettings() {
@@ -9,6 +10,10 @@ export default function TeamSettings() {
   let [users, setUsers] = useState([]);
   let [isSuccessful, setIsSuccessful] = useState(false);
   let [user, setUser] = useState([]);
+  let history = useHistory();
+  const isMobile = useMediaQuery({
+    query: "(max-device-width: 500px)",
+  });
 
   useEffect(() => {
     UsersService.getUser().then((user) => {
@@ -50,7 +55,8 @@ export default function TeamSettings() {
           {member.first_name} {member.last_name}
         </td>
         <td>{member.role}</td>
-        <td>{member.email}</td>
+        {!isMobile && <td>{member.email}</td>}
+
         <td className="buttons-settings">
           {user.id !== 1 && (
             <button onClick={(e) => handleShowDelete(e, member.id)}>
@@ -65,6 +71,13 @@ export default function TeamSettings() {
   return (
     <>
       <Header />
+      <img
+        src="/images/arrow1.png"
+        className="back-arrow-settings"
+        alt="arrow"
+        role="button"
+        onClick={(e) => history.push("/main")}
+      />
       <div className="settings-contain">
         {isSuccessful && <div className="success">Deleted</div>}
         {showDeleteWarning && (
@@ -86,7 +99,7 @@ export default function TeamSettings() {
             </li>
             <li>
               <NavLink className="nav-link" to="/settings/organization">
-                Organization
+                Org
               </NavLink>
             </li>
             <li>
@@ -108,7 +121,7 @@ export default function TeamSettings() {
               <tr className="team-table-header">
                 <th>Name</th>
                 <th>Role</th>
-                <th>Email</th>
+                {!isMobile && <th>Email</th>}
               </tr>
             </thead>
             <tbody>{team}</tbody>

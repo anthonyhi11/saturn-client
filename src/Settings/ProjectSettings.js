@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import ProjectsService from "../services/projects-service";
 
 export default function ProjectSettings() {
   let [projects, setProjects] = useState([]);
   let [success, setSuccess] = useState(false);
-
+  let history = useHistory();
   useEffect(() => {
     ProjectsService.getProjects().then((projects) => {
       setProjects(projects);
@@ -77,6 +77,13 @@ export default function ProjectSettings() {
   return (
     <>
       <Header />
+      <img
+        src="/images/arrow1.png"
+        className="back-arrow-settings"
+        alt="arrow"
+        role="button"
+        onClick={(e) => history.push("/main")}
+      />
       <div className="settings-contain">
         {success && <div className="success">Success!</div>}
         <nav className="settings-nav-contain">
@@ -88,7 +95,7 @@ export default function ProjectSettings() {
             </li>
             <li>
               <NavLink className="nav-link" to="/settings/organization">
-                Organization
+                Org
               </NavLink>
             </li>
             <li>
