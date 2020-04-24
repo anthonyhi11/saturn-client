@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../Header/Header";
 import "./IssuePage.css";
+import { useMediaQuery } from "react-responsive";
 import StorySideBar from "./StorySideBar";
 import CommentsSection from "./CommentsSection";
 import UsersService from "../../services/users-service";
@@ -18,6 +19,10 @@ export default function StoryPage(props) {
   let [users, setUsers] = useState([]);
   let [projects, setProjects] = useState([]);
   let [user, setUser] = useState([]);
+
+  const isMobile = useMediaQuery({
+    query: "(max-device-width: 1100px)",
+  });
 
   useEffect(() => {
     setStory(props.story);
@@ -70,8 +75,21 @@ export default function StoryPage(props) {
     });
   }
   return (
-    <div>
+    <div className="story-page-div">
       <Header />
+      <img
+        src="/images/arrow1.png"
+        className="back-arrow"
+        alt="arrow"
+        role="button"
+        onClick={(e) => history.goBack()}
+      />
+      {user.role === "Admin" && (
+        <p className="edit-story" onClick={(e) => handleShowEdit(e)}>
+          Edit
+        </p>
+      )}
+
       {showEdit && (
         <EditStoryForm
           story={story}
@@ -89,16 +107,24 @@ export default function StoryPage(props) {
         </div>
       )}
       <div className="issue-page-container">
-        <UserInfo />
+        {!isMobile && <UserInfo />}
+
         <div className="issuePage-div">
-          <p className="story-page-goback" onClick={(e) => history.goBack()}>
-            &larr; Back to Kanban
-          </p>
+          {!isMobile && (
+            <p className="story-page-goback" onClick={(e) => history.goBack()}>
+              &larr; Back to Kanban
+            </p>
+          )}
           <h1 className="story-title-header">{title}</h1>{" "}
           <div className="story-content">
             <h2 className="story-desc-header">Description</h2>
             <p className="story-desc">{story_desc}</p>
           </div>
+          {user.role === "Admin" && (
+            <div className="delete-story" onClick={(e) => handleShowDelete(e)}>
+              Delete Story
+            </div>
+          )}
           <CommentsSection story={id} users={users} key={id} />
         </div>
         <StorySideBar
@@ -107,16 +133,6 @@ export default function StoryPage(props) {
           handleSetStory={(e) => handleSetStory(e)}
           user={users.find((user) => user.id === story.user_id)}
         />
-        {user.role === "Admin" && (
-          <div>
-            <p className="delete-story" onClick={(e) => handleShowDelete(e)}>
-              Delete Story
-            </p>
-            <p className="edit-story" onClick={(e) => handleShowEdit(e)}>
-              Edit Story
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );

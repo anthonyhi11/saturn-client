@@ -1,81 +1,171 @@
-.comment-header {
-  font-size: 16px;
-  font-family: callingCode-Bold;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #094a59;
-}
-.comment-section {
-  background-color: #f7f7f7;
-  border-radius: 5px;
-  height: fit-content;
-  width: 99.2%;
-}
-.comments-container {
-  margin-top: 10px;
-}
-.individual-comment {
-  width: 95%;
-  height: fit-content;
-  position: relative;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 10px;
-  margin: 10px;
+@media screen and (min-width: 700px) {
+  .comment-header {
+    font-size: 16px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #094a59;
+  }
+  .comment-section {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    height: fit-content;
+    width: 99.2%;
+  }
+  .comments-container {
+    margin-top: 10px;
+  }
+  .individual-comment {
+    width: 95%;
+    height: fit-content;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .author {
+    font-family: callingCode-Bold;
+    font-size: 12px;
+    color: #072334;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  #text {
+    text-align: left;
+    font-family: callingCode-Regular;
+    font-size: 12px;
+    color: #0e969d;
+    font-weight: normal;
+  }
+
+  .add-comment-input {
+    width: 99.4%;
+    height: 45px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: codeCalling-Regular;
+    font-weight: normal;
+    border: 1px solid #b8b8b8;
+    margin-top: 10px;
+    padding-right: 50px;
+  }
+  .comment-button {
+    width: 70px;
+    height: 29px;
+    margin-left: -85px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    color: white;
+    background-color: #fcb566;
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+  }
+  .deleteClick {
+    position: absolute;
+    right: 10px;
+    padding: 5px;
+
+    text-align: center;
+  }
+
+  .deleteClick:hover {
+    cursor: pointer;
+    color: red;
+    border-radius: 50px;
+  }
 }
 
-.author {
-  font-family: callingCode-Bold;
-  font-size: 12px;
-  color: #072334;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-#text {
-  text-align: left;
-  font-family: callingCode-Regular;
-  font-size: 12px;
-  color: #0e969d;
-  font-weight: normal;
-}
+@media screen and (max-width: 700px) {
+  .comment-header {
+    font-size: 14px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #094a59;
+  }
+  .comment-section {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    height: fit-content;
+    width: 90%;
+  }
+  .comments-container {
+    margin-top: 20px;
+    margin-left: 0px;
+    width: 100vw;
+    margin-bottom: 20px;
+  }
+  .individual-comment {
+    width: 95%;
+    height: fit-content;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 10px;
+  }
 
-.add-comment-input {
-  width: 99.4%;
-  height: 45px;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 13px;
-  font-family: codeCalling-Regular;
-  font-weight: normal;
-  border: 1px solid #b8b8b8;
-  margin-top: 10px;
-  padding-right: 50px;
-}
-.comment-button {
-  width: 70px;
-  height: 29px;
-  margin-left: -85px;
-  font-family: callingCode-Bold;
-  font-weight: bold;
-  color: white;
-  background-color: #fcb566;
-  border-radius: 5px;
-  font-size: 15px;
-  border: none;
-}
-.deleteClick {
-  position: absolute;
-  right: 10px;
-  padding: 5px;
+  .author {
+    font-family: callingCode-Bold;
+    font-size: 10px;
+    color: #072334;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+  }
+  #text {
+    text-align: left;
+    font-family: callingCode-Regular;
+    font-size: 12px;
+    color: #0e969d;
+    font-weight: normal;
+  }
 
-  text-align: center;
-}
+  .add-comment-input {
+    width: 90%;
+    height: 45px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: codeCalling-Regular;
+    font-weight: normal;
+    border: 1px solid #b8b8b8;
+    margin-top: 10px;
+    padding-right: 50px;
+  }
+  .comment-button {
+    width: 70px;
+    height: 29px;
+    margin-left: -85px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    color: white;
+    background-color: #fcb566;
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+  }
+  .deleteClick {
+    position: absolute;
+    right: 10px;
+    padding: 5px;
 
-.deleteClick:hover {
-  cursor: pointer;
-  color: red;
-  border-radius: 50px;
+    text-align: center;
+  }
+
+  .deleteClick:hover {
+    cursor: pointer;
+    color: red;
+    border-radius: 50px;
+  }
 }

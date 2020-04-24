@@ -121,43 +121,102 @@
   .delete-issue-button {
     display: none;
   }
+  .story-page-div {
+    position: relative;
+  }
 }
 
 @media screen and (max-width: 700px) {
+  .issue-page-container {
+    display: flex;
+    width: 100vw;
+    flex-direction: column-reverse;
+    height: fit-content;
+    /* justify-content: space-around; */
+  }
+
   .issuePage-div {
     height: fit-content;
-    width: 100vw;
-    margin-top: 0vh;
-    padding: 10px;
-    min-height: 20vh;
-    position: relative;
-  }
-
-  .issue-page-container {
-    background-color: gray;
+    /* margin-top: 2vh; */
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: fit-content;
-    justify-content: space-around;
+    justify-content: flex-start;
+    position: relative;
+    padding-left: 5vw;
   }
-  .delete-issue {
+  .story-page-goback {
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    font-size: 13px;
+    color: #fcb566;
     position: absolute;
-    right: 5%;
-    top: 2%;
-    display: none;
+    left: 30px;
+    top: 30px;
+  }
+  .story-page-goback:hover {
+    cursor: pointer;
+  }
+  .story-title-header {
+    font-size: 22px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
-  .delete-issue:hover {
+  .story-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    height: fit-content;
+    min-height: 10vh;
+  }
+  .story-desc-header {
+    font-family: Calling Code;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #094a59;
+    margin-bottom: 5px;
+  }
+  .story-desc {
+    width: 90%;
+    font-size: 14px;
+    font-family: callingCode-Regular;
+    font-weight: normal;
+    color: #094a59;
+    text-align: left;
+  }
+
+  .delete-story {
+    font-family: callingCode-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    color: #5c5d5e;
+    margin-top: 20px;
+    border-bottom: 1px solid #5c5d5e;
+    width: fit-content;
+    padding-bottom: 2px;
+  }
+  .edit-story {
+    position: absolute;
+    right: 15%;
+    top: 87px;
+    font-family: callingCode-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    color: #5c5d5e;
+  }
+
+  .delete-story:hover {
     cursor: pointer;
   }
 
-  .issuePage-div p {
-    font-size: 18px;
-  }
-  .issuePage-div h2 {
-    font-size: 20px;
-    text-align: center;
+  .edit-story:hover {
+    cursor: pointer;
   }
 
   .delete-modal {
@@ -177,9 +236,6 @@
   .delete-modal h2 {
     text-align: center;
   }
-  .delete-issue-button {
-    margin-bottom: 10px;
-  }
 
   .delete-button-div {
     display: flex;
@@ -188,5 +244,12 @@
   }
   .delete-button-div button:hover {
     cursor: pointer;
+  }
+
+  .delete-issue-button {
+    display: none;
+  }
+  .story-page-div {
+    position: relative;
   }
 }

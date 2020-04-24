@@ -43,34 +43,31 @@ export default function StagePageMobile(props) {
     .filter((story) => story.stage_id === currentStage.id)
     .map((currentStory) => {
       return (
-        <tr
+        <div
+          className="story-mobile-card"
           key={currentStory.id}
           onClick={(e) => history.push(`/story/${currentStory.id}`)}
         >
-          <td>{currentStory.id}</td>
-          <td>{currentStory.title}</td>
-          <td>{currentStory.user_id}</td>
-        </tr>
+          <p>{currentStory.title}</p>
+          <p>#{currentStory.id}</p>
+        </div>
       );
     });
 
   return (
     <div>
       <Header />
-      <h1 className="issue-table-h1" onClick={(e) => history.goBack()}>
-        {props.routeProps.match.params.stage} Stories
-      </h1>
-      <table className="issue-table">
-        <thead>
-          <tr className="table-row">
-            <th>Issue ID</th>
-            <th>Title</th>
-            <th>Assigned to</th>
-          </tr>
-        </thead>
-        <tbody>{currentStories}</tbody>
-      </table>
-      <button onClick={(e) => history.goBack()}>Go Back</button>
+      <div className="issue-table-h1" onClick={(e) => history.goBack()}>
+        <h2>{props.routeProps.match.params.stage} Stories</h2>
+      </div>
+      <div className="issue-table">{currentStories}</div>
+      <img
+        src="/images/arrow1.png"
+        className="back-arrow"
+        alt="arrow"
+        role="button"
+        onClick={(e) => history.goBack()}
+      />
     </div>
   );
 }

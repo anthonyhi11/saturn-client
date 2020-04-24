@@ -14,7 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 20vh;
+    height: 22vh;
     width: 75vw;
     position: relative;
   }
@@ -90,7 +90,7 @@
   .project-info h2 {
     font-size: 20px;
     margin-left: 12vw;
-    margin-top: 20%;
+    margin-top: 17.5%;
     font-weight: bold;
   }
   .stages-container {
@@ -112,7 +112,7 @@
   .issue-add-mobile-button {
     position: fixed;
     right: 1%;
-    bottom: 15%;
+    bottom: 12%;
     height: 38px;
     width: 84px;
     border: 2px solid #fcb566;

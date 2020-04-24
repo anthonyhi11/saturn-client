@@ -3,48 +3,61 @@
     width: 100vw;
     height: fit-content;
     min-height: 20vh;
-    background-color: white;
-    margin-top: 0px;
     padding: 10px;
     display: flex;
+    margin-top: 8vh;
     flex-direction: column;
-    align-items: center;
-    margin-left: 1vw;
+    align-items: flex-start;
+    margin-left: 8vw;
+  }
+
+  .issue-side-bar :nth-child(1) {
+    order: 3;
   }
 
   .issue-id {
-    font-size: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .issue-side-bar h1 {
-    font-size: 25px;
-    margin-bottom: 10px;
-  }
-
-  .issue-side-bar h1:hover {
-    cursor: pointer;
-  }
-  .issue-side-bar h2 {
-    font-size: 20px;
-  }
-  .issue-side-bar p {
-    font-size: 20px;
+    font-size: 10px;
+    font-weight: normal;
+    color: #b8b8b8;
   }
 
   label {
     margin-top: 10px;
-    font-size: 15px;
     display: inline-block;
   }
 
-  .current-status {
-    margin-top: 10px;
-    width: 30%;
+  .assigned {
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 5px;
   }
-  .current-status option {
-    text-align: center;
+  .assigned-user {
+    font-family: callingCode-Bold;
+    font-size: 14px;
+    margin-top: 2px;
+    font-weight: normal;
+    width: fit-content;
+    color: #072334;
+  }
+
+  .current_stage {
+    margin-top: 0px;
+    width: 125px;
+    height: 30px;
+    background-color: #0e969d;
+    appearance: none;
+    margin-top: 20px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 12px;
+    color: white;
+    padding-left: 5px;
+    font-family: callingCode-Bold;
+  }
+
+  .downarrow {
+    width: 11px;
+    height: 5px;
   }
 }
 

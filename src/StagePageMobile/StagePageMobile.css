@@ -1,40 +1,45 @@
-.issue-table {
-  width: 100vw;
-  border-collapse: collapse;
-}
-.issue-table th {
-  width: 30%;
-  height: 5vh;
-  background-color: gray;
-}
-a .table-row {
-  display: inline-block;
-  width: 100%;
-}
-.table-row {
-  border: 4px solid black;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-}
-tr {
-  border: 1px solid black;
-}
-
-.issue-table td {
-  width: 30%;
-  text-align: center;
-  height: 5vh;
-}
-
 .issue-table-h1 {
   font-size: 30px;
-  width: 100%;
-  text-align: center;
+  width: 90vw;
+  text-align: left;
   padding: 10px;
-  background-color: lightskyblue;
+  background-color: #f7f7f7;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-left: 50%;
+  transform: translate(-50%);
+  margin-top: 20%;
+  height: 45px;
+  font-weight: bold;
+  color: #072334;
 }
 
 .issue-table button {
   font-size: 20px;
+}
+.issue-table {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 100vw;
+  align-items: center;
+}
+.story-mobile-card {
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  height: 45px;
+  justify-content: space-between;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  font-size: 14px;
+  font-weight: normal;
+  color: #094a59;
+  border-top: 1px solid #f7f7f7;
+}
+
+.back-arrow {
+  position: absolute;
+  top: 12vh;
+  left: 5vw;
 }
