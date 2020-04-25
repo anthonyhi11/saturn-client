@@ -98,7 +98,7 @@
     height: 100vh;
     width: 100vw;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     position: absolute;
     background-color: #072334;
@@ -108,6 +108,7 @@
   .create-org-div {
     height: fit-content;
     width: 95vw;
+    margin-top: 20%;
     border: 1px black solid;
     background-color: white;
     padding-top: 10px;

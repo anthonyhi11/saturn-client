@@ -21,7 +21,7 @@ export default function StoryPage(props) {
   let [user, setUser] = useState([]);
 
   const isMobile = useMediaQuery({
-    query: "(max-device-width: 1100px)",
+    query: "(max-device-width: 900px)",
   });
 
   useEffect(() => {
@@ -77,13 +77,16 @@ export default function StoryPage(props) {
   return (
     <div className="story-page-div">
       <Header />
-      <img
-        src="/images/arrow1.png"
-        className="back-arrow"
-        alt="arrow"
-        role="button"
-        onClick={(e) => history.goBack()}
-      />
+      {isMobile && (
+        <img
+          src="/images/arrow1.png"
+          className="back-arrow-settings"
+          alt="arrow"
+          role="button"
+          onClick={(e) => history.goBack()}
+        />
+      )}
+
       {user.role === "Admin" && (
         <p className="edit-story" onClick={(e) => handleShowEdit(e)}>
           Edit
