@@ -3,7 +3,7 @@
 LIVE: https://saturn-blush.now.sh/
 API REPO: https://github.com/anthonyhi11/saturn-api
 
-![](https://gph.is/g/amzWBYQ)
+![](https://media.giphy.com/media/Ynf1JVlfTPQoYA6zMn/giphy.gif)
 
 ## ABOUT
 
