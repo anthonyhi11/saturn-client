@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./Comments.css";
-import Comment from "./Comment";
-import CommentsService from "../../services/comments-service";
+import "../Comment/Comments.css";
+import Comment from "../Comment/Comment";
+import CommentsService from "../../../services/comments-service";
 
 export default function CommentsSection(props) {
   let [comments, setComments] = useState([]);

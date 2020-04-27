@@ -9,21 +9,21 @@ export default function MoreInfo(props) {
           <h2>WHAT IS SATURN?</h2>
           <p className="moreInfo-p">
             Saturn is a project management tool for remote software development
-            teams. Anyone who has worked on a software project knows the
-            difficulty of keeping track of feature requests and bugs. I thought
-            of this project while being socially distanced and wanting to work
-            on projects with other junior developers to hour our skills while we
-            begin our job search.
+            teams. Working on a software project remotely can increase the
+            difficulty of keeping track of feature requests and/or bugs. The
+            typical use case of this application would be a small team of 2-4
+            developers working remotely. I plan on using Saturn to work on open
+            source projects with other junior developers as I continue my job
+            search.
           </p>
           <h2 className="how-do-i">HOW DO I USE IT?</h2>
           <div className="how-to-p">
             <ul>
               <li className="how-to-p-p">
                 <span className="title-span">1. Create an organization</span>{" "}
-                Share the passcode with your team and have them create their own
-                accounts As an admin, you can make changes to the organization,
-                team, and projects. Delete issues and archive projects along the
-                way.
+                Share the passcode found in organization settings with your team
+                and have them create their own accounts. As an admin, you can
+                make changes to the organization, team, and projects.
               </li>
               <li className="how-to-p-p">
                 <span className="title-span">
@@ -32,9 +32,9 @@ export default function MoreInfo(props) {
                 </span>
               </li>
               <li className="how-to-p-p">
-                <span className="title-span">3. Add features </span> You can add
-                comments to issues by clicking into the issues. Assign them to
-                devs and get to work!
+                <span className="title-span">3. Add Stories </span> Create a
+                story, assign it to a developer. Get your team to work move
+                stories through the kanban and push out new features!
               </li>
             </ul>
           </div>

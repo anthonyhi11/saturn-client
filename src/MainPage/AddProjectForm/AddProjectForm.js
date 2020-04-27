@@ -1,6 +1,5 @@
 import React from "react";
 import "./AddProjectForm.css";
-// import { ProjectContext } from "../../ProjectContext/ProjectContext";
 import ProjectsService from "../../services/projects-service";
 
 export default function AddProjectForm(props) {

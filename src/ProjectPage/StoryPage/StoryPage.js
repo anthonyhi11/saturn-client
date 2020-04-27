@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../Header/Header";
-import "./IssuePage.css";
+import "./StoryPage.css";
 import { useMediaQuery } from "react-responsive";
-import StorySideBar from "./StorySideBar";
-import CommentsSection from "./CommentsSection";
+import StorySideBar from "./StorySideBar/StorySideBar";
+import CommentsSection from "./CommentsSection/CommentsSection";
 import UsersService from "../../services/users-service";
 import ProjectsService from "../../services/projects-service";
 import StoriesService from "../../services/stories-service";

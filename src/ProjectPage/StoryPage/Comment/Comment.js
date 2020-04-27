@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import CommentsService from "../../services/comments-service";
-import UsersService from "../../services/users-service";
+import CommentsService from "../../../services/comments-service";
+import UsersService from "../../../services/users-service";
 
 export default function Comment(props) {
   let [user, setUser] = useState([]);

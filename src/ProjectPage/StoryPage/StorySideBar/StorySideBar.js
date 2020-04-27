@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./IssueSideBar.css";
-import StoriesService from "../../services/stories-service";
-import StagesService from "../../services/stages-service";
+import StoriesService from "../../../services/stories-service";
+import StagesService from "../../../services/stages-service";
 
 export default function StorySideBar(props) {
   let [stages, setStages] = useState([]);
