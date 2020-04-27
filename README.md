@@ -3,6 +3,8 @@
 LIVE: https://saturn-blush.now.sh/
 API REPO: https://github.com/anthonyhi11/saturn-api
 
+![](https://gph.is/g/amzWBYQ)
+
 ## ABOUT
 
 Saturn is a project management tool for remote software development teams. Anyone who has worked on a software project knows the difficulty of keeping track of feature requests and bugs. I thought of this project while being socially distanced and wanting to work on projects with other junior developers to hour our skills while we begin our job search.
