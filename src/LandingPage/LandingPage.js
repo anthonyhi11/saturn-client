@@ -55,7 +55,9 @@ export default function LandingPage() {
       {logInShown && <LogIn handleCancel={handleCancel} />}
       <img className="hero-logo" src="./images/saturn-logo.svg" alt="logo" />
       {success && <div className="success">Success! Loading...</div>}
-
+      <h3 className="tagline">
+        A project management app for software development teams
+      </h3>
       <h2>WHO ARE YOU?</h2>
       <div className="create-container">
         <div

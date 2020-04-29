@@ -98,6 +98,8 @@
   }
   .drop-a-line {
     border-bottom: 2px solid #fcb566;
+    overflow: hidden;
+    font-size: 15px;
   }
   a {
     text-decoration: none;
@@ -219,6 +221,7 @@
     text-decoration: none;
     color: #fcb566;
     border-bottom: 1px solid #fcb566;
+    overflow: hidden;
   }
 
   .any-questions p {

@@ -1,6 +1,6 @@
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 800px) {
   .login-div {
-    width: 30%;
+    width: 45%;
     min-height: 20%;
     height: fit-content;
     background-color: white;
@@ -14,7 +14,7 @@
   .login-div h2,
   p {
     text-align: center;
-    font-size: 12px;
+    font-size: 16px;
     color: #094a59;
   }
 
@@ -24,7 +24,7 @@
     width: 100%;
     height: 100%;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: 10px;
   }
 
@@ -40,10 +40,10 @@
   .login-buttons {
     height: 25px;
     width: 20%;
-    font-size: 8px;
     border-radius: 15px;
     margin: 5px;
     border: none;
+    font-size: 14px;
     background-color: #fcb566;
     text-align: center;
   }
@@ -66,7 +66,7 @@
   .login-div h2,
   p {
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
     color: #094a59;
   }
 
@@ -76,7 +76,7 @@
     width: 100%;
     height: 100%;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: 10px;
   }
 
@@ -92,11 +92,11 @@
   .login-buttons {
     height: 25px;
     width: 40%;
-    font-size: 8px;
     border-radius: 15px;
     margin: 5px;
     border: none;
     background-color: #fcb566;
     text-align: center;
+    font-size: 12px;
   }
 }

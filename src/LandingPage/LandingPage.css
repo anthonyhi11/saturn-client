@@ -28,6 +28,16 @@
     color: #ffffff;
     letter-spacing: 0.03em;
   }
+
+  .tagline {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
   .create-container {
     display: flex;
     margin-top: 2%;
@@ -144,6 +154,14 @@
     font-weight: bold;
     font-size: 18px;
     color: white;
+  }
+  .tagline {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-family: callingCode-Bold;
+    font-weight: bold;
+    margin-top: 10px;
   }
   .create-container {
     display: flex;
