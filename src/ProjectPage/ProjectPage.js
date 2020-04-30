@@ -13,10 +13,10 @@ import UserInfo from "../MainPage/UserInfo/UserInfo";
 export default function ProjectPage(props) {
   let history = useHistory();
   const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-device-width: 1100px)",
+    query: "(min-width: 1100px)",
   });
   const isMobile = useMediaQuery({
-    query: "(max-device-width: 1100px)",
+    query: "(max-width: 1100px)",
   });
   let [showAddStory, setShowAddStory] = useState(false);
   let [project] = useState(props.project);

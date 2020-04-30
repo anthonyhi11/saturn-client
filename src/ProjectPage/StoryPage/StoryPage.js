@@ -21,7 +21,7 @@ export default function StoryPage(props) {
   let [user, setUser] = useState([]);
 
   const isMobile = useMediaQuery({
-    query: "(max-device-width: 900px)",
+    query: "(max-width: 900px)",
   });
 
   useEffect(() => {

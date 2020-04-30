@@ -74,7 +74,7 @@
 
   .active-class {
     display: flex;
-    width: 40%;
+    width: 80%;
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
@@ -84,7 +84,7 @@
   .archive-class {
     display: flex;
     background-color: #bebebe;
-    width: 40%;
+    width: 80%;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
@@ -315,7 +315,7 @@
 
   .active-class {
     display: flex;
-    width: 80%;
+    width: 60%;
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
@@ -326,7 +326,7 @@
   .archive-class {
     display: flex;
     background-color: #bebebe;
-    width: 80%;
+    width: 60%;
     justify-content: space-between;
     align-items: center;
     padding: 10px;

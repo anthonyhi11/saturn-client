@@ -17,7 +17,7 @@ export default function MainPage(props) {
   let [user, setUser] = useState(false);
 
   const isSmall = useMediaQuery({
-    query: "(max-device-width: 700px)",
+    query: "(max-width: 700px)",
   });
 
   function handleProjectCancel(e) {
