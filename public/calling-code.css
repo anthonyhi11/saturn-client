@@ -21,7 +21,7 @@
 */
 
 /* @import must be at top of file, otherwise CSS will not work */
-@import url("//hello.myfonts.com/count/3b6682");
+@import url("/hello.myfonts.com/count/3b6682");
 /* i changed the url to .com from .net*/
 
 @font-face {
