@@ -54,7 +54,15 @@ export default function LandingPage() {
       {devFormShown && <DevSignUp handleCancel={handleCancel} />}
       {logInShown && <LogIn handleCancel={handleCancel} />}
       <img className="hero-logo" src="./images/saturn-logo.svg" alt="logo" />
-      {success && <div className="success">Success! Loading...</div>}
+      {success && (
+        <div className="success">
+          <p>Success! Loading...</p>
+          <p>
+            This application is hosted on Heroku via free plan. It might take a
+            few seconds to spin it up
+          </p>
+        </div>
+      )}
       <h3 className="tagline">
         A project management app for software development teams
       </h3>
