@@ -38,7 +38,7 @@ export default function LandingPage() {
         setTimeout(function () {
           history.push("/main");
         }, 1200);
-      });
+      }).catch(err => setSuccess(false))
   }
   return (
     <div
