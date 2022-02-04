@@ -18,7 +18,6 @@ export default function PersonalSettings() {
 
   function handlePersonalChanges(e) {
     e.preventDefault();
-    console.log("ran");
     let first_name = e.target.first_name.value;
     let last_name = e.target.last_name.value;
     let email = e.target.email.value;
@@ -59,7 +58,7 @@ export default function PersonalSettings() {
         className="back-arrow-settings"
         alt="arrow"
         role="button"
-        onClick={(e) => history.push('/main')}
+        onClick={(e) => history.push("/main")}
       />
       <div className="settings-contain">
         <nav className="settings-nav-contain">

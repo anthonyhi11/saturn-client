@@ -1,5 +1,6 @@
 import React, { createContext } from "react";
 
+// TODO Figure out if there is where we data fetch?
 let ProjectContext = createContext([{}, () => {}]);
 
 const ProjectProvider = (props) => {

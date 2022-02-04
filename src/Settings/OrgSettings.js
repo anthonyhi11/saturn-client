@@ -16,7 +16,6 @@ export default function OrgSettings() {
 
   function handleOrganizationChanges(e) {
     e.preventDefault();
-    console.log("clicked");
     let name = e.target.org_name.value;
     let newInfo = {
       name: name,
